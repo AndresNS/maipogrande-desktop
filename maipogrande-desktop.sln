@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maipogrande-desktop", "maipogrande-desktop\maipogrande-desktop.csproj", "{A69D1BEE-B7A0-4068-BCE8-D86480BE9B1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A69D1BEE-B7A0-4068-BCE8-D86480BE9B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69D1BEE-B7A0-4068-BCE8-D86480BE9B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69D1BEE-B7A0-4068-BCE8-D86480BE9B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69D1BEE-B7A0-4068-BCE8-D86480BE9B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE425AF9-09C4-47B3-9807-5C3BBE5A402D}
+	EndGlobalSection
+EndGlobal
