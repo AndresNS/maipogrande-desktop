@@ -20,8 +20,8 @@ namespace CapaNegocio
         {
             this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "hr";
-            this.con.NombreTabla = "maipo_grande";
+            this.con.NombreBaseDeDatos = "maipo_grande";
+            this.con.NombreTabla = "USUARIO";
             this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
         }
         public DataSet retornarUsuarios()
@@ -38,13 +38,14 @@ namespace CapaNegocio
         {
             this.configurarConexion();
             this.con.CadenaSQL = "INSERT INTO "+ this.con.NombreTabla + " "
-                                   + "(ID_USUARIO, PASSWORD, FECHA_CREACION, ID_PERFIL, ID_ESTD_CTA) "
+                                   + "(ID_USUARIO, NOMBRE_USUARIO, PASSWORD, FECHA_CREACION, ID_PERFIL, ID_ESTD_CTA) "
                                    + "VALUES "
-                                   + "(" + usuario.IdUsuario + ","
+                                   + "(USUARIO_SEQ.NEXTVAL,"
+                                   + "'" + usuario.NombreUsuario + "',"
                                    + "'" + usuario.Password + "',"
-                                   + "'" + usuario.FechaCreacion + "',"
+                                   + "TO_DATE('" + DateTime.Now + "', 'dd/mm/yyyy hh24:mi:ss'),"
                                     + usuario.IdPerfil + ","
-                                    + usuario.IdEstadoCuenta + ");";
+                                    + usuario.IdEstadoCuenta + ")";
             this.con.EsSelect = false;
             this.con.conectar();
         }
@@ -64,6 +65,7 @@ namespace CapaNegocio
             this.configurarConexion();
             this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla + " "
                                    + "SET "
+                                   + "NOMBRE_USUARIO = '" + usuario.NombreUsuario + "',"
                                    + "PASSWORD = '" + usuario.Password + "',"
                                    + "FECHA_CREACION = '" + usuario.FechaCreacion + "',"
                                    + "ID_PERFIL = " + usuario.IdPerfil + ","
@@ -89,6 +91,7 @@ namespace CapaNegocio
             try
             {
                 usuario.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
+                usuario.NombreUsuario = (String)dt.Rows[0]["NOMBRE_USUARIO"];
                 usuario.Password = (String)dt.Rows[0]["PASSWORD"];
                 usuario.FechaCreacion = (DateTime)dt.Rows[0]["FECHA_CREACION"];
                 usuario.IdPerfil = (int)dt.Rows[0]["ID_PERFIL"];

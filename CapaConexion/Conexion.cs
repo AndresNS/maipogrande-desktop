@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+
 namespace CapaConexion
 {
     public class Conexion
@@ -101,7 +102,6 @@ namespace CapaConexion
                         this.DbDataSet = new DataSet();
                         dbAdapter.Fill(this.DbDataSet, this.NombreTabla);
 
-
                     }
                     catch (Exception ex)
                     {
@@ -124,6 +124,6 @@ namespace CapaConexion
                     }
                 }
             }
-         }
+        }
     }
 }
