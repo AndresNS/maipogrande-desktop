@@ -122,7 +122,6 @@ namespace CapaConexion
                         MessageBox.Show("Error en SQL " + ex.Message, "mensaje Sistema");
                         return;
                     }
-
                 }
             }
          }
