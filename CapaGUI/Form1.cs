@@ -32,7 +32,7 @@ namespace CapaGUI
             conec1.conectar();
 
             this.dataGridView1.AutoGenerateColumns = true;
-            this.dataGridView1.DataSource = conec1.DbDataSet.Tables[0];
+            this.dataGridView1.DataSource = conec1.DbDataSet.Tables[conec1.NombreTabla];
 
         }
 

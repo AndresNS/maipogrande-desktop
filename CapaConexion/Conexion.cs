@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
@@ -87,9 +83,9 @@ namespace CapaConexion
                 return;
             }
 
-            if (this.EsSelect)
+            using (OracleConnection con = new OracleConnection(this.CadenaConexion))
             {
-                using (OracleConnection con = new OracleConnection(this.CadenaConexion))
+                if (this.EsSelect)
                 {
                     try
                     {
@@ -103,18 +99,32 @@ namespace CapaConexion
                         };
 
                         this.DbDataSet = new DataSet();
-                        dbAdapter.Fill(this.DbDataSet);
+                        dbAdapter.Fill(this.DbDataSet, this.NombreTabla);
 
-      
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error al cargar los datos " + ex.Message, "Mensaje Sistema");
                         return;
                     }
+                }
+                else
+                {
+                    try
+                    {
+                        con.Open();
+                        OracleCommand command = new OracleCommand(this.CadenaSQL, con);
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error en SQL " + ex.Message, "mensaje Sistema");
+                        return;
+                    }
 
                 }
             }
-        } //Fin conectar
+         }
     }
 }
