@@ -32,6 +32,14 @@ namespace CapaConexion
             set { cadenaConexion = value; }
         }
 
+        private String nombreProcedimiento;
+
+        public String NombreProcedimiento
+        {
+            get { return nombreProcedimiento; }
+            set { nombreProcedimiento = value; }
+        }
+
         private String cadenaSQL;
 
         public String CadenaSQL
@@ -48,6 +56,14 @@ namespace CapaConexion
             set { esSelect = value; }
         }
 
+        private Boolean esProcedimientoAlmacenado;
+
+        public Boolean EsProcedimientoAlmacenado
+        {
+            get { return esProcedimientoAlmacenado; }
+            set { esProcedimientoAlmacenado = value; }
+        }
+
 
         private DataSet dbDataSet;
 
@@ -57,7 +73,23 @@ namespace CapaConexion
             set { dbDataSet = value; }
         }
 
+        public void ejecutarProcedimiento(String nombreProcedimiento, String[] parametros, OracleDbType[] tipos, Object[] valores)
+        {
+            using (OracleConnection con = new OracleConnection(this.CadenaConexion))
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd = new OracleCommand(nombreProcedimiento, con);
+                cmd.CommandType = CommandType.StoredProcedure;
 
+                for(int i=0; i<parametros.Length; i++)
+                {
+                    cmd.Parameters.Add(parametros[i], tipos[i]).Value = valores[i];
+                }
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+        }
         public void conectar()
         {
             //Se validan las variables de   

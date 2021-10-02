@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CapaConexion;
 using CapaDTO;
 using System.Data;
+using Oracle.ManagedDataAccess.Client;
 
 
 namespace CapaNegocio
@@ -37,42 +38,33 @@ namespace CapaNegocio
         public void IngresarUsuario(Usuario usuario)
         {
             this.configurarConexion();
-            this.con.CadenaSQL = "INSERT INTO "+ this.con.NombreTabla + " "
-                                   + "(ID_USUARIO, NOMBRE_USUARIO, PASSWORD, FECHA_CREACION, ID_PERFIL, ID_ESTD_CTA) "
-                                   + "VALUES "
-                                   + "(USUARIO_SEQ.NEXTVAL,"
-                                   + "'" + usuario.NombreUsuario + "',"
-                                   + "'" + usuario.Password + "',"
-                                   + "TO_DATE('" + DateTime.Now + "', 'dd/mm/yyyy hh24:mi:ss'),"
-                                    + usuario.IdPerfil + ","
-                                    + usuario.IdEstadoCuenta + ")";
-            this.con.EsSelect = false;
-            this.con.conectar();
-        }
+            String[] parametros = { "NOMBRE_USUARIO", "PASSWORD", "FECHA_CREACION", "ID_PERFIL", "I_ESTD_CTA" };
+            OracleDbType[] tipos= { OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Date, OracleDbType.Int32, OracleDbType.Int32 };
+            Object[] valores = { usuario.NombreUsuario, usuario.Password, DateTime.Now, usuario.IdPerfil, usuario.IdEstadoCuenta };
 
+            this.con.ejecutarProcedimiento("SP_INGRESAR_USUARIO", parametros, tipos, valores);
+        }
 
         public void eliminarUsuario(int idUsuario)
         {
             this.configurarConexion();
-            this.con.CadenaSQL = "DELETE FROM " + this.con.NombreTabla + " "
-                                   + "WHERE ID_USUARIO = " + idUsuario;
-            this.con.EsSelect = false;
-            this.con.conectar();
+
+            this.configurarConexion();
+            String[] parametros = { "ID" };
+            OracleDbType[] tipos = { OracleDbType.Int32 };
+            Object[] valores = { idUsuario };
+
+            this.con.ejecutarProcedimiento("SP_ELIMINAR_USUARIO", parametros, tipos, valores);
         }
 
         public void actualizarUsuario(Usuario usuario)
         {
             this.configurarConexion();
-            this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla + " "
-                                   + "SET "
-                                   + "NOMBRE_USUARIO = '" + usuario.NombreUsuario + "',"
-                                   + "PASSWORD = '" + usuario.Password + "',"
-                                   + "FECHA_CREACION = TO_DATE('" + usuario.FechaCreacion + "', 'dd/mm/yyyy hh24:mi:ss'),"
-                                   + "ID_PERFIL = " + usuario.IdPerfil + ","
-                                   + "ID_ESTD_CTA = " + usuario.IdEstadoCuenta + " "
-                                   + "WHERE ID_USUARIO = " + usuario.IdUsuario;
-            this.con.EsSelect = false;
-            this.con.conectar();
+            String[] parametros = { "ID_USUARIO", "NOMBRE_USUARIO", "PASSWORD", "FECHA_CREACION", "ID_PERFIL", "I_ESTD_CTA" };
+            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Date, OracleDbType.Int32, OracleDbType.Int32 };
+            Object[] valores = { usuario.IdUsuario, usuario.NombreUsuario, usuario.Password, DateTime.Now, usuario.IdPerfil, usuario.IdEstadoCuenta };
+
+            this.con.ejecutarProcedimiento("SP_ACTUALIZAR_USUARIO", parametros, tipos, valores);
         }
 
 
