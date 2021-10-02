@@ -38,7 +38,7 @@ namespace CapaNegocio
         public void IngresarUsuario(Usuario usuario)
         {
             this.configurarConexion();
-            String[] parametros = { "NOMBRE_USUARIO", "PASSWORD", "FECHA_CREACION", "ID_PERFIL", "I_ESTD_CTA" };
+            String[] parametros = { "NOMBRE_USUARIO", "PASSWORD", "FECHA_CREACION", "ID_PERFIL", "ID_ESTD_CTA" };
             OracleDbType[] tipos= { OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Date, OracleDbType.Int32, OracleDbType.Int32 };
             Object[] valores = { usuario.NombreUsuario, usuario.Password, DateTime.Now, usuario.IdPerfil, usuario.IdEstadoCuenta };
 
