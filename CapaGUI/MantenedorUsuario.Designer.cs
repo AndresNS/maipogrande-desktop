@@ -29,9 +29,9 @@ namespace CapaGUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TAB = new MetroFramework.Controls.MetroTabControl();
             this.tabCliente = new MetroFramework.Controls.MetroTabPage();
             this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
@@ -41,7 +41,7 @@ namespace CapaGUI
             this.btnIngresarCliente = new MetroFramework.Controls.MetroTile();
             this.mcbTipoUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
             this.mcbUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
-            this.mcbComuna = new MetroFramework.Controls.MetroComboBox();
+            this.mcbComunaCliente = new MetroFramework.Controls.MetroComboBox();
             this.txtGiroCliente = new MetroFramework.Controls.MetroTextBox();
             this.txtDireccionCliente = new MetroFramework.Controls.MetroTextBox();
             this.txtRazonSocialCliente = new MetroFramework.Controls.MetroTextBox();
@@ -56,6 +56,7 @@ namespace CapaGUI
             this.lblRazonSocial = new MetroFramework.Controls.MetroLabel();
             this.lblRut = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.btnMostrarUsuariosUsuario = new MetroFramework.Controls.MetroButton();
             this.txtNombreUsuario = new MetroFramework.Controls.MetroTextBox();
             this.lblNombreUsuario = new MetroFramework.Controls.MetroLabel();
             this.btnSalirUsuario = new MetroFramework.Controls.MetroTile();
@@ -106,7 +107,6 @@ namespace CapaGUI
             this.lblNombreEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
             this.lblidEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
             this.dgvListaUsuarios = new MetroFramework.Controls.MetroGrid();
-            this.btnMostrarUsuariosUsuario = new MetroFramework.Controls.MetroButton();
             this.TAB.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -123,7 +123,7 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.tabEmpresaTransporte);
             this.TAB.Location = new System.Drawing.Point(32, 132);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 1;
+            this.TAB.SelectedIndex = 0;
             this.TAB.Size = new System.Drawing.Size(699, 368);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
@@ -137,7 +137,7 @@ namespace CapaGUI
             this.tabCliente.Controls.Add(this.btnIngresarCliente);
             this.tabCliente.Controls.Add(this.mcbTipoUsuarioCliente);
             this.tabCliente.Controls.Add(this.mcbUsuarioCliente);
-            this.tabCliente.Controls.Add(this.mcbComuna);
+            this.tabCliente.Controls.Add(this.mcbComunaCliente);
             this.tabCliente.Controls.Add(this.txtGiroCliente);
             this.tabCliente.Controls.Add(this.txtDireccionCliente);
             this.tabCliente.Controls.Add(this.txtRazonSocialCliente);
@@ -185,6 +185,7 @@ namespace CapaGUI
             this.btnMostrarCliente.Text = "Buscar";
             this.btnMostrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnMostrarCliente.UseSelectable = true;
+            this.btnMostrarCliente.Click += new System.EventHandler(this.btnMostrarCliente_Click);
             // 
             // btnEliminarCliente
             // 
@@ -196,6 +197,7 @@ namespace CapaGUI
             this.btnEliminarCliente.Text = "Eliminar";
             this.btnEliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEliminarCliente.UseSelectable = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
             // btnActualizarCliente
             // 
@@ -207,6 +209,7 @@ namespace CapaGUI
             this.btnActualizarCliente.Text = "Actualizar";
             this.btnActualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnActualizarCliente.UseSelectable = true;
+            this.btnActualizarCliente.Click += new System.EventHandler(this.btnActualizarCliente_Click);
             // 
             // btnIngresarCliente
             // 
@@ -224,6 +227,9 @@ namespace CapaGUI
             // 
             this.mcbTipoUsuarioCliente.FormattingEnabled = true;
             this.mcbTipoUsuarioCliente.ItemHeight = 23;
+            this.mcbTipoUsuarioCliente.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.mcbTipoUsuarioCliente.Location = new System.Drawing.Point(136, 271);
             this.mcbTipoUsuarioCliente.Name = "mcbTipoUsuarioCliente";
             this.mcbTipoUsuarioCliente.Size = new System.Drawing.Size(168, 29);
@@ -234,21 +240,27 @@ namespace CapaGUI
             // 
             this.mcbUsuarioCliente.FormattingEnabled = true;
             this.mcbUsuarioCliente.ItemHeight = 23;
+            this.mcbUsuarioCliente.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.mcbUsuarioCliente.Location = new System.Drawing.Point(97, 236);
             this.mcbUsuarioCliente.Name = "mcbUsuarioCliente";
             this.mcbUsuarioCliente.Size = new System.Drawing.Size(207, 29);
             this.mcbUsuarioCliente.TabIndex = 16;
             this.mcbUsuarioCliente.UseSelectable = true;
             // 
-            // mcbComuna
+            // mcbComunaCliente
             // 
-            this.mcbComuna.FormattingEnabled = true;
-            this.mcbComuna.ItemHeight = 23;
-            this.mcbComuna.Location = new System.Drawing.Point(97, 197);
-            this.mcbComuna.Name = "mcbComuna";
-            this.mcbComuna.Size = new System.Drawing.Size(207, 29);
-            this.mcbComuna.TabIndex = 15;
-            this.mcbComuna.UseSelectable = true;
+            this.mcbComunaCliente.FormattingEnabled = true;
+            this.mcbComunaCliente.ItemHeight = 23;
+            this.mcbComunaCliente.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.mcbComunaCliente.Location = new System.Drawing.Point(97, 197);
+            this.mcbComunaCliente.Name = "mcbComunaCliente";
+            this.mcbComunaCliente.Size = new System.Drawing.Size(207, 29);
+            this.mcbComunaCliente.TabIndex = 15;
+            this.mcbComunaCliente.UseSelectable = true;
             // 
             // txtGiroCliente
             // 
@@ -505,6 +517,16 @@ namespace CapaGUI
             this.metroTabPage2.VerticalScrollbarSize = 10;
             this.metroTabPage2.Click += new System.EventHandler(this.metroTabPage2_Click);
             // 
+            // btnMostrarUsuariosUsuario
+            // 
+            this.btnMostrarUsuariosUsuario.Location = new System.Drawing.Point(412, 243);
+            this.btnMostrarUsuariosUsuario.Name = "btnMostrarUsuariosUsuario";
+            this.btnMostrarUsuariosUsuario.Size = new System.Drawing.Size(152, 34);
+            this.btnMostrarUsuariosUsuario.TabIndex = 30;
+            this.btnMostrarUsuariosUsuario.Text = "Mostrar Usuarios";
+            this.btnMostrarUsuariosUsuario.UseSelectable = true;
+            this.btnMostrarUsuariosUsuario.Click += new System.EventHandler(this.btnMostrarUsuariosUsuario_Click);
+            // 
             // txtNombreUsuario
             // 
             // 
@@ -653,7 +675,7 @@ namespace CapaGUI
             this.mdtFechaCreacionUsuario.Enabled = false;
             this.mdtFechaCreacionUsuario.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.mdtFechaCreacionUsuario.Location = new System.Drawing.Point(141, 133);
-            this.mdtFechaCreacionUsuario.MinimumSize = new System.Drawing.Size(0, 29);
+            this.mdtFechaCreacionUsuario.MinimumSize = new System.Drawing.Size(4, 29);
             this.mdtFechaCreacionUsuario.Name = "mdtFechaCreacionUsuario";
             this.mdtFechaCreacionUsuario.Size = new System.Drawing.Size(201, 29);
             this.mdtFechaCreacionUsuario.TabIndex = 9;
@@ -800,6 +822,7 @@ namespace CapaGUI
             this.btnBuscarProductor.Text = "Buscar";
             this.btnBuscarProductor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBuscarProductor.UseSelectable = true;
+            this.btnBuscarProductor.Click += new System.EventHandler(this.btnBuscarProductor_Click);
             // 
             // btnEliminarProductor
             // 
@@ -811,6 +834,7 @@ namespace CapaGUI
             this.btnEliminarProductor.Text = "Eliminar";
             this.btnEliminarProductor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEliminarProductor.UseSelectable = true;
+            this.btnEliminarProductor.Click += new System.EventHandler(this.btnEliminarProductor_Click);
             // 
             // btnActualizarProductor
             // 
@@ -822,6 +846,7 @@ namespace CapaGUI
             this.btnActualizarProductor.Text = "Actualizar";
             this.btnActualizarProductor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnActualizarProductor.UseSelectable = true;
+            this.btnActualizarProductor.Click += new System.EventHandler(this.btnActualizarProductor_Click);
             // 
             // btnIngresarProductor
             // 
@@ -839,6 +864,9 @@ namespace CapaGUI
             // 
             this.mcbIdUsuarioProductor.FormattingEnabled = true;
             this.mcbIdUsuarioProductor.ItemHeight = 23;
+            this.mcbIdUsuarioProductor.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.mcbIdUsuarioProductor.Location = new System.Drawing.Point(89, 217);
             this.mcbIdUsuarioProductor.Name = "mcbIdUsuarioProductor";
             this.mcbIdUsuarioProductor.Size = new System.Drawing.Size(207, 29);
@@ -858,6 +886,9 @@ namespace CapaGUI
             // 
             this.mcbComunaProductor.FormattingEnabled = true;
             this.mcbComunaProductor.ItemHeight = 23;
+            this.mcbComunaProductor.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.mcbComunaProductor.Location = new System.Drawing.Point(89, 177);
             this.mcbComunaProductor.Name = "mcbComunaProductor";
             this.mcbComunaProductor.Size = new System.Drawing.Size(207, 29);
@@ -1114,6 +1145,7 @@ namespace CapaGUI
             this.btnBuscarEmpresaTransporte.Text = "Buscar";
             this.btnBuscarEmpresaTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBuscarEmpresaTransporte.UseSelectable = true;
+            this.btnBuscarEmpresaTransporte.Click += new System.EventHandler(this.btnBuscarEmpresaTransporte_Click);
             // 
             // btnEliminarEmpresaTransporte
             // 
@@ -1125,6 +1157,7 @@ namespace CapaGUI
             this.btnEliminarEmpresaTransporte.Text = "Eliminar";
             this.btnEliminarEmpresaTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEliminarEmpresaTransporte.UseSelectable = true;
+            this.btnEliminarEmpresaTransporte.Click += new System.EventHandler(this.btnEliminarEmpresaTransporte_Click);
             // 
             // btnActualizarEmpresaTransporte
             // 
@@ -1136,6 +1169,7 @@ namespace CapaGUI
             this.btnActualizarEmpresaTransporte.Text = "Actualizar";
             this.btnActualizarEmpresaTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnActualizarEmpresaTransporte.UseSelectable = true;
+            this.btnActualizarEmpresaTransporte.Click += new System.EventHandler(this.btnActualizarEmpresaTransporte_Click);
             // 
             // btnIngresarEmpresaTransporte
             // 
@@ -1147,6 +1181,7 @@ namespace CapaGUI
             this.btnIngresarEmpresaTransporte.Text = "Ingresar";
             this.btnIngresarEmpresaTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIngresarEmpresaTransporte.UseSelectable = true;
+            this.btnIngresarEmpresaTransporte.Click += new System.EventHandler(this.btnIngresarEmpresaTransporte_Click);
             // 
             // txtidUsuarioEmpresa
             // 
@@ -1272,51 +1307,41 @@ namespace CapaGUI
             this.dgvListaUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListaUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaUsuarios.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUsuarios.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvListaUsuarios.EnableHeadersVisualStyles = false;
             this.dgvListaUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvListaUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListaUsuarios.Location = new System.Drawing.Point(61, 569);
             this.dgvListaUsuarios.Name = "dgvListaUsuarios";
             this.dgvListaUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvListaUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaUsuarios.Size = new System.Drawing.Size(631, 150);
             this.dgvListaUsuarios.TabIndex = 2;
-            // 
-            // btnMostrarUsuariosUsuario
-            // 
-            this.btnMostrarUsuariosUsuario.Location = new System.Drawing.Point(412, 243);
-            this.btnMostrarUsuariosUsuario.Name = "btnMostrarUsuariosUsuario";
-            this.btnMostrarUsuariosUsuario.Size = new System.Drawing.Size(152, 34);
-            this.btnMostrarUsuariosUsuario.TabIndex = 30;
-            this.btnMostrarUsuariosUsuario.Text = "Mostrar Usuarios";
-            this.btnMostrarUsuariosUsuario.UseSelectable = true;
-            this.btnMostrarUsuariosUsuario.Click += new System.EventHandler(this.btnMostrarUsuariosUsuario_Click);
             // 
             // MantenedorUsuario
             // 
@@ -1351,7 +1376,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTile btnIngresarCliente;
         private MetroFramework.Controls.MetroComboBox mcbTipoUsuarioCliente;
         private MetroFramework.Controls.MetroComboBox mcbUsuarioCliente;
-        private MetroFramework.Controls.MetroComboBox mcbComuna;
+        private MetroFramework.Controls.MetroComboBox mcbComunaCliente;
         private MetroFramework.Controls.MetroTextBox txtGiroCliente;
         private MetroFramework.Controls.MetroTextBox txtDireccionCliente;
         private MetroFramework.Controls.MetroTextBox txtRazonSocialCliente;

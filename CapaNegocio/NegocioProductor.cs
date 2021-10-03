@@ -7,6 +7,7 @@ using CapaConexion;
 using CapaDTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -36,12 +37,20 @@ namespace CapaNegocio
 
         public void IngresarProductor(Productor productor)
         {
-            this.configurarConexion();
-            String[] parametros = { "RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32 };
-            Object[] valores = { productor.Rut, productor.DigitoVerificador, productor.RazonSocial, productor.Direccion, productor.Giro, productor.IdComuna, productor.IdUsuario };
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32 };
+                Object[] valores = { productor.Rut, productor.DigitoVerificador, productor.RazonSocial, productor.Direccion, productor.Giro, productor.IdComuna, productor.IdUsuario };
 
-            this.con.ejecutarProcedimiento("SP_INGRESAR_PRODUCTOR", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_INGRESAR_PRODUCTOR", parametros, tipos, valores);
+            }
+            catch (Exception exingresoproductor)
+            {
+                MessageBox.Show("Error en la Ejecucion del SP:" + exingresoproductor);
+            }
+        
         }
 
         public void eliminarProductor(int rutProductor)
@@ -56,12 +65,21 @@ namespace CapaNegocio
 
         public void actualizarProductor(Productor productor)
         {
-            this.configurarConexion();
-            String[] parametros = { "RUTP", "DV_RUTP", "RAZON_SOCIALP", "DIRECCIONP", "GIROP", "ID_COMUNAP", "ID_USUARIOP" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2,  OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32 };
-            Object[] valores = { productor.Rut, productor.DigitoVerificador, productor.RazonSocial, productor.Direccion, productor.Giro, productor.IdComuna, productor.IdUsuario};
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "RUTP", "DV_RUTP", "RAZON_SOCIALP", "DIRECCIONP", "GIROP", "ID_COMUNAP", "ID_USUARIOP" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32 };
+                Object[] valores = { productor.Rut, productor.DigitoVerificador, productor.RazonSocial, productor.Direccion, productor.Giro, productor.IdComuna, productor.IdUsuario };
 
-            this.con.ejecutarProcedimiento("SP_ACTUALIZAR_PRODUCTOR", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ACTUALIZAR_PRODUCTOR", parametros, tipos, valores);
+            }
+            catch (Exception exactualizarProductor)
+            {
+                MessageBox.Show("ERROR AL EJECUTAR SP: " + exactualizarProductor);
+
+            }
+      
         }
 
 

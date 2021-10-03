@@ -7,6 +7,7 @@ using CapaConexion;
 using CapaDTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -37,12 +38,22 @@ namespace CapaNegocio
 
         public void IngresarCliente(Cliente cliente)
         {
-            this.configurarConexion();
-            String[] parametros = { "CLIENTE_RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO", "ID_TIPO" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32 };
-            Object[] valores = { cliente.Rut, cliente.DvRut, cliente.RazonSocial, cliente.Direccion, cliente.Giro, cliente.IdComuna, cliente.IdUsuario, cliente.IdTipo };
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO", "ID_TIPO" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Int32 };
+                Object[] valores = { cliente.Rut, cliente.DvRut, cliente.RazonSocial, cliente.Direccion, cliente.Giro, cliente.IdComuna, cliente.IdUsuario, cliente.IdTipo };
 
-            this.con.ejecutarProcedimiento("SP_INGRESAR_CLIENTE", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_INGRESAR_CLIENTE", parametros, tipos, valores);
+
+            }
+
+            catch (Exception exingresocliente)
+            {
+                MessageBox.Show("Error en la Ejecucion del SP:"  + exingresocliente);
+            }
+
         }
 
         public void eliminarCliente(int rut)
@@ -60,20 +71,20 @@ namespace CapaNegocio
         public void actualizarCliente(Cliente cliente)
         {
             this.configurarConexion();
-            String[] parametros = { "CLIENTE_RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO", "ID_TIPO" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Date, OracleDbType.Int32, OracleDbType.Int32 };
-            Object[] valores = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32 };
+            String[] parametros = { "RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO", "ID_TIPO" };
+            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Int32 };
+            Object[] valores = { cliente.Rut, cliente.DvRut, cliente.RazonSocial, cliente.Direccion, cliente.Giro, cliente.IdComuna, cliente.IdUsuario, cliente.IdTipo };
 
             this.con.ejecutarProcedimiento("SP_ACTUALIZAR_CLIENTE", parametros, tipos, valores);
         }
 
 
-        public Cliente buscarCliente(int idCliente)
+        public Cliente buscarCliente(int rutcliente)
         {
             Cliente cliente = new Cliente();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
-                                   + "WHERE ID_CLIENTE = " + idCliente;
+                                   + "WHERE RUT = " + rutcliente;
             this.con.EsSelect = true;
             this.con.conectar();
 
