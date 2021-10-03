@@ -75,6 +75,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NegocioCalidad.cs" />
     <Compile Include="NegocioContrato.cs" />
     <Compile Include="NegocioEmpresaTransporte.cs" />
     <Compile Include="NegocioProductor.cs" />

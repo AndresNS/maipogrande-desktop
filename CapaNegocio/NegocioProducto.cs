@@ -24,7 +24,7 @@ namespace CapaNegocio
             this.con.NombreTabla = "Producto";
             this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
         }
-        public DataSet retornarProducto()
+        public DataSet retornarProductos()
         {
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
@@ -38,7 +38,7 @@ namespace CapaNegocio
         {
             this.configurarConexion();
             String[] parametros = { "ID_CATEGORIA", "NOMBRE_PRODUCTO", "PRECIO", "ID_CALIDAD", "PORCENTAJE_MERMA" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Double };
+            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Double };
             Object[] valores = { producto.IdCategoria, producto.NombreProducto, producto.Precio, producto.IdCalidad, producto.PorcentajeMerma };
 
             this.con.ejecutarProcedimiento("SP_INGRESAR_PRODUCTO", parametros, tipos, valores);
@@ -72,7 +72,7 @@ namespace CapaNegocio
             Producto producto = new Producto();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
-                                   + "WHERE ID_USUARIO = " + idProducto;
+                                   + "WHERE ID_PRODUCTO = " + idProducto;
             this.con.EsSelect = true;
             this.con.conectar();
 
@@ -81,12 +81,12 @@ namespace CapaNegocio
 
             try
             {
-                producto.IdProducto = (int)dt.Rows[0]["ID_PRODUCTO"];
-                producto.IdCategoria = (int)dt.Rows[0]["ID_CATEGORIA"];
+                producto.IdProducto = (short)dt.Rows[0]["ID_PRODUCTO"];
+                producto.IdCategoria = (short)dt.Rows[0]["ID_CATEGORIA"];
                 producto.NombreProducto = (String)dt.Rows[0]["NOMBRE_PRODUCTO"];
                 producto.Precio = (int)dt.Rows[0]["PRECIO"];
-                producto.IdCalidad = (int)dt.Rows[0]["ID_CALIDAD"];
-                producto.PorcentajeMerma = (Double)dt.Rows[0]["PORCENTAJE_MERMA"];
+                producto.IdCalidad = (short)dt.Rows[0]["ID_CALIDAD"];
+                producto.PorcentajeMerma = Double.Parse(dt.Rows[0]["PORCENTAJE_MERMA"].ToString());
             }
             catch (Exception ex)
             {

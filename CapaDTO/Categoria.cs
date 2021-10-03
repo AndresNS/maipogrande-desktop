@@ -13,6 +13,6 @@ namespace CapaDTO
         private String nombreCategoria;
 
         public int IdCategoria { get => idCategoria; set => idCategoria = value; }
-        public string NombreCategoria { get => nombreCategoria; set => nombreCategoria = value; }
+        public String NombreCategoria { get => nombreCategoria; set => nombreCategoria = value; }
     }
 }

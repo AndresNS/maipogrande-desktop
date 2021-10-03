@@ -26,7 +26,7 @@ namespace CapaNegocio
             this.con.NombreTabla = "CATEGORIA";
             this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
         }
-        public DataSet retornarCategoria()
+        public DataSet retornarCategorias()
         {
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
@@ -40,7 +40,7 @@ namespace CapaNegocio
         {
             this.configurarConexion();
             String[] parametros = { "NOMBRE_CATEGORIA" };
-            OracleDbType[] tipos= { OracleDbType.Int32 };
+            OracleDbType[] tipos= { OracleDbType.Varchar2 };
             Object[] valores = { categoria.NombreCategoria};
 
             this.con.ejecutarProcedimiento("SP_INGRESAR_CATEGORIA", parametros, tipos, valores);
@@ -83,12 +83,13 @@ namespace CapaNegocio
 
             try
             {
-                categoria.IdCategoria = (int)dt.Rows[0]["ID_CATEGORIA"];
+                categoria.IdCategoria = (short)dt.Rows[0]["ID_CATEGORIA"];
                 categoria.NombreCategoria = (String)dt.Rows[0]["NOMBRE_CATEGORIA"];
                 
             }
             catch (Exception ex)
             {
+                
                 Categoria auxCategoria = new Categoria();
                 return auxCategoria;
             }
