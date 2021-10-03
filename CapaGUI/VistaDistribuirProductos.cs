@@ -137,7 +137,7 @@ namespace CapaGUI
             MessageBox.Show("Producto eliminado");
         }
 
-        private void btnMostrarUsuarios_Click(object sender, EventArgs e)
+        private void btnListarProductosProductos_Click(object sender, EventArgs e)
         {
             NegocioProducto negocioProducto = new NegocioProducto();
 
