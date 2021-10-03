@@ -126,9 +126,6 @@
     <Compile Include="VistaDistribuirProductos.Designer.cs">
       <DependentUpon>VistaDistribuirProductos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,8 +145,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="testGUI.resx">
-      <DependentUpon>testGUI.cs</DependentUpon>
     <EmbeddedResource Include="VistaControldeContratos.resx">
       <DependentUpon>VistaControldeContratos.cs</DependentUpon>
     </EmbeddedResource>
