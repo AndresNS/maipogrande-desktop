@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
+using CapaDTO;
 
 namespace CapaGUI
 {
@@ -63,12 +65,69 @@ namespace CapaGUI
 
         private void btnIngresarUsuario_Click(object sender, EventArgs e)
         {
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.NombreUsuario = this.txtNombreUsuario.Text;
+            nuevoUsuario.Password = this.txtContraseñaUsuario.Text;
+            nuevoUsuario.IdPerfil = Int32.Parse(this.mcbPerfilUsuarioUsuario.Text);
+            nuevoUsuario.IdEstadoCuenta = Int32.Parse(this.mcbEstadoUsuario.Text);
 
+            NegocioUsuario negocioUsuario = new NegocioUsuario();
+            negocioUsuario.IngresarUsuario(nuevoUsuario);
+            MessageBox.Show("Usuario Agregado");
         }//BTN INGRESAR USUARIO
 
         private void btnIngresarCliente_Click(object sender, EventArgs e) //BTN INGRESAR CLIENTE
         {
 
+        }
+
+        private void btnActualizarUsuario_Click(object sender, EventArgs e)
+        {
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.IdUsuario = Int32.Parse(this.txtIdUsuario.Text);
+            nuevoUsuario.NombreUsuario = this.txtNombreUsuario.Text;
+            nuevoUsuario.Password = this.txtContraseñaUsuario.Text;
+            nuevoUsuario.FechaCreacion = DateTime.Parse(this.mdtFechaCreacionUsuario.Text);
+            nuevoUsuario.IdPerfil = Int32.Parse(this.mcbPerfilUsuarioUsuario.Text); // Perfil cliente
+            nuevoUsuario.IdEstadoCuenta = Int32.Parse(this.mcbEstadoUsuario.Text); // cuenta activa
+
+            NegocioUsuario negocioUsuario = new NegocioUsuario();
+            negocioUsuario.actualizarUsuario(nuevoUsuario);
+            MessageBox.Show("Usuario Actualizado");
+        }
+
+        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            NegocioUsuario negocioUsuario = new NegocioUsuario();
+
+            int idUsuario = Int32.Parse(this.txtIdUsuario.Text);
+            Usuario user = negocioUsuario.buscarUsuario(idUsuario);
+
+            this.txtNombreUsuario.Text = user.NombreUsuario;
+            this.txtContraseñaUsuario.Text = user.Password;
+            this.mdtFechaCreacionUsuario.Text = user.FechaCreacion.ToString();
+            this.mcbPerfilUsuarioUsuario.Text = user.IdPerfil.ToString();
+            this.mcbEstadoUsuario.Text = user.IdEstadoCuenta.ToString();
+        }
+
+        private void btnMostrarUsuariosUsuario_Click(object sender, EventArgs e)
+        {
+            NegocioUsuario negocioUsuario = new NegocioUsuario();
+
+            DataSet listaUsuarios = negocioUsuario.retornarUsuarios();
+
+            this.dgvListaUsuarios.AutoGenerateColumns = true;
+            this.dgvListaUsuarios.DataSource = listaUsuarios.Tables["USUARIO"];
+
+        }
+
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            int idUsuario = Int32.Parse(this.txtIdUsuario.Text);
+
+            NegocioUsuario negocioUsuario = new NegocioUsuario();
+            negocioUsuario.eliminarUsuario(idUsuario);
+            MessageBox.Show("Usuario eliminado");
         }
     }
 }

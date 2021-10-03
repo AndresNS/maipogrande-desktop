@@ -29,6 +29,9 @@ namespace CapaGUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TAB = new MetroFramework.Controls.MetroTabControl();
             this.tabCliente = new MetroFramework.Controls.MetroTabPage();
             this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
@@ -91,22 +94,25 @@ namespace CapaGUI
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.lblRutProductor = new MetroFramework.Controls.MetroLabel();
             this.tabEmpresaTransporte = new MetroFramework.Controls.MetroTabPage();
-            this.lblidEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
-            this.lblNombreEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
-            this.lblUsuarioEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
-            this.txtidEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
-            this.txtNombreEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
-            this.txtidUsuarioEmpresa = new MetroFramework.Controls.MetroTextBox();
             this.btnSalirEmpresaTransaporte = new MetroFramework.Controls.MetroTile();
             this.btnBuscarEmpresaTransporte = new MetroFramework.Controls.MetroTile();
             this.btnEliminarEmpresaTransporte = new MetroFramework.Controls.MetroTile();
             this.btnActualizarEmpresaTransporte = new MetroFramework.Controls.MetroTile();
             this.btnIngresarEmpresaTransporte = new MetroFramework.Controls.MetroTile();
+            this.txtidUsuarioEmpresa = new MetroFramework.Controls.MetroTextBox();
+            this.txtNombreEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
+            this.txtidEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
+            this.lblUsuarioEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
+            this.lblNombreEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
+            this.lblidEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
+            this.dgvListaUsuarios = new MetroFramework.Controls.MetroGrid();
+            this.btnMostrarUsuariosUsuario = new MetroFramework.Controls.MetroButton();
             this.TAB.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.tabEmpresaTransporte.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // TAB
@@ -117,7 +123,7 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.tabEmpresaTransporte);
             this.TAB.Location = new System.Drawing.Point(32, 132);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 0;
+            this.TAB.SelectedIndex = 1;
             this.TAB.Size = new System.Drawing.Size(699, 368);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
@@ -468,6 +474,7 @@ namespace CapaGUI
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.btnMostrarUsuariosUsuario);
             this.metroTabPage2.Controls.Add(this.txtNombreUsuario);
             this.metroTabPage2.Controls.Add(this.lblNombreUsuario);
             this.metroTabPage2.Controls.Add(this.btnSalirUsuario);
@@ -559,6 +566,7 @@ namespace CapaGUI
             this.btnBuscarUsuario.Text = "Buscar";
             this.btnBuscarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBuscarUsuario.UseSelectable = true;
+            this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
             // btnEliminarUsuario
             // 
@@ -570,6 +578,7 @@ namespace CapaGUI
             this.btnEliminarUsuario.Text = "Eliminar";
             this.btnEliminarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEliminarUsuario.UseSelectable = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
             // 
             // btnActualizarUsuario
             // 
@@ -581,6 +590,7 @@ namespace CapaGUI
             this.btnActualizarUsuario.Text = "Actualizar";
             this.btnActualizarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnActualizarUsuario.UseSelectable = true;
+            this.btnActualizarUsuario.Click += new System.EventHandler(this.btnActualizarUsuario_Click);
             // 
             // btnIngresarUsuario
             // 
@@ -598,6 +608,9 @@ namespace CapaGUI
             // 
             this.mcbEstadoUsuario.FormattingEnabled = true;
             this.mcbEstadoUsuario.ItemHeight = 23;
+            this.mcbEstadoUsuario.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.mcbEstadoUsuario.Location = new System.Drawing.Point(99, 203);
             this.mcbEstadoUsuario.Name = "mcbEstadoUsuario";
             this.mcbEstadoUsuario.Size = new System.Drawing.Size(243, 29);
@@ -608,6 +621,9 @@ namespace CapaGUI
             // 
             this.mcbPerfilUsuarioUsuario.FormattingEnabled = true;
             this.mcbPerfilUsuarioUsuario.ItemHeight = 23;
+            this.mcbPerfilUsuarioUsuario.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.mcbPerfilUsuarioUsuario.Location = new System.Drawing.Point(99, 168);
             this.mcbPerfilUsuarioUsuario.Name = "mcbPerfilUsuarioUsuario";
             this.mcbPerfilUsuarioUsuario.Size = new System.Drawing.Size(243, 29);
@@ -1077,123 +1093,6 @@ namespace CapaGUI
             this.tabEmpresaTransporte.VerticalScrollbarHighlightOnWheel = false;
             this.tabEmpresaTransporte.VerticalScrollbarSize = 10;
             // 
-            // lblidEmpresaTransporte
-            // 
-            this.lblidEmpresaTransporte.AutoSize = true;
-            this.lblidEmpresaTransporte.Location = new System.Drawing.Point(19, 33);
-            this.lblidEmpresaTransporte.Name = "lblidEmpresaTransporte";
-            this.lblidEmpresaTransporte.Size = new System.Drawing.Size(79, 19);
-            this.lblidEmpresaTransporte.TabIndex = 2;
-            this.lblidEmpresaTransporte.Text = "ID Empresa:";
-            // 
-            // lblNombreEmpresaTransporte
-            // 
-            this.lblNombreEmpresaTransporte.AutoSize = true;
-            this.lblNombreEmpresaTransporte.Location = new System.Drawing.Point(19, 72);
-            this.lblNombreEmpresaTransporte.Name = "lblNombreEmpresaTransporte";
-            this.lblNombreEmpresaTransporte.Size = new System.Drawing.Size(117, 19);
-            this.lblNombreEmpresaTransporte.TabIndex = 3;
-            this.lblNombreEmpresaTransporte.Text = "Nombre Empresa:";
-            // 
-            // lblUsuarioEmpresaTransporte
-            // 
-            this.lblUsuarioEmpresaTransporte.AutoSize = true;
-            this.lblUsuarioEmpresaTransporte.Location = new System.Drawing.Point(19, 109);
-            this.lblUsuarioEmpresaTransporte.Name = "lblUsuarioEmpresaTransporte";
-            this.lblUsuarioEmpresaTransporte.Size = new System.Drawing.Size(72, 19);
-            this.lblUsuarioEmpresaTransporte.TabIndex = 4;
-            this.lblUsuarioEmpresaTransporte.Text = "ID Usuario:";
-            // 
-            // txtidEmpresaTransporte
-            // 
-            // 
-            // 
-            // 
-            this.txtidEmpresaTransporte.CustomButton.Image = null;
-            this.txtidEmpresaTransporte.CustomButton.Location = new System.Drawing.Point(135, 1);
-            this.txtidEmpresaTransporte.CustomButton.Name = "";
-            this.txtidEmpresaTransporte.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtidEmpresaTransporte.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtidEmpresaTransporte.CustomButton.TabIndex = 1;
-            this.txtidEmpresaTransporte.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtidEmpresaTransporte.CustomButton.UseSelectable = true;
-            this.txtidEmpresaTransporte.CustomButton.Visible = false;
-            this.txtidEmpresaTransporte.Lines = new string[0];
-            this.txtidEmpresaTransporte.Location = new System.Drawing.Point(142, 33);
-            this.txtidEmpresaTransporte.MaxLength = 32767;
-            this.txtidEmpresaTransporte.Name = "txtidEmpresaTransporte";
-            this.txtidEmpresaTransporte.PasswordChar = '\0';
-            this.txtidEmpresaTransporte.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtidEmpresaTransporte.SelectedText = "";
-            this.txtidEmpresaTransporte.SelectionLength = 0;
-            this.txtidEmpresaTransporte.SelectionStart = 0;
-            this.txtidEmpresaTransporte.ShortcutsEnabled = true;
-            this.txtidEmpresaTransporte.Size = new System.Drawing.Size(157, 23);
-            this.txtidEmpresaTransporte.TabIndex = 5;
-            this.txtidEmpresaTransporte.UseSelectable = true;
-            this.txtidEmpresaTransporte.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtidEmpresaTransporte.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtNombreEmpresaTransporte
-            // 
-            // 
-            // 
-            // 
-            this.txtNombreEmpresaTransporte.CustomButton.Image = null;
-            this.txtNombreEmpresaTransporte.CustomButton.Location = new System.Drawing.Point(135, 1);
-            this.txtNombreEmpresaTransporte.CustomButton.Name = "";
-            this.txtNombreEmpresaTransporte.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtNombreEmpresaTransporte.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtNombreEmpresaTransporte.CustomButton.TabIndex = 1;
-            this.txtNombreEmpresaTransporte.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtNombreEmpresaTransporte.CustomButton.UseSelectable = true;
-            this.txtNombreEmpresaTransporte.CustomButton.Visible = false;
-            this.txtNombreEmpresaTransporte.Lines = new string[0];
-            this.txtNombreEmpresaTransporte.Location = new System.Drawing.Point(142, 72);
-            this.txtNombreEmpresaTransporte.MaxLength = 32767;
-            this.txtNombreEmpresaTransporte.Name = "txtNombreEmpresaTransporte";
-            this.txtNombreEmpresaTransporte.PasswordChar = '\0';
-            this.txtNombreEmpresaTransporte.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNombreEmpresaTransporte.SelectedText = "";
-            this.txtNombreEmpresaTransporte.SelectionLength = 0;
-            this.txtNombreEmpresaTransporte.SelectionStart = 0;
-            this.txtNombreEmpresaTransporte.ShortcutsEnabled = true;
-            this.txtNombreEmpresaTransporte.Size = new System.Drawing.Size(157, 23);
-            this.txtNombreEmpresaTransporte.TabIndex = 6;
-            this.txtNombreEmpresaTransporte.UseSelectable = true;
-            this.txtNombreEmpresaTransporte.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtNombreEmpresaTransporte.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtidUsuarioEmpresa
-            // 
-            // 
-            // 
-            // 
-            this.txtidUsuarioEmpresa.CustomButton.Image = null;
-            this.txtidUsuarioEmpresa.CustomButton.Location = new System.Drawing.Point(135, 1);
-            this.txtidUsuarioEmpresa.CustomButton.Name = "";
-            this.txtidUsuarioEmpresa.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtidUsuarioEmpresa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtidUsuarioEmpresa.CustomButton.TabIndex = 1;
-            this.txtidUsuarioEmpresa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtidUsuarioEmpresa.CustomButton.UseSelectable = true;
-            this.txtidUsuarioEmpresa.CustomButton.Visible = false;
-            this.txtidUsuarioEmpresa.Lines = new string[0];
-            this.txtidUsuarioEmpresa.Location = new System.Drawing.Point(142, 109);
-            this.txtidUsuarioEmpresa.MaxLength = 32767;
-            this.txtidUsuarioEmpresa.Name = "txtidUsuarioEmpresa";
-            this.txtidUsuarioEmpresa.PasswordChar = '\0';
-            this.txtidUsuarioEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtidUsuarioEmpresa.SelectedText = "";
-            this.txtidUsuarioEmpresa.SelectionLength = 0;
-            this.txtidUsuarioEmpresa.SelectionStart = 0;
-            this.txtidUsuarioEmpresa.ShortcutsEnabled = true;
-            this.txtidUsuarioEmpresa.Size = new System.Drawing.Size(157, 23);
-            this.txtidUsuarioEmpresa.TabIndex = 7;
-            this.txtidUsuarioEmpresa.UseSelectable = true;
-            this.txtidUsuarioEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtidUsuarioEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // btnSalirEmpresaTransaporte
             // 
             this.btnSalirEmpresaTransaporte.ActiveControl = null;
@@ -1249,11 +1148,182 @@ namespace CapaGUI
             this.btnIngresarEmpresaTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIngresarEmpresaTransporte.UseSelectable = true;
             // 
+            // txtidUsuarioEmpresa
+            // 
+            // 
+            // 
+            // 
+            this.txtidUsuarioEmpresa.CustomButton.Image = null;
+            this.txtidUsuarioEmpresa.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.txtidUsuarioEmpresa.CustomButton.Name = "";
+            this.txtidUsuarioEmpresa.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtidUsuarioEmpresa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtidUsuarioEmpresa.CustomButton.TabIndex = 1;
+            this.txtidUsuarioEmpresa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtidUsuarioEmpresa.CustomButton.UseSelectable = true;
+            this.txtidUsuarioEmpresa.CustomButton.Visible = false;
+            this.txtidUsuarioEmpresa.Lines = new string[0];
+            this.txtidUsuarioEmpresa.Location = new System.Drawing.Point(142, 109);
+            this.txtidUsuarioEmpresa.MaxLength = 32767;
+            this.txtidUsuarioEmpresa.Name = "txtidUsuarioEmpresa";
+            this.txtidUsuarioEmpresa.PasswordChar = '\0';
+            this.txtidUsuarioEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtidUsuarioEmpresa.SelectedText = "";
+            this.txtidUsuarioEmpresa.SelectionLength = 0;
+            this.txtidUsuarioEmpresa.SelectionStart = 0;
+            this.txtidUsuarioEmpresa.ShortcutsEnabled = true;
+            this.txtidUsuarioEmpresa.Size = new System.Drawing.Size(157, 23);
+            this.txtidUsuarioEmpresa.TabIndex = 7;
+            this.txtidUsuarioEmpresa.UseSelectable = true;
+            this.txtidUsuarioEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtidUsuarioEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // txtNombreEmpresaTransporte
+            // 
+            // 
+            // 
+            // 
+            this.txtNombreEmpresaTransporte.CustomButton.Image = null;
+            this.txtNombreEmpresaTransporte.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.txtNombreEmpresaTransporte.CustomButton.Name = "";
+            this.txtNombreEmpresaTransporte.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNombreEmpresaTransporte.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNombreEmpresaTransporte.CustomButton.TabIndex = 1;
+            this.txtNombreEmpresaTransporte.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNombreEmpresaTransporte.CustomButton.UseSelectable = true;
+            this.txtNombreEmpresaTransporte.CustomButton.Visible = false;
+            this.txtNombreEmpresaTransporte.Lines = new string[0];
+            this.txtNombreEmpresaTransporte.Location = new System.Drawing.Point(142, 72);
+            this.txtNombreEmpresaTransporte.MaxLength = 32767;
+            this.txtNombreEmpresaTransporte.Name = "txtNombreEmpresaTransporte";
+            this.txtNombreEmpresaTransporte.PasswordChar = '\0';
+            this.txtNombreEmpresaTransporte.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNombreEmpresaTransporte.SelectedText = "";
+            this.txtNombreEmpresaTransporte.SelectionLength = 0;
+            this.txtNombreEmpresaTransporte.SelectionStart = 0;
+            this.txtNombreEmpresaTransporte.ShortcutsEnabled = true;
+            this.txtNombreEmpresaTransporte.Size = new System.Drawing.Size(157, 23);
+            this.txtNombreEmpresaTransporte.TabIndex = 6;
+            this.txtNombreEmpresaTransporte.UseSelectable = true;
+            this.txtNombreEmpresaTransporte.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNombreEmpresaTransporte.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // txtidEmpresaTransporte
+            // 
+            // 
+            // 
+            // 
+            this.txtidEmpresaTransporte.CustomButton.Image = null;
+            this.txtidEmpresaTransporte.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.txtidEmpresaTransporte.CustomButton.Name = "";
+            this.txtidEmpresaTransporte.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtidEmpresaTransporte.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtidEmpresaTransporte.CustomButton.TabIndex = 1;
+            this.txtidEmpresaTransporte.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtidEmpresaTransporte.CustomButton.UseSelectable = true;
+            this.txtidEmpresaTransporte.CustomButton.Visible = false;
+            this.txtidEmpresaTransporte.Lines = new string[0];
+            this.txtidEmpresaTransporte.Location = new System.Drawing.Point(142, 33);
+            this.txtidEmpresaTransporte.MaxLength = 32767;
+            this.txtidEmpresaTransporte.Name = "txtidEmpresaTransporte";
+            this.txtidEmpresaTransporte.PasswordChar = '\0';
+            this.txtidEmpresaTransporte.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtidEmpresaTransporte.SelectedText = "";
+            this.txtidEmpresaTransporte.SelectionLength = 0;
+            this.txtidEmpresaTransporte.SelectionStart = 0;
+            this.txtidEmpresaTransporte.ShortcutsEnabled = true;
+            this.txtidEmpresaTransporte.Size = new System.Drawing.Size(157, 23);
+            this.txtidEmpresaTransporte.TabIndex = 5;
+            this.txtidEmpresaTransporte.UseSelectable = true;
+            this.txtidEmpresaTransporte.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtidEmpresaTransporte.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblUsuarioEmpresaTransporte
+            // 
+            this.lblUsuarioEmpresaTransporte.AutoSize = true;
+            this.lblUsuarioEmpresaTransporte.Location = new System.Drawing.Point(19, 109);
+            this.lblUsuarioEmpresaTransporte.Name = "lblUsuarioEmpresaTransporte";
+            this.lblUsuarioEmpresaTransporte.Size = new System.Drawing.Size(72, 19);
+            this.lblUsuarioEmpresaTransporte.TabIndex = 4;
+            this.lblUsuarioEmpresaTransporte.Text = "ID Usuario:";
+            // 
+            // lblNombreEmpresaTransporte
+            // 
+            this.lblNombreEmpresaTransporte.AutoSize = true;
+            this.lblNombreEmpresaTransporte.Location = new System.Drawing.Point(19, 72);
+            this.lblNombreEmpresaTransporte.Name = "lblNombreEmpresaTransporte";
+            this.lblNombreEmpresaTransporte.Size = new System.Drawing.Size(117, 19);
+            this.lblNombreEmpresaTransporte.TabIndex = 3;
+            this.lblNombreEmpresaTransporte.Text = "Nombre Empresa:";
+            // 
+            // lblidEmpresaTransporte
+            // 
+            this.lblidEmpresaTransporte.AutoSize = true;
+            this.lblidEmpresaTransporte.Location = new System.Drawing.Point(19, 33);
+            this.lblidEmpresaTransporte.Name = "lblidEmpresaTransporte";
+            this.lblidEmpresaTransporte.Size = new System.Drawing.Size(79, 19);
+            this.lblidEmpresaTransporte.TabIndex = 2;
+            this.lblidEmpresaTransporte.Text = "ID Empresa:";
+            // 
+            // dgvListaUsuarios
+            // 
+            this.dgvListaUsuarios.AllowUserToResizeRows = false;
+            this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvListaUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUsuarios.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvListaUsuarios.EnableHeadersVisualStyles = false;
+            this.dgvListaUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvListaUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaUsuarios.Location = new System.Drawing.Point(61, 569);
+            this.dgvListaUsuarios.Name = "dgvListaUsuarios";
+            this.dgvListaUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvListaUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaUsuarios.Size = new System.Drawing.Size(631, 150);
+            this.dgvListaUsuarios.TabIndex = 2;
+            // 
+            // btnMostrarUsuariosUsuario
+            // 
+            this.btnMostrarUsuariosUsuario.Location = new System.Drawing.Point(412, 243);
+            this.btnMostrarUsuariosUsuario.Name = "btnMostrarUsuariosUsuario";
+            this.btnMostrarUsuariosUsuario.Size = new System.Drawing.Size(152, 34);
+            this.btnMostrarUsuariosUsuario.TabIndex = 30;
+            this.btnMostrarUsuariosUsuario.Text = "Mostrar Usuarios";
+            this.btnMostrarUsuariosUsuario.UseSelectable = true;
+            this.btnMostrarUsuariosUsuario.Click += new System.EventHandler(this.btnMostrarUsuariosUsuario_Click);
+            // 
             // MantenedorUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 523);
+            this.ClientSize = new System.Drawing.Size(768, 753);
+            this.Controls.Add(this.dgvListaUsuarios);
             this.Controls.Add(this.TAB);
             this.Name = "MantenedorUsuario";
             this.Text = "Administrador de Cuentas";
@@ -1266,6 +1336,7 @@ namespace CapaGUI
             this.metroTabPage3.PerformLayout();
             this.tabEmpresaTransporte.ResumeLayout(false);
             this.tabEmpresaTransporte.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1345,5 +1416,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroLabel lblUsuarioEmpresaTransporte;
         private MetroFramework.Controls.MetroLabel lblNombreEmpresaTransporte;
         private MetroFramework.Controls.MetroLabel lblidEmpresaTransporte;
+        private MetroFramework.Controls.MetroGrid dgvListaUsuarios;
+        private MetroFramework.Controls.MetroButton btnMostrarUsuariosUsuario;
     }
 }
