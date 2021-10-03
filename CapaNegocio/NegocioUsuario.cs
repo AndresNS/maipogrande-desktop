@@ -16,7 +16,7 @@ namespace CapaNegocio
         private Conexion con;
 
         public Conexion Con { get => con; set => con = value; }
-
+       
         public void configurarConexion()
         {
             this.con = new Conexion();
