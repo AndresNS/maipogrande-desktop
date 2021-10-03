@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -83,10 +92,49 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainADM.Designer.cs">
+      <DependentUpon>MainADM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenedorUsuario.Designer.cs">
+      <DependentUpon>MantenedorUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VistaControldeContratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaControldeContratos.Designer.cs">
+      <DependentUpon>VistaControldeContratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaDistribuirProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaDistribuirProductos.Designer.cs">
+      <DependentUpon>VistaDistribuirProductos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainADM.resx">
+      <DependentUpon>MainADM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorUsuario.resx">
+      <DependentUpon>MantenedorUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,7 +144,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VistaControldeContratos.resx">
+      <DependentUpon>VistaControldeContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaDistribuirProductos.resx">
+      <DependentUpon>VistaDistribuirProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -122,6 +177,17 @@
       <Project>{a3827325-faca-433f-94eb-d14aa141dd61}</Project>
       <Name>CapaConexion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CapaDTO\CapaDTO.csproj">
+      <Project>{bc41f58d-eaa2-4c72-9cc7-9826eac8a240}</Project>
+      <Name>CapaDTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{a86cddba-122a-4848-b2cb-d99dbce13b1f}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\users.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
