@@ -48,8 +48,6 @@ namespace CapaNegocio
         public void eliminarUsuario(int idUsuario)
         {
             this.configurarConexion();
-
-            this.configurarConexion();
             String[] parametros = { "ID" };
             OracleDbType[] tipos = { OracleDbType.Int32 };
             Object[] valores = { idUsuario };
@@ -60,7 +58,7 @@ namespace CapaNegocio
         public void actualizarUsuario(Usuario usuario)
         {
             this.configurarConexion();
-            String[] parametros = { "ID_USUARIO", "NOMBRE_USUARIO", "PASSWORD", "FECHA_CREACION", "ID_PERFIL", "I_ESTD_CTA" };
+            String[] parametros = { "ID", "NOMBRE", "PASS", "FECHA", "PERFIL", "ESTD_CTA" };
             OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Date, OracleDbType.Int32, OracleDbType.Int32 };
             Object[] valores = { usuario.IdUsuario, usuario.NombreUsuario, usuario.Password, DateTime.Now, usuario.IdPerfil, usuario.IdEstadoCuenta };
 
