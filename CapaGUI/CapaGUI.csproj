@@ -112,8 +112,6 @@
     <Compile Include="MantenedorUsuario.Designer.cs">
       <DependentUpon>MantenedorUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VistaControldeContratos.cs">
       <SubType>Form</SubType>
     </Compile>
