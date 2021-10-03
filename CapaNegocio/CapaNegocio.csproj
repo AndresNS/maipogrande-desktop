@@ -75,6 +75,9 @@
     <Compile Include="NegocioContrato.cs" />
     <Compile Include="NegocioEmpresaTransporte.cs" />
     <Compile Include="NegocioProductor.cs" />
+    <Compile Include="NegocioCategoria.cs" />
+    <Compile Include="NegocioCliente.cs" />
+    <Compile Include="NegocioProducto.cs" />
     <Compile Include="NegocioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
