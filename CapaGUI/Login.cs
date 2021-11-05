@@ -22,28 +22,39 @@ namespace CapaGUI
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            Sesion loginven = new Sesion();
-            loginven.Nombre_usuario = this.txtUsuario.Text;
-            loginven.Password = this.txtContraseña.Text;
-
-            NegocioSesion ven = new NegocioSesion();
-            if (ven.IngresoSistema(loginven))
+            try
             {
-                MainADM venaca = new MainADM();
-                venaca.ShowDialog();
-                // Cerrar ventana de login
-                System.GC.Collect();
 
 
-                //this.Dispose();
-                // usuario entra
+                Sesion loginven = new Sesion();
+                loginven.Nombre_usuario = this.txtUsuario.Text;
+                loginven.Password = this.txtContraseña.Text;
 
-            } else
+                NegocioSesion ven = new NegocioSesion();
+                if (ven.IngresoSistema(loginven))
+                {
+                    MainADM venaca = new MainADM();
+                    venaca.ShowDialog();
+                    // Cerrar ventana de login
+                    System.GC.Collect();
+
+
+                    //this.Dispose();
+                    // usuario entra
+
+                }
+                else
+                {
+                    MessageBox.Show("Acceso denegado!");
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Acceso denegado!");
+
+                MessageBox.Show("ERROR ID:03SES NAME:VISTA SESION" +ex);
             }
 
-            
+           
             
 
 

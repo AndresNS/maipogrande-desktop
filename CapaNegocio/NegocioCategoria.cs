@@ -7,6 +7,7 @@ using CapaConexion;
 using CapaDTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -20,57 +21,96 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipo_grande";
-            this.con.NombreTabla = "CATEGORIA";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipo_grande";
+                this.con.NombreTabla = "CATEGORIA";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:001CAT NAME:NEGOCIO CATEGORIA " + ex);
+            }
+           
         }
         public DataSet retornarCategorias()
         {
-            this.configurarConexion();
-            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
-            this.con.EsSelect = true;
-            this.con.conectar();
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:002CAT NAME:NEGOCIO CATEGORIA " + ex);
+            }
 
             return this.con.DbDataSet;
         }
 
         public void IngresarCategoria(Categoria categoria)
         {
-            this.configurarConexion();
-            String[] parametros = { "NOMBRE_CATEGORIA" };
-            OracleDbType[] tipos= { OracleDbType.Varchar2 };
-            Object[] valores = { categoria.NombreCategoria};
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "NOMBRE_CATEGORIA" };
+                OracleDbType[] tipos = { OracleDbType.Varchar2 };
+                Object[] valores = { categoria.NombreCategoria };
 
-            this.con.ejecutarProcedimiento("SP_INGRESAR_CATEGORIA", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_INGRESAR_CATEGORIA", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:003CAT NAME:NEGOCIO CATEGORIA " + ex);
+            }
+
         }
 
         public void eliminarCategoria(int idCategoria)
         {
-            this.configurarConexion();
+            //this.configurarConexion();
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "ID" };
+                OracleDbType[] tipos = { OracleDbType.Int32 };
+                Object[] valores = { idCategoria };
 
-            this.configurarConexion();
-            String[] parametros = { "ID" };
-            OracleDbType[] tipos = { OracleDbType.Int32 };
-            Object[] valores = { idCategoria };
-
-            this.con.ejecutarProcedimiento("SP_ELIMINAR_CATEGORIA", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ELIMINAR_CATEGORIA", parametros, tipos, valores);
+            }
+          
+              catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:004CAT NAME:NEGOCIO CATEGORIA " + ex);
+            }
         }
 
         public void actualizarCategoria(Categoria categoria)
         {
-            this.configurarConexion();
-            String[] parametros = { "ID_CATEGORIA", "NOMBRE_CATEGORIA"};
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2};
-            Object[] valores = { categoria.IdCategoria, categoria.NombreCategoria };
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "ID_CATEGORIA", "NOMBRE_CATEGORIA" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2 };
+                Object[] valores = { categoria.IdCategoria, categoria.NombreCategoria };
 
-            this.con.ejecutarProcedimiento("SP_ACTUALIZAR_CATEGORIA", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ACTUALIZAR_CATEGORIA", parametros, tipos, valores);
+            }
+       
+              catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:005CAT NAME:NEGOCIO CATEGORIA " + ex);
+            }
         }
 
 
         public Categoria buscarCategoria(int idCategoria)
         {
+
             Categoria categoria = new Categoria();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
@@ -92,6 +132,8 @@ namespace CapaNegocio
                 
                 Categoria auxCategoria = new Categoria();
                 return auxCategoria;
+
+                MessageBox.Show("ERROR ID:006CAT NAME:NEGOCIO CATEGORIA " + ex);
             }
 
             return categoria;

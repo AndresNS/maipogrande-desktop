@@ -232,6 +232,8 @@ namespace CapaGUI
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.txtIdContrato);
             this.Controls.Add(this.metroLabel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VistaControldeContratos";
             this.Text = "VistaControldeContratos";
             this.Load += new System.EventHandler(this.VistaControldeContratos_Load);

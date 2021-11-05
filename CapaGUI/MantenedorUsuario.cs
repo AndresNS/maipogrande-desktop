@@ -19,27 +19,109 @@ namespace CapaGUI
             InitializeComponent();
         }
 
+        private void MantenedorUsuario_Load(object sender, EventArgs e) //LOAD MANTENEDOR 
+        {
+            this.radiobtnBuscarClienteCliente.Checked = true;
+
+            deshabilitarCamposCliente();
+            this.btnEliminarCliente.Enabled = false;
+            this.btnIngresarCliente.Enabled = false;
+            this.btnActualizarCliente.Enabled = false;
+        }
         public void Limpiar()
         {
-            txtContraseñaUsuario.Text ="";
-            txtDireccionCliente.Text = "";
-            txtDireccionProductor.Text = "";
-            txtDvCliente.Text = "";
-            txtDvProductor.Text = "";
-            txtGiroCliente.Text = "";
-            txtGiroProductor.Text = "";
-            txtIdUsuario.Text = "";
-            txtNombreUsuario.Text = "";
-            txtRazonSocialCliente.Text = "";
-            txtRazonSocialProductor.Text = "";
-            txtRutCliente.Text = "";
-            txtRutProductor.Text = "";
+            try
+            {
+                txtContraseñaUsuario.Text = "";
+                txtDireccionCliente.Text = "";
+                txtDireccionProductor.Text = "";
+                txtDvCliente.Text = "";
+                txtDvProductor.Text = "";
+                txtGiroCliente.Text = "";
+                txtGiroProductor.Text = "";
+                txtIdUsuario.Text = "";
+                txtNombreUsuario.Text = "";
+                txtRazonSocialCliente.Text = "";
+                txtRazonSocialProductor.Text = "";
+                txtRutCliente.Text = "";
+                txtRutProductor.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("");
+            }
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
         } //BTN SALIR CLIENTE
+        private void limpiarCamposCliente() // METODO LIMPIAR CAMPOS CLIENTE
+        {
+            this.txtRutCliente.Text = String.Empty;
+            this.txtDvCliente.Text = String.Empty;
+            this.txtRazonSocialCliente.Text = String.Empty;
+            this.txtDireccionCliente.Text = String.Empty;
+            this.txtGiroCliente.Text = String.Empty;
+            this.mcbComunaCliente.Text = String.Empty;
+            this.mcbTipoUsuarioCliente.Text = String.Empty;
+            this.mcbUsuarioCliente.Text = String.Empty;
+
+        }
+        private void deshabilitarCamposCliente() //DESACTIVAR TEXTOS CLIENTE
+        {
+            this.txtRutCliente.Enabled = false;
+            this.txtDvCliente.Enabled = false;
+            this.txtRazonSocialCliente.Enabled = false;
+            this.txtDireccionCliente.Enabled = false;
+            this.txtGiroCliente.Enabled = false;
+            this.mcbComunaCliente.Enabled = false;
+            this.mcbTipoUsuarioCliente.Enabled = false;
+            this.mcbUsuarioCliente.Enabled = false;
+        }
+        private void habilitarCamposCliente() //ACTIVAR TEXTOS DE CLIENTE
+        {
+            this.txtRutCliente.Enabled = true;
+            this.txtDvCliente.Enabled = true;
+            this.txtRazonSocialCliente.Enabled = true;
+            this.txtDireccionCliente.Enabled = true;
+            this.txtGiroCliente.Enabled = true;
+            this.mcbComunaCliente.Enabled = true;
+            this.mcbTipoUsuarioCliente.Enabled = true;
+            this.mcbUsuarioCliente.Enabled = true;
+        }
+        private void radiobtnBuscarClienteCliente_CheckedChanged(object sender, EventArgs e) //RADIO BUTTON BUSCAR CLIENTE
+        {
+            if (radiobtnBuscarClienteCliente.Checked)
+            {
+                deshabilitarCamposCliente();
+                limpiarCamposCliente();
+                this.btnEliminarCliente.Enabled = false;
+                this.btnIngresarCliente.Enabled = false;
+                this.txtBuscarClienteCliente.Text = String.Empty;
+                this.txtBuscarClienteCliente.Enabled = true;
+                this.btnMostrarCliente.Enabled = true;
+            }
+            else
+            {
+                limpiarCamposCliente();
+                habilitarCamposCliente();
+                //this.txtRutCliente.Enabled = false;
+                //this.txtDvCliente.Enabled = false;
+                this.btnEliminarCliente.Enabled = false;
+                this.btnIngresarCliente.Enabled = true;
+                this.btnIngresarCliente.Text = "Nuevo Cliente";
+                this.txtBuscarClienteCliente.Text = String.Empty;
+                this.txtBuscarClienteCliente.Enabled = false;
+                this.btnMostrarCliente.Enabled = false;
+
+            }
+        }
+        private void radiobtnIngresarClienteCliente_CheckedChanged(object sender, EventArgs e) //RADIO INGRESAR CLIENTE
+        {
+           
+        }
+
 
         private void metroTabPage2_Click(object sender, EventArgs e)
         {
@@ -130,10 +212,25 @@ namespace CapaGUI
             MessageBox.Show("Cliente Actualizado");
 
         }
-        private void btnMostrarCliente_Click(object sender, EventArgs e) //BTN BUSCAR CLIENTE
+        //private void btnMostrarCliente_Click(object sender, EventArgs e) //BTN BUSCAR CLIENTE
+        //{
+        //    NegocioCliente negocioCliente = new NegocioCliente();
+        //    int rutCliente = Int32.Parse(this.txtRutCliente.Text);
+        //    Cliente cliente = negocioCliente.buscarCliente(rutCliente);
+
+        //    this.txtDvCliente.Text = cliente.DvRut;
+        //    this.txtRazonSocialCliente.Text = cliente.RazonSocial;
+        //    this.txtDireccionCliente.Text = cliente.Direccion;
+        //    this.txtGiroCliente.Text = cliente.Giro;
+        //    this.mcbComunaCliente.Text = cliente.IdComuna.ToString();
+        //    this.mcbTipoUsuarioCliente.Text = cliente.IdTipo.ToString();
+        //    this.mcbUsuarioCliente.Text = cliente.IdUsuario.ToString();
+
+        //}
+        private void btnMostrarCliente_Click_1(object sender, EventArgs e)
         {
             NegocioCliente negocioCliente = new NegocioCliente();
-            int rutCliente = Int32.Parse(this.txtRutCliente.Text);
+            int rutCliente = Int32.Parse(this.txtBuscarClienteCliente.Text);
             Cliente cliente = negocioCliente.buscarCliente(rutCliente);
 
             this.txtDvCliente.Text = cliente.DvRut;
@@ -143,16 +240,15 @@ namespace CapaGUI
             this.mcbComunaCliente.Text = cliente.IdComuna.ToString();
             this.mcbTipoUsuarioCliente.Text = cliente.IdTipo.ToString();
             this.mcbUsuarioCliente.Text = cliente.IdUsuario.ToString();
-
-        }
-          private void btnEliminarCliente_Click(object sender, EventArgs e)
+        }//MOSTRAR CLIENTE
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             int rutCliente = Int32.Parse(this.txtRutCliente.Text);
             NegocioCliente negociocliente = new NegocioCliente();
             negociocliente.eliminarCliente(rutCliente);
                     
             MessageBox.Show("Cliente eliminado");
-        }
+        }//ELIMINAR CLIENTE
         private void btnIngresarUsuario_Click(object sender, EventArgs e) //INGRESAR USUARIO
         {
             Usuario nuevoUsuario = new Usuario();
@@ -274,18 +370,18 @@ namespace CapaGUI
             negocioTransporte.IngresarEmpresaTransporte(nuevoTransaporte);
                    
             MessageBox.Show("Transporte Agregado");
-        }
+        }//BTN INGRESAR EMPRESA TRANSPORTE
 
         private void btnBuscarEmpresaTransporte_Click(object sender, EventArgs e)
         {
-            NegocioEmpresaTransporte negocioTransporte = new NegocioEmpresaTransporte();
+            NegocioEmpresaTransporte negocioTransporte = new NegocioEmpresaTransporte();//llamos al negocio
 
-            int idEmpresa = Int32.Parse(this.txtidEmpresaTransporte.Text);
-            EmpresaTransporte transporte = negocioTransporte.buscarEmpresaTransporte(idEmpresa);
+            int idEmpresa = Int32.Parse(this.txtidEmpresaTransporte.Text); //señalo el texto del parametro de busqueda
+            EmpresaTransporte transporte = negocioTransporte.buscarEmpresaTransporte(idEmpresa); //ejecuto el procedimiento
             
             this.txtNombreEmpresaTransporte.Text = transporte.NombreEmpresa;
             this.txtidUsuarioEmpresa.Text = transporte.IdUsuario.ToString();
-        }
+        }//BTN BUSCAR EMPRESA TRANSPORTE
 
         private void btnActualizarEmpresaTransporte_Click(object sender, EventArgs e)
         {
@@ -302,7 +398,7 @@ namespace CapaGUI
             MessageBox.Show("Empresa de Transporte  Actualizado");
 
 
-        }
+        }//BTN ACTUALIZAR EMPRESA DE TRANSPORTE
 
         private void btnEliminarEmpresaTransporte_Click(object sender, EventArgs e)
         {
@@ -312,9 +408,9 @@ namespace CapaGUI
             negocioTransporte.eliminarEmpresaTransporte(idEmpresa);
             
             MessageBox.Show("Empresa de Transporte Eliminada ");
-        }
+        }//BTN ELIMINAR EMPRESA TRANSPORTE
 
-      
+
     }
 }
 

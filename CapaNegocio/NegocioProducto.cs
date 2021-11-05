@@ -7,6 +7,7 @@ using CapaConexion;
 using CapaDTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -18,51 +19,94 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipo_grande";
-            this.con.NombreTabla = "Producto";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipo_grande";
+                this.con.NombreTabla = "Producto";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:001PRO NAME:NEGOCIO PRODUCTO " + ex);
+            }
         }
         public DataSet retornarProductos()
         {
-            this.configurarConexion();
-            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
-            this.con.EsSelect = true;
-            this.con.conectar();
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:002PRO NAME:NEGOCIO PRODUCTO " + ex);
+            }
 
             return this.con.DbDataSet;
         }
 
         public void IngresarProducto(Producto producto)
         {
-            this.configurarConexion();
-            String[] parametros = { "ID_CATEGORIA", "NOMBRE_PRODUCTO", "PRECIO", "ID_CALIDAD", "PORCENTAJE_MERMA" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Double };
-            Object[] valores = { producto.IdCategoria, producto.NombreProducto, producto.Precio, producto.IdCalidad, producto.PorcentajeMerma };
+            try
+            {
 
-            this.con.ejecutarProcedimiento("SP_INGRESAR_PRODUCTO", parametros, tipos, valores);
+                this.configurarConexion();
+                String[] parametros = { "ID_CATEGORIA", "NOMBRE_PRODUCTO", "PRECIO", "ID_CALIDAD", "PORCENTAJE_MERMA" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Double };
+                Object[] valores = { producto.IdCategoria, producto.NombreProducto, producto.Precio, producto.IdCalidad, producto.PorcentajeMerma };
+
+                this.con.ejecutarProcedimiento("SP_INGRESAR_PRODUCTO", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:003PRO NAME:NEGOCIO PRODUCTO " + ex);
+            }
         }
 
         public void eliminarProducto(int idProducto)
         {
-          
-            this.configurarConexion();
-            String[] parametros = { "ID" };
-            OracleDbType[] tipos = { OracleDbType.Int32 };
-            Object[] valores = { idProducto };
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "ID" };
+                OracleDbType[] tipos = { OracleDbType.Int32 };
+                Object[] valores = { idProducto };
 
-            this.con.ejecutarProcedimiento("SP_ELIMINAR_PRODUCTO", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ELIMINAR_PRODUCTO", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:004PRO NAME:NEGOCIO PRODUCTO " + ex);
+            }
+
+
         }
 
         public void actualizarProducto(Producto producto)
         {
-            this.configurarConexion();
-            String[] parametros = { "ID_PRODUCTO", "ID_CATEGORIA", "NOMBRE_PRODUCTO", "PRECIO", "ID_CALIDAD", "PORCENTAJE_MERMA" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Double };
-            Object[] valores = { producto.IdProducto, producto.IdCategoria, producto.NombreProducto, producto.Precio, producto.IdCalidad, producto.PorcentajeMerma };
+            try
+            {
 
-            this.con.ejecutarProcedimiento("SP_ACTUALIZAR_PRODUCTO", parametros, tipos, valores);
+                this.configurarConexion();
+                String[] parametros = { "ID_PRODUCTO", "ID_CATEGORIA", "NOMBRE_PRODUCTO", "PRECIO", "ID_CALIDAD", "PORCENTAJE_MERMA" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Double };
+                Object[] valores = { producto.IdProducto, producto.IdCategoria, producto.NombreProducto, producto.Precio, producto.IdCalidad, producto.PorcentajeMerma };
+
+                this.con.ejecutarProcedimiento("SP_ACTUALIZAR_PRODUCTO", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:005PRO NAME:NEGOCIO PRODUCTO " + ex);
+            }
         }
 
 

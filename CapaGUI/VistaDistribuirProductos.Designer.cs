@@ -588,6 +588,8 @@ namespace CapaGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 683);
             this.Controls.Add(this.Tab);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VistaDistribuirProductos";
             this.Text = "VistaDistribuirProductos";
             this.Load += new System.EventHandler(this.VistaDistribuirProductos_Load);

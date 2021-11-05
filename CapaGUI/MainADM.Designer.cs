@@ -49,6 +49,7 @@ namespace CapaGUI
             this.btnIngresarVenta.Text = "Ingresar Proceso de Ventas\r\n";
             this.btnIngresarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIngresarVenta.UseSelectable = true;
+            this.btnIngresarVenta.Click += new System.EventHandler(this.btnIngresarVenta_Click);
             // 
             // btnControlContratos
             // 
@@ -117,6 +118,7 @@ namespace CapaGUI
             this.btnGenerarReportes.Text = "Generar Reportes\r\n";
             this.btnGenerarReportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnGenerarReportes.UseSelectable = true;
+            this.btnGenerarReportes.Click += new System.EventHandler(this.btnGenerarReportes_Click);
             // 
             // btnMantenedores
             // 
@@ -143,6 +145,8 @@ namespace CapaGUI
             this.Controls.Add(this.btnControlContratos);
             this.Controls.Add(this.btnIngresarVenta);
             this.Controls.Add(this.btnMantenedores);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainADM";
             this.Text = "Menu";
             this.ResumeLayout(false);

@@ -29,16 +29,12 @@ namespace CapaGUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TAB = new MetroFramework.Controls.MetroTabControl();
             this.tabCliente = new MetroFramework.Controls.MetroTabPage();
-            this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
-            this.btnMostrarCliente = new MetroFramework.Controls.MetroTile();
-            this.btnEliminarCliente = new MetroFramework.Controls.MetroTile();
-            this.btnActualizarCliente = new MetroFramework.Controls.MetroTile();
-            this.btnIngresarCliente = new MetroFramework.Controls.MetroTile();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.mcbTipoUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
             this.mcbUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
             this.mcbComunaCliente = new MetroFramework.Controls.MetroComboBox();
@@ -55,6 +51,18 @@ namespace CapaGUI
             this.lblDv = new MetroFramework.Controls.MetroLabel();
             this.lblRazonSocial = new MetroFramework.Controls.MetroLabel();
             this.lblRut = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.btnIngresarCliente = new MetroFramework.Controls.MetroTile();
+            this.btnActualizarCliente = new MetroFramework.Controls.MetroTile();
+            this.btnEliminarCliente = new MetroFramework.Controls.MetroTile();
+            this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
+            this.dgvListaUsuarios = new MetroFramework.Controls.MetroGrid();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.radiobtnIngresarClienteCliente = new MetroFramework.Controls.MetroRadioButton();
+            this.radiobtnBuscarClienteCliente = new MetroFramework.Controls.MetroRadioButton();
+            this.txtBuscarClienteCliente = new MetroFramework.Controls.MetroTextBox();
+            this.txtBuscarUsuario = new MetroFramework.Controls.MetroLabel();
+            this.btnMostrarCliente = new MetroFramework.Controls.MetroTile();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.btnMostrarUsuariosUsuario = new MetroFramework.Controls.MetroButton();
             this.txtNombreUsuario = new MetroFramework.Controls.MetroTextBox();
@@ -106,13 +114,15 @@ namespace CapaGUI
             this.lblUsuarioEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
             this.lblNombreEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
             this.lblidEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
-            this.dgvListaUsuarios = new MetroFramework.Controls.MetroGrid();
             this.TAB.SuspendLayout();
             this.tabCliente.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
+            this.metroPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
+            this.metroPanel1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.tabEmpresaTransporte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // TAB
@@ -121,107 +131,60 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.metroTabPage2);
             this.TAB.Controls.Add(this.metroTabPage3);
             this.TAB.Controls.Add(this.tabEmpresaTransporte);
-            this.TAB.Location = new System.Drawing.Point(32, 132);
+            this.TAB.Location = new System.Drawing.Point(23, 87);
             this.TAB.Name = "TAB";
             this.TAB.SelectedIndex = 0;
-            this.TAB.Size = new System.Drawing.Size(699, 368);
+            this.TAB.Size = new System.Drawing.Size(713, 507);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
             // 
             // tabCliente
             // 
-            this.tabCliente.Controls.Add(this.btnSalirCliente);
-            this.tabCliente.Controls.Add(this.btnMostrarCliente);
-            this.tabCliente.Controls.Add(this.btnEliminarCliente);
-            this.tabCliente.Controls.Add(this.btnActualizarCliente);
-            this.tabCliente.Controls.Add(this.btnIngresarCliente);
-            this.tabCliente.Controls.Add(this.mcbTipoUsuarioCliente);
-            this.tabCliente.Controls.Add(this.mcbUsuarioCliente);
-            this.tabCliente.Controls.Add(this.mcbComunaCliente);
-            this.tabCliente.Controls.Add(this.txtGiroCliente);
-            this.tabCliente.Controls.Add(this.txtDireccionCliente);
-            this.tabCliente.Controls.Add(this.txtRazonSocialCliente);
-            this.tabCliente.Controls.Add(this.txtDvCliente);
-            this.tabCliente.Controls.Add(this.txtRutCliente);
-            this.tabCliente.Controls.Add(this.lblTipoUsuario);
-            this.tabCliente.Controls.Add(this.lblUsuario);
-            this.tabCliente.Controls.Add(this.lblComuna);
-            this.tabCliente.Controls.Add(this.lblGiro);
-            this.tabCliente.Controls.Add(this.lbldireccion);
-            this.tabCliente.Controls.Add(this.lblDv);
-            this.tabCliente.Controls.Add(this.lblRazonSocial);
-            this.tabCliente.Controls.Add(this.lblRut);
+            this.tabCliente.Controls.Add(this.metroPanel3);
+            this.tabCliente.Controls.Add(this.metroPanel2);
+            this.tabCliente.Controls.Add(this.dgvListaUsuarios);
+            this.tabCliente.Controls.Add(this.metroPanel1);
             this.tabCliente.HorizontalScrollbarBarColor = true;
             this.tabCliente.HorizontalScrollbarHighlightOnWheel = false;
             this.tabCliente.HorizontalScrollbarSize = 10;
             this.tabCliente.Location = new System.Drawing.Point(4, 38);
             this.tabCliente.Name = "tabCliente";
-            this.tabCliente.Size = new System.Drawing.Size(691, 326);
+            this.tabCliente.Size = new System.Drawing.Size(705, 465);
             this.tabCliente.TabIndex = 0;
             this.tabCliente.Text = "Cliente";
             this.tabCliente.VerticalScrollbarBarColor = true;
             this.tabCliente.VerticalScrollbarHighlightOnWheel = false;
             this.tabCliente.VerticalScrollbarSize = 10;
             // 
-            // btnSalirCliente
+            // metroPanel3
             // 
-            this.btnSalirCliente.ActiveControl = null;
-            this.btnSalirCliente.Location = new System.Drawing.Point(416, 203);
-            this.btnSalirCliente.Name = "btnSalirCliente";
-            this.btnSalirCliente.Size = new System.Drawing.Size(252, 40);
-            this.btnSalirCliente.TabIndex = 22;
-            this.btnSalirCliente.Text = "SALIR";
-            this.btnSalirCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSalirCliente.UseSelectable = true;
-            this.btnSalirCliente.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnMostrarCliente
-            // 
-            this.btnMostrarCliente.ActiveControl = null;
-            this.btnMostrarCliente.Location = new System.Drawing.Point(549, 125);
-            this.btnMostrarCliente.Name = "btnMostrarCliente";
-            this.btnMostrarCliente.Size = new System.Drawing.Size(119, 66);
-            this.btnMostrarCliente.TabIndex = 21;
-            this.btnMostrarCliente.Text = "Buscar";
-            this.btnMostrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnMostrarCliente.UseSelectable = true;
-            this.btnMostrarCliente.Click += new System.EventHandler(this.btnMostrarCliente_Click);
-            // 
-            // btnEliminarCliente
-            // 
-            this.btnEliminarCliente.ActiveControl = null;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(416, 125);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(127, 66);
-            this.btnEliminarCliente.TabIndex = 20;
-            this.btnEliminarCliente.Text = "Eliminar";
-            this.btnEliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnEliminarCliente.UseSelectable = true;
-            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
-            // 
-            // btnActualizarCliente
-            // 
-            this.btnActualizarCliente.ActiveControl = null;
-            this.btnActualizarCliente.Location = new System.Drawing.Point(549, 44);
-            this.btnActualizarCliente.Name = "btnActualizarCliente";
-            this.btnActualizarCliente.Size = new System.Drawing.Size(119, 67);
-            this.btnActualizarCliente.TabIndex = 19;
-            this.btnActualizarCliente.Text = "Actualizar";
-            this.btnActualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnActualizarCliente.UseSelectable = true;
-            this.btnActualizarCliente.Click += new System.EventHandler(this.btnActualizarCliente_Click);
-            // 
-            // btnIngresarCliente
-            // 
-            this.btnIngresarCliente.ActiveControl = null;
-            this.btnIngresarCliente.Location = new System.Drawing.Point(416, 44);
-            this.btnIngresarCliente.Name = "btnIngresarCliente";
-            this.btnIngresarCliente.Size = new System.Drawing.Size(127, 66);
-            this.btnIngresarCliente.TabIndex = 18;
-            this.btnIngresarCliente.Text = "Ingresar";
-            this.btnIngresarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnIngresarCliente.UseSelectable = true;
-            this.btnIngresarCliente.Click += new System.EventHandler(this.btnIngresarCliente_Click);
+            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.Controls.Add(this.mcbTipoUsuarioCliente);
+            this.metroPanel3.Controls.Add(this.mcbUsuarioCliente);
+            this.metroPanel3.Controls.Add(this.mcbComunaCliente);
+            this.metroPanel3.Controls.Add(this.txtGiroCliente);
+            this.metroPanel3.Controls.Add(this.txtDireccionCliente);
+            this.metroPanel3.Controls.Add(this.txtRazonSocialCliente);
+            this.metroPanel3.Controls.Add(this.txtDvCliente);
+            this.metroPanel3.Controls.Add(this.txtRutCliente);
+            this.metroPanel3.Controls.Add(this.lblTipoUsuario);
+            this.metroPanel3.Controls.Add(this.lblUsuario);
+            this.metroPanel3.Controls.Add(this.lblComuna);
+            this.metroPanel3.Controls.Add(this.lblGiro);
+            this.metroPanel3.Controls.Add(this.lbldireccion);
+            this.metroPanel3.Controls.Add(this.lblDv);
+            this.metroPanel3.Controls.Add(this.lblRazonSocial);
+            this.metroPanel3.Controls.Add(this.lblRut);
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(16, 33);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(325, 366);
+            this.metroPanel3.TabIndex = 25;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
             // 
             // mcbTipoUsuarioCliente
             // 
@@ -230,10 +193,10 @@ namespace CapaGUI
             this.mcbTipoUsuarioCliente.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.mcbTipoUsuarioCliente.Location = new System.Drawing.Point(136, 271);
+            this.mcbTipoUsuarioCliente.Location = new System.Drawing.Point(125, 274);
             this.mcbTipoUsuarioCliente.Name = "mcbTipoUsuarioCliente";
             this.mcbTipoUsuarioCliente.Size = new System.Drawing.Size(168, 29);
-            this.mcbTipoUsuarioCliente.TabIndex = 17;
+            this.mcbTipoUsuarioCliente.TabIndex = 33;
             this.mcbTipoUsuarioCliente.UseSelectable = true;
             // 
             // mcbUsuarioCliente
@@ -243,10 +206,10 @@ namespace CapaGUI
             this.mcbUsuarioCliente.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.mcbUsuarioCliente.Location = new System.Drawing.Point(97, 236);
+            this.mcbUsuarioCliente.Location = new System.Drawing.Point(86, 239);
             this.mcbUsuarioCliente.Name = "mcbUsuarioCliente";
             this.mcbUsuarioCliente.Size = new System.Drawing.Size(207, 29);
-            this.mcbUsuarioCliente.TabIndex = 16;
+            this.mcbUsuarioCliente.TabIndex = 32;
             this.mcbUsuarioCliente.UseSelectable = true;
             // 
             // mcbComunaCliente
@@ -256,10 +219,10 @@ namespace CapaGUI
             this.mcbComunaCliente.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.mcbComunaCliente.Location = new System.Drawing.Point(97, 197);
+            this.mcbComunaCliente.Location = new System.Drawing.Point(86, 200);
             this.mcbComunaCliente.Name = "mcbComunaCliente";
             this.mcbComunaCliente.Size = new System.Drawing.Size(207, 29);
-            this.mcbComunaCliente.TabIndex = 15;
+            this.mcbComunaCliente.TabIndex = 31;
             this.mcbComunaCliente.UseSelectable = true;
             // 
             // txtGiroCliente
@@ -277,7 +240,7 @@ namespace CapaGUI
             this.txtGiroCliente.CustomButton.UseSelectable = true;
             this.txtGiroCliente.CustomButton.Visible = false;
             this.txtGiroCliente.Lines = new string[0];
-            this.txtGiroCliente.Location = new System.Drawing.Point(97, 159);
+            this.txtGiroCliente.Location = new System.Drawing.Point(86, 162);
             this.txtGiroCliente.MaxLength = 32767;
             this.txtGiroCliente.Name = "txtGiroCliente";
             this.txtGiroCliente.PasswordChar = '\0';
@@ -287,7 +250,7 @@ namespace CapaGUI
             this.txtGiroCliente.SelectionStart = 0;
             this.txtGiroCliente.ShortcutsEnabled = true;
             this.txtGiroCliente.Size = new System.Drawing.Size(207, 23);
-            this.txtGiroCliente.TabIndex = 14;
+            this.txtGiroCliente.TabIndex = 30;
             this.txtGiroCliente.UseSelectable = true;
             this.txtGiroCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGiroCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -307,7 +270,7 @@ namespace CapaGUI
             this.txtDireccionCliente.CustomButton.UseSelectable = true;
             this.txtDireccionCliente.CustomButton.Visible = false;
             this.txtDireccionCliente.Lines = new string[0];
-            this.txtDireccionCliente.Location = new System.Drawing.Point(97, 121);
+            this.txtDireccionCliente.Location = new System.Drawing.Point(86, 124);
             this.txtDireccionCliente.MaxLength = 32767;
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.PasswordChar = '\0';
@@ -317,7 +280,7 @@ namespace CapaGUI
             this.txtDireccionCliente.SelectionStart = 0;
             this.txtDireccionCliente.ShortcutsEnabled = true;
             this.txtDireccionCliente.Size = new System.Drawing.Size(207, 23);
-            this.txtDireccionCliente.TabIndex = 13;
+            this.txtDireccionCliente.TabIndex = 29;
             this.txtDireccionCliente.UseSelectable = true;
             this.txtDireccionCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDireccionCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -337,7 +300,7 @@ namespace CapaGUI
             this.txtRazonSocialCliente.CustomButton.UseSelectable = true;
             this.txtRazonSocialCliente.CustomButton.Visible = false;
             this.txtRazonSocialCliente.Lines = new string[0];
-            this.txtRazonSocialCliente.Location = new System.Drawing.Point(108, 83);
+            this.txtRazonSocialCliente.Location = new System.Drawing.Point(97, 86);
             this.txtRazonSocialCliente.MaxLength = 32767;
             this.txtRazonSocialCliente.Name = "txtRazonSocialCliente";
             this.txtRazonSocialCliente.PasswordChar = '\0';
@@ -347,7 +310,7 @@ namespace CapaGUI
             this.txtRazonSocialCliente.SelectionStart = 0;
             this.txtRazonSocialCliente.ShortcutsEnabled = true;
             this.txtRazonSocialCliente.Size = new System.Drawing.Size(196, 23);
-            this.txtRazonSocialCliente.TabIndex = 12;
+            this.txtRazonSocialCliente.TabIndex = 28;
             this.txtRazonSocialCliente.UseSelectable = true;
             this.txtRazonSocialCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtRazonSocialCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -367,7 +330,7 @@ namespace CapaGUI
             this.txtDvCliente.CustomButton.UseSelectable = true;
             this.txtDvCliente.CustomButton.Visible = false;
             this.txtDvCliente.Lines = new string[0];
-            this.txtDvCliente.Location = new System.Drawing.Point(264, 41);
+            this.txtDvCliente.Location = new System.Drawing.Point(253, 44);
             this.txtDvCliente.MaxLength = 32767;
             this.txtDvCliente.Name = "txtDvCliente";
             this.txtDvCliente.PasswordChar = '\0';
@@ -377,7 +340,7 @@ namespace CapaGUI
             this.txtDvCliente.SelectionStart = 0;
             this.txtDvCliente.ShortcutsEnabled = true;
             this.txtDvCliente.Size = new System.Drawing.Size(38, 23);
-            this.txtDvCliente.TabIndex = 11;
+            this.txtDvCliente.TabIndex = 27;
             this.txtDvCliente.UseSelectable = true;
             this.txtDvCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDvCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -397,7 +360,7 @@ namespace CapaGUI
             this.txtRutCliente.CustomButton.UseSelectable = true;
             this.txtRutCliente.CustomButton.Visible = false;
             this.txtRutCliente.Lines = new string[0];
-            this.txtRutCliente.Location = new System.Drawing.Point(56, 41);
+            this.txtRutCliente.Location = new System.Drawing.Point(45, 44);
             this.txtRutCliente.MaxLength = 32767;
             this.txtRutCliente.Name = "txtRutCliente";
             this.txtRutCliente.PasswordChar = '\0';
@@ -407,7 +370,7 @@ namespace CapaGUI
             this.txtRutCliente.SelectionStart = 0;
             this.txtRutCliente.ShortcutsEnabled = true;
             this.txtRutCliente.Size = new System.Drawing.Size(167, 23);
-            this.txtRutCliente.TabIndex = 10;
+            this.txtRutCliente.TabIndex = 26;
             this.txtRutCliente.UseSelectable = true;
             this.txtRutCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtRutCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -415,74 +378,275 @@ namespace CapaGUI
             // lblTipoUsuario
             // 
             this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(25, 276);
+            this.lblTipoUsuario.Location = new System.Drawing.Point(14, 279);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
             this.lblTipoUsuario.Size = new System.Drawing.Size(105, 19);
-            this.lblTipoUsuario.TabIndex = 9;
+            this.lblTipoUsuario.TabIndex = 25;
             this.lblTipoUsuario.Text = "Tipo de Usuario:";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(25, 239);
+            this.lblUsuario.Location = new System.Drawing.Point(14, 242);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(56, 19);
-            this.lblUsuario.TabIndex = 8;
+            this.lblUsuario.TabIndex = 24;
             this.lblUsuario.Text = "Usuario:";
             // 
             // lblComuna
             // 
             this.lblComuna.AutoSize = true;
-            this.lblComuna.Location = new System.Drawing.Point(25, 201);
+            this.lblComuna.Location = new System.Drawing.Point(14, 204);
             this.lblComuna.Name = "lblComuna";
             this.lblComuna.Size = new System.Drawing.Size(62, 19);
-            this.lblComuna.TabIndex = 7;
+            this.lblComuna.TabIndex = 23;
             this.lblComuna.Text = "Comuna:";
             // 
             // lblGiro
             // 
             this.lblGiro.AutoSize = true;
-            this.lblGiro.Location = new System.Drawing.Point(25, 159);
+            this.lblGiro.Location = new System.Drawing.Point(14, 162);
             this.lblGiro.Name = "lblGiro";
             this.lblGiro.Size = new System.Drawing.Size(37, 19);
-            this.lblGiro.TabIndex = 6;
+            this.lblGiro.TabIndex = 22;
             this.lblGiro.Text = "Giro:";
             // 
             // lbldireccion
             // 
             this.lbldireccion.AutoSize = true;
-            this.lbldireccion.Location = new System.Drawing.Point(25, 121);
+            this.lbldireccion.Location = new System.Drawing.Point(14, 124);
             this.lbldireccion.Name = "lbldireccion";
             this.lbldireccion.Size = new System.Drawing.Size(66, 19);
-            this.lbldireccion.TabIndex = 5;
+            this.lbldireccion.TabIndex = 21;
             this.lbldireccion.Text = "Direccion:";
             // 
             // lblDv
             // 
             this.lblDv.AutoSize = true;
-            this.lblDv.Location = new System.Drawing.Point(229, 41);
+            this.lblDv.Location = new System.Drawing.Point(218, 44);
             this.lblDv.Name = "lblDv";
             this.lblDv.Size = new System.Drawing.Size(29, 19);
-            this.lblDv.TabIndex = 4;
+            this.lblDv.TabIndex = 20;
             this.lblDv.Text = "DV:";
             // 
             // lblRazonSocial
             // 
             this.lblRazonSocial.AutoSize = true;
-            this.lblRazonSocial.Location = new System.Drawing.Point(25, 83);
+            this.lblRazonSocial.Location = new System.Drawing.Point(14, 86);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(86, 19);
-            this.lblRazonSocial.TabIndex = 3;
+            this.lblRazonSocial.TabIndex = 19;
             this.lblRazonSocial.Text = "Razon Social:";
             // 
             // lblRut
             // 
             this.lblRut.AutoSize = true;
-            this.lblRut.Location = new System.Drawing.Point(25, 41);
+            this.lblRut.Location = new System.Drawing.Point(14, 44);
             this.lblRut.Name = "lblRut";
             this.lblRut.Size = new System.Drawing.Size(31, 19);
-            this.lblRut.TabIndex = 2;
+            this.lblRut.TabIndex = 18;
             this.lblRut.Text = "Rut:";
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel2.Controls.Add(this.btnIngresarCliente);
+            this.metroPanel2.Controls.Add(this.btnActualizarCliente);
+            this.metroPanel2.Controls.Add(this.btnEliminarCliente);
+            this.metroPanel2.Controls.Add(this.btnSalirCliente);
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(347, 189);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(348, 210);
+            this.metroPanel2.TabIndex = 24;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // btnIngresarCliente
+            // 
+            this.btnIngresarCliente.ActiveControl = null;
+            this.btnIngresarCliente.Location = new System.Drawing.Point(30, 32);
+            this.btnIngresarCliente.Name = "btnIngresarCliente";
+            this.btnIngresarCliente.Size = new System.Drawing.Size(148, 66);
+            this.btnIngresarCliente.TabIndex = 18;
+            this.btnIngresarCliente.Text = "Ingresar";
+            this.btnIngresarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnIngresarCliente.UseSelectable = true;
+            this.btnIngresarCliente.Click += new System.EventHandler(this.btnIngresarCliente_Click);
+            // 
+            // btnActualizarCliente
+            // 
+            this.btnActualizarCliente.ActiveControl = null;
+            this.btnActualizarCliente.Location = new System.Drawing.Point(192, 31);
+            this.btnActualizarCliente.Name = "btnActualizarCliente";
+            this.btnActualizarCliente.Size = new System.Drawing.Size(119, 67);
+            this.btnActualizarCliente.TabIndex = 19;
+            this.btnActualizarCliente.Text = "Actualizar";
+            this.btnActualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnActualizarCliente.UseSelectable = true;
+            this.btnActualizarCliente.Click += new System.EventHandler(this.btnActualizarCliente_Click);
+            // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.ActiveControl = null;
+            this.btnEliminarCliente.Location = new System.Drawing.Point(30, 113);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(148, 66);
+            this.btnEliminarCliente.TabIndex = 20;
+            this.btnEliminarCliente.Text = "Eliminar";
+            this.btnEliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEliminarCliente.UseSelectable = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
+            // btnSalirCliente
+            // 
+            this.btnSalirCliente.ActiveControl = null;
+            this.btnSalirCliente.Location = new System.Drawing.Point(192, 113);
+            this.btnSalirCliente.Name = "btnSalirCliente";
+            this.btnSalirCliente.Size = new System.Drawing.Size(119, 66);
+            this.btnSalirCliente.TabIndex = 22;
+            this.btnSalirCliente.Text = "SALIR";
+            this.btnSalirCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSalirCliente.UseSelectable = true;
+            this.btnSalirCliente.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // dgvListaUsuarios
+            // 
+            this.dgvListaUsuarios.AllowUserToResizeRows = false;
+            this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvListaUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUsuarios.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvListaUsuarios.EnableHeadersVisualStyles = false;
+            this.dgvListaUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvListaUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaUsuarios.Location = new System.Drawing.Point(16, 402);
+            this.dgvListaUsuarios.Name = "dgvListaUsuarios";
+            this.dgvListaUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListaUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaUsuarios.Size = new System.Drawing.Size(679, 124);
+            this.dgvListaUsuarios.TabIndex = 2;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.radiobtnIngresarClienteCliente);
+            this.metroPanel1.Controls.Add(this.radiobtnBuscarClienteCliente);
+            this.metroPanel1.Controls.Add(this.txtBuscarClienteCliente);
+            this.metroPanel1.Controls.Add(this.txtBuscarUsuario);
+            this.metroPanel1.Controls.Add(this.btnMostrarCliente);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(347, 33);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(348, 135);
+            this.metroPanel1.TabIndex = 23;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // radiobtnIngresarClienteCliente
+            // 
+            this.radiobtnIngresarClienteCliente.AutoSize = true;
+            this.radiobtnIngresarClienteCliente.Location = new System.Drawing.Point(168, 20);
+            this.radiobtnIngresarClienteCliente.Name = "radiobtnIngresarClienteCliente";
+            this.radiobtnIngresarClienteCliente.Size = new System.Drawing.Size(143, 15);
+            this.radiobtnIngresarClienteCliente.TabIndex = 28;
+            this.radiobtnIngresarClienteCliente.Text = "Ingresar Nuevo Cliente";
+            this.radiobtnIngresarClienteCliente.UseSelectable = true;
+            this.radiobtnIngresarClienteCliente.CheckedChanged += new System.EventHandler(this.radiobtnIngresarClienteCliente_CheckedChanged);
+            // 
+            // radiobtnBuscarClienteCliente
+            // 
+            this.radiobtnBuscarClienteCliente.AutoSize = true;
+            this.radiobtnBuscarClienteCliente.Location = new System.Drawing.Point(30, 20);
+            this.radiobtnBuscarClienteCliente.Name = "radiobtnBuscarClienteCliente";
+            this.radiobtnBuscarClienteCliente.Size = new System.Drawing.Size(98, 15);
+            this.radiobtnBuscarClienteCliente.TabIndex = 27;
+            this.radiobtnBuscarClienteCliente.Text = "Buscar Cliente";
+            this.radiobtnBuscarClienteCliente.UseSelectable = true;
+            this.radiobtnBuscarClienteCliente.CheckedChanged += new System.EventHandler(this.radiobtnBuscarClienteCliente_CheckedChanged);
+            // 
+            // txtBuscarClienteCliente
+            // 
+            // 
+            // 
+            // 
+            this.txtBuscarClienteCliente.CustomButton.Image = null;
+            this.txtBuscarClienteCliente.CustomButton.Location = new System.Drawing.Point(117, 1);
+            this.txtBuscarClienteCliente.CustomButton.Name = "";
+            this.txtBuscarClienteCliente.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBuscarClienteCliente.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBuscarClienteCliente.CustomButton.TabIndex = 1;
+            this.txtBuscarClienteCliente.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBuscarClienteCliente.CustomButton.UseSelectable = true;
+            this.txtBuscarClienteCliente.CustomButton.Visible = false;
+            this.txtBuscarClienteCliente.Lines = new string[0];
+            this.txtBuscarClienteCliente.Location = new System.Drawing.Point(92, 74);
+            this.txtBuscarClienteCliente.MaxLength = 32767;
+            this.txtBuscarClienteCliente.Name = "txtBuscarClienteCliente";
+            this.txtBuscarClienteCliente.PasswordChar = '\0';
+            this.txtBuscarClienteCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscarClienteCliente.SelectedText = "";
+            this.txtBuscarClienteCliente.SelectionLength = 0;
+            this.txtBuscarClienteCliente.SelectionStart = 0;
+            this.txtBuscarClienteCliente.ShortcutsEnabled = true;
+            this.txtBuscarClienteCliente.Size = new System.Drawing.Size(139, 23);
+            this.txtBuscarClienteCliente.TabIndex = 26;
+            this.txtBuscarClienteCliente.UseSelectable = true;
+            this.txtBuscarClienteCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBuscarClienteCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // txtBuscarUsuario
+            // 
+            this.txtBuscarUsuario.AutoSize = true;
+            this.txtBuscarUsuario.Location = new System.Drawing.Point(17, 76);
+            this.txtBuscarUsuario.Name = "txtBuscarUsuario";
+            this.txtBuscarUsuario.Size = new System.Drawing.Size(62, 19);
+            this.txtBuscarUsuario.TabIndex = 25;
+            this.txtBuscarUsuario.Text = "BUSCAR:";
+            // 
+            // btnMostrarCliente
+            // 
+            this.btnMostrarCliente.ActiveControl = null;
+            this.btnMostrarCliente.Location = new System.Drawing.Point(241, 65);
+            this.btnMostrarCliente.Name = "btnMostrarCliente";
+            this.btnMostrarCliente.Size = new System.Drawing.Size(85, 39);
+            this.btnMostrarCliente.TabIndex = 24;
+            this.btnMostrarCliente.Text = "Buscar";
+            this.btnMostrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMostrarCliente.UseSelectable = true;
+            this.btnMostrarCliente.Click += new System.EventHandler(this.btnMostrarCliente_Click_1);
             // 
             // metroTabPage2
             // 
@@ -509,7 +673,7 @@ namespace CapaGUI
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(691, 326);
+            this.metroTabPage2.Size = new System.Drawing.Size(705, 465);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Usuario";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -793,7 +957,7 @@ namespace CapaGUI
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(691, 326);
+            this.metroTabPage3.Size = new System.Drawing.Size(705, 465);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Productor";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -1117,7 +1281,7 @@ namespace CapaGUI
             this.tabEmpresaTransporte.HorizontalScrollbarSize = 10;
             this.tabEmpresaTransporte.Location = new System.Drawing.Point(4, 38);
             this.tabEmpresaTransporte.Name = "tabEmpresaTransporte";
-            this.tabEmpresaTransporte.Size = new System.Drawing.Size(691, 326);
+            this.tabEmpresaTransporte.Size = new System.Drawing.Size(705, 465);
             this.tabEmpresaTransporte.TabIndex = 3;
             this.tabEmpresaTransporte.Text = "Empresa de Transporte";
             this.tabEmpresaTransporte.VerticalScrollbarBarColor = true;
@@ -1300,68 +1464,31 @@ namespace CapaGUI
             this.lblidEmpresaTransporte.TabIndex = 2;
             this.lblidEmpresaTransporte.Text = "ID Empresa:";
             // 
-            // dgvListaUsuarios
-            // 
-            this.dgvListaUsuarios.AllowUserToResizeRows = false;
-            this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvListaUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvListaUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvListaUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaUsuarios.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dgvListaUsuarios.EnableHeadersVisualStyles = false;
-            this.dgvListaUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvListaUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvListaUsuarios.Location = new System.Drawing.Point(61, 569);
-            this.dgvListaUsuarios.Name = "dgvListaUsuarios";
-            this.dgvListaUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
-            this.dgvListaUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaUsuarios.Size = new System.Drawing.Size(631, 150);
-            this.dgvListaUsuarios.TabIndex = 2;
-            // 
             // MantenedorUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 753);
-            this.Controls.Add(this.dgvListaUsuarios);
+            this.ClientSize = new System.Drawing.Size(764, 670);
             this.Controls.Add(this.TAB);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MantenedorUsuario";
             this.Text = "Administrador de Cuentas";
+            this.Load += new System.EventHandler(this.MantenedorUsuario_Load);
             this.TAB.ResumeLayout(false);
             this.tabCliente.ResumeLayout(false);
-            this.tabCliente.PerformLayout();
+            this.metroPanel3.ResumeLayout(false);
+            this.metroPanel3.PerformLayout();
+            this.metroPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
             this.metroTabPage3.ResumeLayout(false);
             this.metroTabPage3.PerformLayout();
             this.tabEmpresaTransporte.ResumeLayout(false);
             this.tabEmpresaTransporte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1374,24 +1501,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTabPage metroTabPage3;
         private MetroFramework.Controls.MetroTile btnActualizarCliente;
         private MetroFramework.Controls.MetroTile btnIngresarCliente;
-        private MetroFramework.Controls.MetroComboBox mcbTipoUsuarioCliente;
-        private MetroFramework.Controls.MetroComboBox mcbUsuarioCliente;
-        private MetroFramework.Controls.MetroComboBox mcbComunaCliente;
-        private MetroFramework.Controls.MetroTextBox txtGiroCliente;
-        private MetroFramework.Controls.MetroTextBox txtDireccionCliente;
-        private MetroFramework.Controls.MetroTextBox txtRazonSocialCliente;
-        private MetroFramework.Controls.MetroTextBox txtDvCliente;
-        private MetroFramework.Controls.MetroTextBox txtRutCliente;
-        private MetroFramework.Controls.MetroLabel lblTipoUsuario;
-        private MetroFramework.Controls.MetroLabel lblUsuario;
-        private MetroFramework.Controls.MetroLabel lblComuna;
-        private MetroFramework.Controls.MetroLabel lblGiro;
-        private MetroFramework.Controls.MetroLabel lbldireccion;
-        private MetroFramework.Controls.MetroLabel lblDv;
-        private MetroFramework.Controls.MetroLabel lblRazonSocial;
-        private MetroFramework.Controls.MetroLabel lblRut;
         private MetroFramework.Controls.MetroTile btnSalirCliente;
-        private MetroFramework.Controls.MetroTile btnMostrarCliente;
         private MetroFramework.Controls.MetroTile btnEliminarCliente;
         private MetroFramework.Controls.MetroTextBox txtIdUsuario;
         private MetroFramework.Controls.MetroLabel lblPerfilUsuario;
@@ -1443,5 +1553,29 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroLabel lblidEmpresaTransporte;
         private MetroFramework.Controls.MetroGrid dgvListaUsuarios;
         private MetroFramework.Controls.MetroButton btnMostrarUsuariosUsuario;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
+        private MetroFramework.Controls.MetroComboBox mcbTipoUsuarioCliente;
+        private MetroFramework.Controls.MetroComboBox mcbUsuarioCliente;
+        private MetroFramework.Controls.MetroComboBox mcbComunaCliente;
+        private MetroFramework.Controls.MetroTextBox txtGiroCliente;
+        private MetroFramework.Controls.MetroTextBox txtDireccionCliente;
+        private MetroFramework.Controls.MetroTextBox txtRazonSocialCliente;
+        private MetroFramework.Controls.MetroTextBox txtDvCliente;
+        private MetroFramework.Controls.MetroTextBox txtRutCliente;
+        private MetroFramework.Controls.MetroLabel lblTipoUsuario;
+        private MetroFramework.Controls.MetroLabel lblUsuario;
+        private MetroFramework.Controls.MetroLabel lblComuna;
+        private MetroFramework.Controls.MetroLabel lblGiro;
+        private MetroFramework.Controls.MetroLabel lbldireccion;
+        private MetroFramework.Controls.MetroLabel lblDv;
+        private MetroFramework.Controls.MetroLabel lblRazonSocial;
+        private MetroFramework.Controls.MetroLabel lblRut;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroRadioButton radiobtnIngresarClienteCliente;
+        private MetroFramework.Controls.MetroRadioButton radiobtnBuscarClienteCliente;
+        private MetroFramework.Controls.MetroTextBox txtBuscarClienteCliente;
+        private MetroFramework.Controls.MetroLabel txtBuscarUsuario;
+        private MetroFramework.Controls.MetroTile btnMostrarCliente;
     }
 }
