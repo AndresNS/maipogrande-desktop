@@ -35,5 +35,18 @@ namespace CapaGUI
             VistaControldeContratos ven = new VistaControldeContratos();
             ven.ShowDialog();
         }
+
+        private void btnIngresarVenta_Click(object sender, EventArgs e)
+        {
+            VistaIngresoProcesoVenta ven = new VistaIngresoProcesoVenta();
+            ven.ShowDialog();
+
+        }
+
+        private void btnGenerarReportes_Click(object sender, EventArgs e)
+        {
+            VistaReportes ven = new VistaReportes();
+            ven.ShowDialog();
+        }
     }
 }

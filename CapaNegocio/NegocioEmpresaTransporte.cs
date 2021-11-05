@@ -7,6 +7,7 @@ using CapaConexion;
 using CapaDTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -18,50 +19,92 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipo_grande";
-            this.con.NombreTabla = "EMPRESA_TRANSPORTE";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipo_grande";
+                this.con.NombreTabla = "EMPRESA_TRANSPORTE";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:001EMP NAME:NEGOCIO EMPRESA TRANSPORTE " + ex);
+            }
         }
         public DataSet retornarEmpresasTranporte()
         {
-            this.configurarConexion();
-            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
-            this.con.EsSelect = true;
-            this.con.conectar();
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
 
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:002EMP NAME:NEGOCIO EMPRESA TRANSPORTE " + ex);
+            }
             return this.con.DbDataSet;
         }
 
         public void IngresarEmpresaTransporte(EmpresaTransporte empTransporte)
         {
-            this.configurarConexion();
-            String[] parametros = { "NOMBRE_EMPRESA", "ID_USUARIO" };
-            OracleDbType[] tipos = { OracleDbType.Varchar2, OracleDbType.Int32 };
-            Object[] valores = { empTransporte.NombreEmpresa, empTransporte.IdUsuario};
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "NOMBRE_EMPRESA", "ID_USUARIO" };
+                OracleDbType[] tipos = { OracleDbType.Varchar2, OracleDbType.Int32 };
+                Object[] valores = { empTransporte.NombreEmpresa, empTransporte.IdUsuario };
 
-            this.con.ejecutarProcedimiento("SP_INGRESAR_EMPRESA_TRANSP", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_INGRESAR_EMPRESA_TRANSP", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:003EMP NAME:NEGOCIO EMPRESA TRANSPORTE " + ex);
+            }
         }
 
         public void eliminarEmpresaTransporte(int idEmpresa)
         {
-            this.configurarConexion();
-            String[] parametros = { "ID" };
-            OracleDbType[] tipos = { OracleDbType.Int32 };
-            Object[] valores = { idEmpresa };
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "ID" };
+                OracleDbType[] tipos = { OracleDbType.Int32 };
+                Object[] valores = { idEmpresa };
 
-            this.con.ejecutarProcedimiento("SP_ELIMINAR_EMPRESA_TRANSPORTE", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ELIMINAR_EMPRESA_TRANSPORTE", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:004EMP NAME:NEGOCIO EMPRESA TRANSPORTE " + ex);
+            }
         }
 
         public void actualizarEmpresaTransporte(EmpresaTransporte empTransporte)
         {
-            this.configurarConexion();
-            String[] parametros = { "ID", "NOMBRE", "USUARIO" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32 };
-            Object[] valores = { empTransporte.IdEmpresa, empTransporte.NombreEmpresa, empTransporte.IdUsuario };
+            try
+            {
 
-            this.con.ejecutarProcedimiento("SP_ACTUALIZAR_EMPRESA_TRANSP", parametros, tipos, valores);
+                this.configurarConexion();
+                String[] parametros = { "ID", "NOMBRE", "USUARIO" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Int32 };
+                Object[] valores = { empTransporte.IdEmpresa, empTransporte.NombreEmpresa, empTransporte.IdUsuario };
+
+                this.con.ejecutarProcedimiento("SP_ACTUALIZAR_EMPRESA_TRANSP", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:004EMP NAME:NEGOCIO EMPRESA TRANSPORTE " + ex);
+            }
         }
 
 

@@ -19,18 +19,34 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipo_grande";
-            this.con.NombreTabla = "PRODUCTOR";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipo_grande";
+                this.con.NombreTabla = "PRODUCTOR";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:001CTOR NAME:NEGOCIO PRODUCTOR " + ex);
+            }
         }
         public DataSet retornarProductores()
         {
-            this.configurarConexion();
-            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
-            this.con.EsSelect = true;
-            this.con.conectar();
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:002CTOR NAME:NEGOCIO PRODUCTOR  " + ex);
+            }
 
             return this.con.DbDataSet;
         }
@@ -48,19 +64,30 @@ namespace CapaNegocio
             }
             catch (Exception exingresoproductor)
             {
-                MessageBox.Show("Error en la Ejecucion del SP:" + exingresoproductor);
+                MessageBox.Show("ERROR ID:003CTOR NAME:NEGOCIO PRODUCTOR  " + exingresoproductor);
             }
         
         }
 
         public void eliminarProductor(int rutProductor)
         {
-            this.configurarConexion();
-            String[] parametros = { "RUTP" };
-            OracleDbType[] tipos = { OracleDbType.Int32 };
-            Object[] valores = { rutProductor };
+            try
+            {
 
-            this.con.ejecutarProcedimiento("SP_ELIMINAR_PRODUCTOR", parametros, tipos, valores);
+
+                this.configurarConexion();
+                String[] parametros = { "RUTP" };
+                OracleDbType[] tipos = { OracleDbType.Int32 };
+                Object[] valores = { rutProductor };
+
+                this.con.ejecutarProcedimiento("SP_ELIMINAR_PRODUCTOR", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:004CTOR NAME:NEGOCIO PRODUCTOR  " + ex);
+            }
+
         }
 
         public void actualizarProductor(Productor productor)
@@ -76,7 +103,7 @@ namespace CapaNegocio
             }
             catch (Exception exactualizarProductor)
             {
-                MessageBox.Show("ERROR AL EJECUTAR SP: " + exactualizarProductor);
+                MessageBox.Show("ERROR ID:005CTOR NAME:NEGOCIO PRODUCTOR " + exactualizarProductor);
 
             }
       

@@ -7,6 +7,7 @@ using CapaDTO;
 using CapaConexion;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -18,18 +19,33 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipo_grande";
-            this.con.NombreTabla = "CALIDAD";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipo_grande";
+                this.con.NombreTabla = "CALIDAD";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+            catch (Exception exconfiguracionconexion)
+            {
+                MessageBox.Show("ERROR ID:01CAL NAME:NEGOCIO CALIDAD " +exconfiguracionconexion);
+            }
+            
         }
         public DataSet retornarCalidades()
         {
-            this.configurarConexion();
-            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
-            this.con.EsSelect = true;
-            this.con.conectar();
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
+            catch (Exception exretornarcalidad)
+            {
+                MessageBox.Show("ERROR ID:02CAL NAME:NEGOCIO CALIDAD " + exretornarcalidad);
+            }
 
             return this.con.DbDataSet;
         }

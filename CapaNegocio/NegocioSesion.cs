@@ -17,11 +17,19 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipogrande";
-            this.con.NombreTabla = "USUARIO";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipogrande";
+                this.con.NombreTabla = "USUARIO";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:001SES NAME:NEGOCIO SESION  " + ex);
+            }
         }
 
         public Boolean IngresoSistema(Sesion ingreso)
@@ -45,7 +53,7 @@ namespace CapaNegocio
             }
             catch(Exception ex)
             {
-                MessageBox.Show(" Error al ingresar CODIGO: Login001 "  +ex);
+                MessageBox.Show("ERROR ID:002SES NAME:NEGOCIO SESION  " + ex);
                 return false;
             }
 

@@ -160,6 +160,8 @@ namespace CapaGUI
             this.Controls.Add(this.lblcontraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.picBoxUser)).EndInit();
             this.ResumeLayout(false);

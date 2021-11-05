@@ -20,18 +20,34 @@ namespace CapaNegocio
 
         public void configurarConexion()
         {
-            this.con = new Conexion();
+            try
+            {
+                this.con = new Conexion();
 
-            this.con.NombreBaseDeDatos = "maipo_grande";
-            this.con.NombreTabla = "CLIENTE";
-            this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+                this.con.NombreBaseDeDatos = "maipo_grande";
+                this.con.NombreTabla = "CLIENTE";
+                this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("ERROR ID:001CLI NAME:NEGOCIO CLIENTE " + ex);
+            }
+            
         }
         public DataSet retornarClientes()
         {
-            this.configurarConexion();
-            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
-            this.con.EsSelect = true;
-            this.con.conectar();
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:002CLI NAME:NEGOCIO CLIENTE " + ex);
+            }
+
 
             return this.con.DbDataSet;
         }
@@ -51,31 +67,47 @@ namespace CapaNegocio
 
             catch (Exception exingresocliente)
             {
-                MessageBox.Show("Error en la Ejecucion del SP:"  + exingresocliente);
+                MessageBox.Show("ERROR ID:003CLI NAME:NEGOCIO CLIENTE" + exingresocliente);
             }
 
         }
 
         public void eliminarCliente(int rut)
         {
-            this.configurarConexion();
+            try
+            {
+                this.configurarConexion();
 
-            this.configurarConexion();
-            String[] parametros = { "RUT" };
-            OracleDbType[] tipos = { OracleDbType.Int32 };
-            Object[] valores = { rut };
+                this.configurarConexion();
+                String[] parametros = { "RUT" };
+                OracleDbType[] tipos = { OracleDbType.Int32 };
+                Object[] valores = { rut };
 
-            this.con.ejecutarProcedimiento("SP_ELIMINAR_CLIENTE", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ELIMINAR_CLIENTE", parametros, tipos, valores);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:004CLI NAME:NEGOCIO CLIENTE " + ex);
+            }
+
         }
 
         public void actualizarCliente(Cliente cliente)
         {
-            this.configurarConexion();
-            String[] parametros = { "RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO", "ID_TIPO" };
-            OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Int32 };
-            Object[] valores = { cliente.Rut, cliente.DvRut, cliente.RazonSocial, cliente.Direccion, cliente.Giro, cliente.IdComuna, cliente.IdUsuario, cliente.IdTipo };
+            try
+            {
+                this.configurarConexion();
+                String[] parametros = { "RUT", "DV_RUT", "RAZON_SOCIAL", "DIRECCION", "GIRO", "ID_COMUNA", "ID_USUARIO", "ID_TIPO" };
+                OracleDbType[] tipos = { OracleDbType.Int32, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Varchar2, OracleDbType.Int32, OracleDbType.Int32, OracleDbType.Int32 };
+                Object[] valores = { cliente.Rut, cliente.DvRut, cliente.RazonSocial, cliente.Direccion, cliente.Giro, cliente.IdComuna, cliente.IdUsuario, cliente.IdTipo };
 
-            this.con.ejecutarProcedimiento("SP_ACTUALIZAR_CLIENTE", parametros, tipos, valores);
+                this.con.ejecutarProcedimiento("SP_ACTUALIZAR_CLIENTE", parametros, tipos, valores);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR ID:005CLI NAME:NEGOCIO CLIENTE " + ex);
+            }
         }
 
 
@@ -101,11 +133,10 @@ namespace CapaNegocio
                 cliente.IdComuna = (short)dt.Rows[0]["ID_COMUNA"];
                 cliente.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
                 cliente.IdTipo = (short)dt.Rows[0]["ID_TIPO"];
-            }
+        }
             catch (Exception ex)
             {
-                Cliente auxCliente = new Cliente();
-                return auxCliente;
+                MessageBox.Show("ERROR ID:006CLI NAME:NEGOCIO CLIENTE " + ex);
             }
 
             return cliente;
