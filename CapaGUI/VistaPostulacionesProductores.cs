@@ -23,5 +23,29 @@ namespace CapaGUI
             InitializeComponent();
             this.IdProcesoVenta = idProcesoVenta;
         }
+
+        private void VistaPostulacionesProductores_Load(object sender, EventArgs e)
+        {
+            // Cargar Postulaciones de Productores
+            //NegocioCabeceraSubastaTransporte negocioCabeceraSubasta = new NegocioCabeceraSubastaTransporte();
+            //CabeceraSubastaTransporte subastaTransporte = negocioCabeceraSubasta.buscarSubastaTransporteDeProcesoVenta(this.IdProcesoVenta);
+
+            //NegocioDetalleSubastaTransporte negocioDetalleSubastaTransporte = new NegocioDetalleSubastaTransporte();
+            //DataSet listaSubastasTransporte = negocioDetalleSubastaTransporte.ListarDetallesSubasta(subastaTransporte.IdCabeceraSubasta);
+
+            //this.dgvListaSubastasTransporte.AutoGenerateColumns = true;
+            //this.dgvListaSubastasTransporte.DataSource = listaSubastasTransporte.Tables["DETALLE_SUBASTA"];
+
+        }
+
+        private void btnVerDetalles_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSeleccionarTransporte_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
