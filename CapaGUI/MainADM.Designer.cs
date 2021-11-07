@@ -46,7 +46,7 @@ namespace CapaGUI
             this.btnIngresarVenta.Name = "btnIngresarVenta";
             this.btnIngresarVenta.Size = new System.Drawing.Size(238, 135);
             this.btnIngresarVenta.TabIndex = 1;
-            this.btnIngresarVenta.Text = "Ingresar Proceso de Ventas\r\n";
+            this.btnIngresarVenta.Text = "Procesos de Venta";
             this.btnIngresarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIngresarVenta.UseSelectable = true;
             this.btnIngresarVenta.Click += new System.EventHandler(this.btnIngresarVenta_Click);

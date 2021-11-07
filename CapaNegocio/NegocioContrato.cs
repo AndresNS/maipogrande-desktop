@@ -124,8 +124,6 @@ namespace CapaNegocio
                 contrato.FechaInicio = (DateTime)dt.Rows[0]["FECHA_INICIO"];
                 contrato.FechaTermino = (DateTime)dt.Rows[0]["FECHA_TERMINO"];
                 contrato.RutProductor = (int)dt.Rows[0]["RUT_PRODUCTOR"];
-                Contrato auxContrato = new Contrato();
-                return auxContrato;
             }
             catch (Exception ex)
             {

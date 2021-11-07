@@ -38,9 +38,8 @@ namespace CapaGUI
 
         private void btnIngresarVenta_Click(object sender, EventArgs e)
         {
-            VistaIngresoProcesoVenta ven = new VistaIngresoProcesoVenta();
+            VistaProcesosVenta ven = new VistaProcesosVenta();
             ven.ShowDialog();
-
         }
 
         private void btnGenerarReportes_Click(object sender, EventArgs e)

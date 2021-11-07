@@ -213,6 +213,7 @@ namespace CapaGUI
             this.btnIngresarContratos.Text = "Ingresar";
             this.btnIngresarContratos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIngresarContratos.UseSelectable = true;
+            this.btnIngresarContratos.Click += new System.EventHandler(this.btnIngresarContratos_Click);
             // 
             // VistaControldeContratos
             // 

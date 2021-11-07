@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VistaDetalleProcesoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaDetalleProcesoVenta.Designer.cs">
+      <DependentUpon>VistaDetalleProcesoVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testGUI.cs">
@@ -124,11 +130,11 @@
     <Compile Include="VistaDistribuirProductos.Designer.cs">
       <DependentUpon>VistaDistribuirProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaIngresoProcesoVenta.cs">
+    <Compile Include="VistaListadoProcesosVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistaIngresoProcesoVenta.Designer.cs">
-      <DependentUpon>VistaIngresoProcesoVenta.cs</DependentUpon>
+    <Compile Include="VistaListadoProcesosVenta.Designer.cs">
+      <DependentUpon>VistaListadoProcesosVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaReportes.cs">
       <SubType>Form</SubType>
@@ -158,11 +164,14 @@
     <EmbeddedResource Include="VistaControldeContratos.resx">
       <DependentUpon>VistaControldeContratos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistaDetalleProcesoVenta.resx">
+      <DependentUpon>VistaDetalleProcesoVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaDistribuirProductos.resx">
       <DependentUpon>VistaDistribuirProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistaIngresoProcesoVenta.resx">
-      <DependentUpon>VistaIngresoProcesoVenta.cs</DependentUpon>
+    <EmbeddedResource Include="VistaListadoProcesosVenta.resx">
+      <DependentUpon>VistaListadoProcesosVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaReportes.resx">
       <DependentUpon>VistaReportes.cs</DependentUpon>

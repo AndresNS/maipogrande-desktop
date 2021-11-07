@@ -27,5 +27,10 @@ namespace CapaGUI
             this.Close();
             this.Dispose();
         }
+
+        private void btnIngresarContratos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
