@@ -136,6 +136,18 @@
     <Compile Include="VistaListadoProcesosVenta.Designer.cs">
       <DependentUpon>VistaListadoProcesosVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaPostulacionesProductores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaPostulacionesProductores.Designer.cs">
+      <DependentUpon>VistaPostulacionesProductores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPostulacionesTransporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaPostulacionesTransporte.Designer.cs">
+      <DependentUpon>VistaPostulacionesTransporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VistaListadoProcesosVenta.resx">
       <DependentUpon>VistaListadoProcesosVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaPostulacionesProductores.resx">
+      <DependentUpon>VistaPostulacionesProductores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaPostulacionesTransporte.resx">
+      <DependentUpon>VistaPostulacionesTransporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaReportes.resx">
       <DependentUpon>VistaReportes.cs</DependentUpon>
