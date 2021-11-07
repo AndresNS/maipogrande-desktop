@@ -80,5 +80,15 @@ namespace CapaNegocio
             return procesoVenta;
         }
 
+        public void asignarTransporte(int idCabeceraProcesoVenta, int idTransporte)
+        {
+            this.configurarConexion();
+            this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla +
+                                 " SET EMPRESA_TRANS = " + idTransporte +
+                                 " WHERE ID_CABECERA_PV = " + idCabeceraProcesoVenta;
+            this.con.EsSelect = false;
+            this.con.conectar();
+        }
+
     }
 }

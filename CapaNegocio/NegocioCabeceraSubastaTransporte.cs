@@ -69,6 +69,7 @@ namespace CapaNegocio
                 subastaTransporte.FechaLimiteEntrega = (DateTime)dt.Rows[0]["FECHA_LIMITE_ENTREGA"];
                 subastaTransporte.IdComuna= (short)dt.Rows[0]["ID_COMUNA"];
                 subastaTransporte.IdCabeceraProcesoVenta = (int)dt.Rows[0]["ID_CABECERA_PV"];
+                subastaTransporte.IdEstadoSubasta = (int)dt.Rows[0]["ID_ESTADO_SUBASTA"];
             }
             catch (Exception ex)
             {
@@ -77,6 +78,45 @@ namespace CapaNegocio
             }
 
             return subastaTransporte;
+        }
+
+        public CabeceraSubastaTransporte buscarSubastaTransporteDeProcesoVenta(int idProcesoVenta)
+        {
+            CabeceraSubastaTransporte subastaTransporte = new CabeceraSubastaTransporte();
+            this.configurarConexion();
+            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
+                                   + "WHERE ID_CABECERA_PV = " + idProcesoVenta;
+            this.con.EsSelect = true;
+            this.con.conectar();
+
+            DataTable dt = new DataTable();
+            dt = this.con.DbDataSet.Tables[this.con.NombreTabla];
+
+            try
+            {
+                subastaTransporte.IdCabeceraSubasta = (int)dt.Rows[0]["ID_CABECERA_SUBASTA"];
+                subastaTransporte.FechaLimiteEntrega = (DateTime)dt.Rows[0]["FECHA_LIMITE_ENTREGA"];
+                subastaTransporte.IdComuna = (short)dt.Rows[0]["ID_COMUNA"];
+                subastaTransporte.IdCabeceraProcesoVenta = (int)dt.Rows[0]["ID_CABECERA_PV"];
+                subastaTransporte.IdEstadoSubasta = (int)dt.Rows[0]["ID_ESTADO_SUBASTA"];
+            }
+            catch (Exception ex)
+            {
+                CabeceraSubastaTransporte auxCabeceraSubastaTransporte = new CabeceraSubastaTransporte();
+                return auxCabeceraSubastaTransporte;
+            }
+
+            return subastaTransporte;
+        }
+
+        public void cerrarSubasta(int idCabeceraProcesoVenta)
+        {
+            this.configurarConexion();
+            this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla +
+                                 " SET ID_ESTADO_SUBASTA = 2" +
+                                 " WHERE ID_CABECERA_SUBASTA = " + idCabeceraProcesoVenta;
+            this.con.EsSelect = false;
+            this.con.conectar();
         }
     }
 }
