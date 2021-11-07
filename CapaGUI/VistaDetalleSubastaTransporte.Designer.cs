@@ -1,7 +1,7 @@
 ﻿
 namespace CapaGUI
 {
-    partial class VistaPostulacionesTransporte
+    partial class VistaDetalleSubastaTransporte
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace CapaGUI
         {
             this.SuspendLayout();
             // 
-            // VistaPostulacionesTransporte
+            // VistaDetalleSubastaTransporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "VistaPostulacionesTransporte";
-            this.Text = "Postulaciones de Transporte";
+            this.Name = "VistaDetalleSubastaTransporte";
+            this.Text = "Subasta de Transporte";
             this.ResumeLayout(false);
 
         }

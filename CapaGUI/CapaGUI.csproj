@@ -142,11 +142,11 @@
     <Compile Include="VistaPostulacionesProductores.Designer.cs">
       <DependentUpon>VistaPostulacionesProductores.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaPostulacionesTransporte.cs">
+    <Compile Include="VistaSubastasTransporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistaPostulacionesTransporte.Designer.cs">
-      <DependentUpon>VistaPostulacionesTransporte.cs</DependentUpon>
+    <Compile Include="VistaSubastasTransporte.Designer.cs">
+      <DependentUpon>VistaSubastasTransporte.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaReportes.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="VistaPostulacionesProductores.resx">
       <DependentUpon>VistaPostulacionesProductores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistaPostulacionesTransporte.resx">
-      <DependentUpon>VistaPostulacionesTransporte.cs</DependentUpon>
+    <EmbeddedResource Include="VistaSubastasTransporte.resx">
+      <DependentUpon>VistaSubastasTransporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaReportes.resx">
       <DependentUpon>VistaReportes.cs</DependentUpon>

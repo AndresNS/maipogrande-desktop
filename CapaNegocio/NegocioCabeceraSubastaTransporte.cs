@@ -1,5 +1,4 @@
-﻿using CapaConexion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +6,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using CapaDTO;
+using CapaConexion;
 
 namespace CapaNegocio
 {
-    public class NegocioCabeceraProcesoVenta
+    public class NegocioCabeceraSubastaTransporte
     {
         private Conexion con;
 
@@ -22,7 +22,7 @@ namespace CapaNegocio
             {
                 this.con = new Conexion();
                 this.con.NombreBaseDeDatos = "maipo_grande";
-                this.con.NombreTabla = "CABECERA_PV";
+                this.con.NombreTabla = "CABECERA_SUBASTA";
                 this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
             }
             catch (Exception ex)
@@ -32,12 +32,13 @@ namespace CapaNegocio
             }
         }
 
-        public DataSet ListarProcesosVenta()
+        public DataSet ListarSubastasTransporte(int idProcesoVenta)
         {
             try
             {
                 this.configurarConexion();
-                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla +
+                    " WHERE ID_CABECERA_PV = " + idProcesoVenta;
                 this.con.EsSelect = true;
                 this.con.conectar();
             }
@@ -50,12 +51,12 @@ namespace CapaNegocio
             return this.con.DbDataSet;
         }
 
-        public CabeceraProcesoVenta buscarCabeceraProcesoVenta(int idCabeceraProcesoVenta)
+        public CabeceraSubastaTransporte buscarCabeceraSubastaTransporte(int idCabeceraSubastaTransporte)
         {
-            CabeceraProcesoVenta procesoVenta = new CabeceraProcesoVenta();
+            CabeceraSubastaTransporte subastaTransporte = new CabeceraSubastaTransporte();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
-                                   + "WHERE ID_CABECERA_PV = " + idCabeceraProcesoVenta;
+                                   + "WHERE ID_CABECERA_SUBASTA = " + idCabeceraSubastaTransporte;
             this.con.EsSelect = true;
             this.con.conectar();
 
@@ -64,21 +65,18 @@ namespace CapaNegocio
 
             try
             {
-                procesoVenta.IdCabeceraVenta = (int)dt.Rows[0]["ID_CABECERA_PV"];
-                procesoVenta.IdEmpresaTransporte = (int)dt.Rows[0]["EMPRESA_TRANS"];
-                procesoVenta.FechaEmision = (DateTime)dt.Rows[0]["FECHA_EMISION"];
-                procesoVenta.Observaciones = (String)dt.Rows[0]["OBS_PV"];
-                procesoVenta.IdEstado = (short)dt.Rows[0]["ESTADO_PV"];
-                procesoVenta.RutCliente = (int)dt.Rows[0]["RUT_CLIENTE"];
+                subastaTransporte.IdCabeceraSubasta = (int)dt.Rows[0]["ID_CABECERA_SUBASTA"];
+                subastaTransporte.FechaLimiteEntrega = (DateTime)dt.Rows[0]["FECHA_LIMITE_ENTREGA"];
+                subastaTransporte.IdComuna= (short)dt.Rows[0]["ID_COMUNA"];
+                subastaTransporte.IdCabeceraProcesoVenta = (int)dt.Rows[0]["ID_CABECERA_PV"];
             }
             catch (Exception ex)
             {
-                CabeceraProcesoVenta auxCabeceraProcesoVenta = new CabeceraProcesoVenta();
-                return auxCabeceraProcesoVenta;
+                CabeceraSubastaTransporte auxCabeceraSubastaTransporte = new CabeceraSubastaTransporte();
+                return auxCabeceraSubastaTransporte;
             }
 
-            return procesoVenta;
+            return subastaTransporte;
         }
-
     }
 }
