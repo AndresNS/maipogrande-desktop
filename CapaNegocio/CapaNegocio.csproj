@@ -75,9 +75,11 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NegocioCabeceraPostulacion.cs" />
     <Compile Include="NegocioCabeceraProcesoVenta.cs" />
     <Compile Include="NegocioCalidad.cs" />
     <Compile Include="NegocioContrato.cs" />
+    <Compile Include="NegocioDetallePostulacion.cs" />
     <Compile Include="NegocioDetalleProcesoVenta.cs" />
     <Compile Include="NegocioDetalleSubastaTransporte.cs" />
     <Compile Include="NegocioEmpresaTransporte.cs" />

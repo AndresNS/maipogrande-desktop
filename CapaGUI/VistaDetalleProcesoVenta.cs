@@ -57,7 +57,6 @@ namespace CapaGUI
         {
             VistaSubastasTransporte vistaPostulacionesTransporte = new VistaSubastasTransporte(this.IdProcesoVenta);
             vistaPostulacionesTransporte.ShowDialog();
-
         }
 
         private void btnVerPostulacionesProductores_Click(object sender, EventArgs e)

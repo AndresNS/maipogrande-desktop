@@ -27,20 +27,20 @@ namespace CapaGUI
         private void VistaPostulacionesProductores_Load(object sender, EventArgs e)
         {
             // Cargar Postulaciones de Productores
-            //NegocioCabeceraSubastaTransporte negocioCabeceraSubasta = new NegocioCabeceraSubastaTransporte();
-            //CabeceraSubastaTransporte subastaTransporte = negocioCabeceraSubasta.buscarSubastaTransporteDeProcesoVenta(this.IdProcesoVenta);
+            NegocioCabeceraPostulacion negocioCabeceraPostulacion = new NegocioCabeceraPostulacion();
+            DataSet listaSubastasTransporte = negocioCabeceraPostulacion.ListarPostulaciones(this.IdProcesoVenta);
 
-            //NegocioDetalleSubastaTransporte negocioDetalleSubastaTransporte = new NegocioDetalleSubastaTransporte();
-            //DataSet listaSubastasTransporte = negocioDetalleSubastaTransporte.ListarDetallesSubasta(subastaTransporte.IdCabeceraSubasta);
-
-            //this.dgvListaSubastasTransporte.AutoGenerateColumns = true;
-            //this.dgvListaSubastasTransporte.DataSource = listaSubastasTransporte.Tables["DETALLE_SUBASTA"];
-
+            this.dgvListaPostulacionesProductores.AutoGenerateColumns = true;
+            this.dgvListaPostulacionesProductores.DataSource = listaSubastasTransporte.Tables["CABECERA_POSTULACION"];
         }
 
         private void btnVerDetalles_Click(object sender, EventArgs e)
         {
+            int indiceFila = this.dgvListaPostulacionesProductores.SelectedCells[0].RowIndex;
+            DataGridViewRow filaSeleccionada = this.dgvListaPostulacionesProductores.Rows[indiceFila];
 
+            VistaDetallePostulacionProductor vistaDetallePostulacionProductor = new VistaDetallePostulacionProductor(int.Parse(filaSeleccionada.Cells["ID_CABECERA_POSTULACION"].Value.ToString()));
+            vistaDetallePostulacionProductor.ShowDialog();
         }
 
         private void btnSeleccionarTransporte_Click(object sender, EventArgs e)

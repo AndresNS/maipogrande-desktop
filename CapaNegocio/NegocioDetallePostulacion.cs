@@ -32,7 +32,7 @@ namespace CapaNegocio
             }
         }
 
-        public DataSet ListarDetallesSubasta(int idSubasta)
+        public DataSet listarDetallesPostulacion (int idSubasta)
         {
             try
             {

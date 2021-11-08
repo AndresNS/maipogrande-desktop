@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VistaDetallePostulacionProductor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaDetallePostulacionProductor.Designer.cs">
+      <DependentUpon>VistaDetallePostulacionProductor.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaDetalleProcesoVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </Compile>
     <EmbeddedResource Include="VistaControldeContratos.resx">
       <DependentUpon>VistaControldeContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaDetallePostulacionProductor.resx">
+      <DependentUpon>VistaDetallePostulacionProductor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaDetalleProcesoVenta.resx">
       <DependentUpon>VistaDetalleProcesoVenta.cs</DependentUpon>

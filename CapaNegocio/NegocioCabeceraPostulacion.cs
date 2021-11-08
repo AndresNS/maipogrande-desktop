@@ -67,7 +67,7 @@ namespace CapaNegocio
             {
                 cabeceraPostulacion.IdCabeceraPostulacion = (int)dt.Rows[0]["ID_CABECERA_POSTULACION"];
                 cabeceraPostulacion.FechaEmision = (DateTime)dt.Rows[0]["FECHA_EMISION"];
-                cabeceraPostulacion.RutProductor = (short)dt.Rows[0]["RUT_PRODUCTOR"];
+                cabeceraPostulacion.RutProductor = (int)dt.Rows[0]["RUT_PRODUCTOR"];
                 cabeceraPostulacion.IdCabeceraProcesoVenta = (int)dt.Rows[0]["CABECERA_PV"];
             }
             catch (Exception ex)
