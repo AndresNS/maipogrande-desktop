@@ -46,16 +46,23 @@ namespace CapaGUI
             this.txtEstado.Text = estadoVenta.Descripcion;
             this.txtEmpresaTransporte.Text = empresaTransporte.NombreEmpresa;
             this.txtObservaciones.Text = procesoVenta.Observaciones.ToString();
+
+            NegocioDetalleProcesoVenta negocioDetallePV = new NegocioDetalleProcesoVenta();
+            DataSet detalleProcesoVenta = negocioDetallePV.ListarDetallesProcesoVenta(procesoVenta.IdCabeceraVenta);
+
+            this.dgvDetalleProcesoVenta.DataSource = detalleProcesoVenta.Tables["DETALLE_PV"];
         }
 
         private void btnVerPostulacionesTransporte_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.IdProcesoVenta.ToString());
+            VistaSubastasTransporte vistaPostulacionesTransporte = new VistaSubastasTransporte(this.IdProcesoVenta);
+            vistaPostulacionesTransporte.ShowDialog();
         }
 
         private void btnVerPostulacionesProductores_Click(object sender, EventArgs e)
         {
-
+            VistaPostulacionesProductores vistaPostulacionesProductores = new VistaPostulacionesProductores(this.IdProcesoVenta);
+            vistaPostulacionesProductores.ShowDialog();
         }
     }
 }

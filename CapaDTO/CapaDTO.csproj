@@ -42,8 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CabeceraProcesoVenta.cs" />
+    <Compile Include="DetallePostulacion.cs" />
+    <Compile Include="DetalleSubastaTransporte.cs" />
     <Compile Include="DetalleProcesoVenta.cs" />
+    <Compile Include="CabeceraSubastaTransporte.cs" />
     <Compile Include="EstadoVenta.cs" />
+    <Compile Include="CabeceraPostulacion.cs" />
     <Compile Include="Sesion.cs" />
     <Compile Include="Comuna.cs" />
     <Compile Include="Contrato.cs" />

@@ -49,17 +49,18 @@ namespace CapaGUI
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtRazonSocial = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProcesoVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVerPostulacionesTransporte
             // 
             this.btnVerPostulacionesTransporte.ActiveControl = null;
-            this.btnVerPostulacionesTransporte.Location = new System.Drawing.Point(288, 542);
+            this.btnVerPostulacionesTransporte.Location = new System.Drawing.Point(337, 542);
             this.btnVerPostulacionesTransporte.Name = "btnVerPostulacionesTransporte";
-            this.btnVerPostulacionesTransporte.Size = new System.Drawing.Size(244, 42);
+            this.btnVerPostulacionesTransporte.Size = new System.Drawing.Size(195, 42);
             this.btnVerPostulacionesTransporte.TabIndex = 2;
-            this.btnVerPostulacionesTransporte.Text = "Ver Postulaciones de Transportistas";
+            this.btnVerPostulacionesTransporte.Text = "Ver Subastas de Transporte";
             this.btnVerPostulacionesTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnVerPostulacionesTransporte.UseSelectable = true;
             this.btnVerPostulacionesTransporte.Click += new System.EventHandler(this.btnVerPostulacionesTransporte_Click);
@@ -105,7 +106,7 @@ namespace CapaGUI
             this.dgvDetalleProcesoVenta.EnableHeadersVisualStyles = false;
             this.dgvDetalleProcesoVenta.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvDetalleProcesoVenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvDetalleProcesoVenta.Location = new System.Drawing.Point(23, 255);
+            this.dgvDetalleProcesoVenta.Location = new System.Drawing.Point(175, 255);
             this.dgvDetalleProcesoVenta.Name = "dgvDetalleProcesoVenta";
             this.dgvDetalleProcesoVenta.ReadOnly = true;
             this.dgvDetalleProcesoVenta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -119,7 +120,7 @@ namespace CapaGUI
             this.dgvDetalleProcesoVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetalleProcesoVenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetalleProcesoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleProcesoVenta.Size = new System.Drawing.Size(777, 270);
+            this.dgvDetalleProcesoVenta.Size = new System.Drawing.Size(625, 270);
             this.dgvDetalleProcesoVenta.TabIndex = 4;
             // 
             // metroLabel1
@@ -178,7 +179,7 @@ namespace CapaGUI
             // 
             // 
             this.txtObservaciones.CustomButton.Image = null;
-            this.txtObservaciones.CustomButton.Location = new System.Drawing.Point(382, 1);
+            this.txtObservaciones.CustomButton.Location = new System.Drawing.Point(541, 1);
             this.txtObservaciones.CustomButton.Name = "";
             this.txtObservaciones.CustomButton.Size = new System.Drawing.Size(83, 83);
             this.txtObservaciones.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -230,7 +231,7 @@ namespace CapaGUI
             // 
             // 
             this.txtRutCliente.CustomButton.Image = null;
-            this.txtRutCliente.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txtRutCliente.CustomButton.Location = new System.Drawing.Point(161, 1);
             this.txtRutCliente.CustomButton.Name = "";
             this.txtRutCliente.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtRutCliente.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -271,7 +272,7 @@ namespace CapaGUI
             // 
             // 
             this.txtEstado.CustomButton.Image = null;
-            this.txtEstado.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtEstado.CustomButton.Location = new System.Drawing.Point(240, 1);
             this.txtEstado.CustomButton.Name = "";
             this.txtEstado.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtEstado.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -312,7 +313,7 @@ namespace CapaGUI
             // 
             // 
             this.txtEmpresaTransporte.CustomButton.Image = null;
-            this.txtEmpresaTransporte.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txtEmpresaTransporte.CustomButton.Location = new System.Drawing.Point(161, 1);
             this.txtEmpresaTransporte.CustomButton.Name = "";
             this.txtEmpresaTransporte.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtEmpresaTransporte.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -353,7 +354,7 @@ namespace CapaGUI
             // 
             // 
             this.txtRazonSocial.CustomButton.Image = null;
-            this.txtRazonSocial.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtRazonSocial.CustomButton.Location = new System.Drawing.Point(240, 1);
             this.txtRazonSocial.CustomButton.Name = "";
             this.txtRazonSocial.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtRazonSocial.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -388,11 +389,21 @@ namespace CapaGUI
             this.metroLabel7.TabIndex = 18;
             this.metroLabel7.Text = "Razon Social:";
             // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(98, 255);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(71, 19);
+            this.metroLabel8.TabIndex = 20;
+            this.metroLabel8.Text = "Productos:";
+            // 
             // VistaDetalleProcesoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 607);
+            this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.txtEmpresaTransporte);
@@ -438,5 +449,6 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroTextBox txtRazonSocial;
         private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 }

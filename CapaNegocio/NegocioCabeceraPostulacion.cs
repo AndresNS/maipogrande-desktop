@@ -1,16 +1,16 @@
-﻿using CapaConexion;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
+using CapaConexion;
 using CapaDTO;
 
 namespace CapaNegocio
 {
-    public class NegocioCabeceraProcesoVenta
+    public class NegocioCabeceraPostulacion
     {
         private Conexion con;
 
@@ -22,7 +22,7 @@ namespace CapaNegocio
             {
                 this.con = new Conexion();
                 this.con.NombreBaseDeDatos = "maipo_grande";
-                this.con.NombreTabla = "CABECERA_PV";
+                this.con.NombreTabla = "CABECERA_POSTULACION";
                 this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
             }
             catch (Exception ex)
@@ -32,12 +32,13 @@ namespace CapaNegocio
             }
         }
 
-        public DataSet ListarProcesosVenta()
+        public DataSet ListarPostulaciones(int idProcesoVenta)
         {
             try
             {
                 this.configurarConexion();
-                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla;
+                this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla +
+                    " WHERE CABECERA_PV = " + idProcesoVenta;
                 this.con.EsSelect = true;
                 this.con.conectar();
             }
@@ -50,12 +51,12 @@ namespace CapaNegocio
             return this.con.DbDataSet;
         }
 
-        public CabeceraProcesoVenta buscarCabeceraProcesoVenta(int idCabeceraProcesoVenta)
+        public CabeceraPostulacion buscarCabeceraPostulacion(int idCabeceraPostulacion)
         {
-            CabeceraProcesoVenta procesoVenta = new CabeceraProcesoVenta();
+            CabeceraPostulacion cabeceraPostulacion = new CabeceraPostulacion();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
-                                   + "WHERE ID_CABECERA_PV = " + idCabeceraProcesoVenta;
+                                   + "WHERE ID_CABECERA_POSTULACION = " + idCabeceraPostulacion;
             this.con.EsSelect = true;
             this.con.conectar();
 
@@ -64,31 +65,18 @@ namespace CapaNegocio
 
             try
             {
-                procesoVenta.IdCabeceraVenta = (int)dt.Rows[0]["ID_CABECERA_PV"];
-                procesoVenta.IdEmpresaTransporte = (int)dt.Rows[0]["EMPRESA_TRANS"];
-                procesoVenta.FechaEmision = (DateTime)dt.Rows[0]["FECHA_EMISION"];
-                procesoVenta.Observaciones = (String)dt.Rows[0]["OBS_PV"];
-                procesoVenta.IdEstado = (short)dt.Rows[0]["ESTADO_PV"];
-                procesoVenta.RutCliente = (int)dt.Rows[0]["RUT_CLIENTE"];
+                cabeceraPostulacion.IdCabeceraPostulacion = (int)dt.Rows[0]["ID_CABECERA_POSTULACION"];
+                cabeceraPostulacion.FechaEmision = (DateTime)dt.Rows[0]["FECHA_EMISION"];
+                cabeceraPostulacion.RutProductor = (int)dt.Rows[0]["RUT_PRODUCTOR"];
+                cabeceraPostulacion.IdCabeceraProcesoVenta = (int)dt.Rows[0]["CABECERA_PV"];
             }
             catch (Exception ex)
             {
-                CabeceraProcesoVenta auxCabeceraProcesoVenta = new CabeceraProcesoVenta();
-                return auxCabeceraProcesoVenta;
+                CabeceraPostulacion auxCabeceraPostulacion = new CabeceraPostulacion();
+                return auxCabeceraPostulacion;
             }
 
-            return procesoVenta;
+            return cabeceraPostulacion;
         }
-
-        public void asignarTransporte(int idCabeceraProcesoVenta, int idTransporte)
-        {
-            this.configurarConexion();
-            this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla +
-                                 " SET EMPRESA_TRANS = " + idTransporte +
-                                 " WHERE ID_CABECERA_PV = " + idCabeceraProcesoVenta;
-            this.con.EsSelect = false;
-            this.con.conectar();
-        }
-
     }
 }
