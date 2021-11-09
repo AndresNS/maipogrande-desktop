@@ -29,9 +29,9 @@ namespace CapaGUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Tab = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.dgvListaProductos = new MetroFramework.Controls.MetroGrid();
@@ -45,8 +45,8 @@ namespace CapaGUI
             this.btnIngresarProductos = new MetroFramework.Controls.MetroTile();
             this.txtPorcentajeMerma = new MetroFramework.Controls.MetroTextBox();
             this.txtNombreProductoProductos = new MetroFramework.Controls.MetroTextBox();
-            this.cbxCalidadProductos = new MetroFramework.Controls.MetroComboBox();
-            this.cbxCategoriaProductos = new MetroFramework.Controls.MetroComboBox();
+            this.txtCalidadProductos = new MetroFramework.Controls.MetroComboBox();
+            this.txtCategoriaProductos = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.lblIdCategoriaProducto = new MetroFramework.Controls.MetroLabel();
@@ -59,14 +59,34 @@ namespace CapaGUI
             this.btnEliminarCrearCategoria = new MetroFramework.Controls.MetroTile();
             this.btnActualizarCrearAztualizar = new MetroFramework.Controls.MetroTile();
             this.btnIngresarCrearCategoria = new MetroFramework.Controls.MetroTile();
-            this.txtCrearNombreCategoria = new MetroFramework.Controls.MetroTextBox();
-            this.txtCrearCategoria = new MetroFramework.Controls.MetroTextBox();
+            this.txtNombreCategoriaProductos = new MetroFramework.Controls.MetroTextBox();
+            this.txtIDCategoriaProductos = new MetroFramework.Controls.MetroTextBox();
             this.lblNombreCrearCategoria = new MetroFramework.Controls.MetroLabel();
             this.lblIdCrearCategoria = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.txtBuscaridCategoria = new MetroFramework.Controls.MetroTextBox();
+            this.RadioBuscarCategoria = new MetroFramework.Controls.MetroRadioButton();
+            this.RadioIngresarCategoria = new MetroFramework.Controls.MetroRadioButton();
+            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.txtBuscarProductos = new MetroFramework.Controls.MetroTextBox();
+            this.RadioBuscarProducto = new MetroFramework.Controls.MetroRadioButton();
+            this.RadioIngresarProducto = new MetroFramework.Controls.MetroRadioButton();
             this.Tab.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.metroTabPage2.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
+            this.metroPanel2.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
+            this.metroPanel4.SuspendLayout();
+            this.metroPanel5.SuspendLayout();
+            this.metroPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tab
@@ -82,25 +102,11 @@ namespace CapaGUI
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroPanel6);
+            this.metroTabPage1.Controls.Add(this.metroPanel5);
+            this.metroTabPage1.Controls.Add(this.metroPanel4);
             this.metroTabPage1.Controls.Add(this.dgvListaProductos);
             this.metroTabPage1.Controls.Add(this.btnListarProductosProductos);
-            this.metroTabPage1.Controls.Add(this.metroLabel1);
-            this.metroTabPage1.Controls.Add(this.txtPrecioProductos);
-            this.metroTabPage1.Controls.Add(this.btnSalirProductos);
-            this.metroTabPage1.Controls.Add(this.btnMostrarProductos);
-            this.metroTabPage1.Controls.Add(this.btnEliminarProducto);
-            this.metroTabPage1.Controls.Add(this.btnActualizarProducto);
-            this.metroTabPage1.Controls.Add(this.btnIngresarProductos);
-            this.metroTabPage1.Controls.Add(this.txtPorcentajeMerma);
-            this.metroTabPage1.Controls.Add(this.txtNombreProductoProductos);
-            this.metroTabPage1.Controls.Add(this.cbxCalidadProductos);
-            this.metroTabPage1.Controls.Add(this.cbxCategoriaProductos);
-            this.metroTabPage1.Controls.Add(this.metroLabel5);
-            this.metroTabPage1.Controls.Add(this.metroLabel4);
-            this.metroTabPage1.Controls.Add(this.lblIdCategoriaProducto);
-            this.metroTabPage1.Controls.Add(this.lblNombreProducto);
-            this.metroTabPage1.Controls.Add(this.lblProductos);
-            this.metroTabPage1.Controls.Add(this.txtIdProductoProductos);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 10;
@@ -120,37 +126,37 @@ namespace CapaGUI
             this.dgvListaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProductos.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListaProductos.EnableHeadersVisualStyles = false;
             this.dgvListaProductos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListaProductos.Location = new System.Drawing.Point(192, 253);
             this.dgvListaProductos.Name = "dgvListaProductos";
             this.dgvListaProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaProductos.Size = new System.Drawing.Size(524, 276);
@@ -159,9 +165,9 @@ namespace CapaGUI
             // btnListarProductosProductos
             // 
             this.btnListarProductosProductos.ActiveControl = null;
-            this.btnListarProductosProductos.Location = new System.Drawing.Point(17, 253);
+            this.btnListarProductosProductos.Location = new System.Drawing.Point(5, 253);
             this.btnListarProductosProductos.Name = "btnListarProductosProductos";
-            this.btnListarProductosProductos.Size = new System.Drawing.Size(127, 66);
+            this.btnListarProductosProductos.Size = new System.Drawing.Size(132, 66);
             this.btnListarProductosProductos.TabIndex = 24;
             this.btnListarProductosProductos.Text = "Mostrar Productos";
             this.btnListarProductosProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,7 +177,7 @@ namespace CapaGUI
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(17, 131);
+            this.metroLabel1.Location = new System.Drawing.Point(16, 120);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(46, 19);
             this.metroLabel1.TabIndex = 29;
@@ -192,7 +198,7 @@ namespace CapaGUI
             this.txtPrecioProductos.CustomButton.UseSelectable = true;
             this.txtPrecioProductos.CustomButton.Visible = false;
             this.txtPrecioProductos.Lines = new string[0];
-            this.txtPrecioProductos.Location = new System.Drawing.Point(141, 131);
+            this.txtPrecioProductos.Location = new System.Drawing.Point(140, 120);
             this.txtPrecioProductos.MaxLength = 32767;
             this.txtPrecioProductos.Name = "txtPrecioProductos";
             this.txtPrecioProductos.PasswordChar = '\0';
@@ -210,9 +216,9 @@ namespace CapaGUI
             // btnSalirProductos
             // 
             this.btnSalirProductos.ActiveControl = null;
-            this.btnSalirProductos.Location = new System.Drawing.Point(453, 187);
+            this.btnSalirProductos.Location = new System.Drawing.Point(168, 68);
             this.btnSalirProductos.Name = "btnSalirProductos";
-            this.btnSalirProductos.Size = new System.Drawing.Size(252, 40);
+            this.btnSalirProductos.Size = new System.Drawing.Size(119, 40);
             this.btnSalirProductos.TabIndex = 27;
             this.btnSalirProductos.Text = "SALIR";
             this.btnSalirProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,9 +227,9 @@ namespace CapaGUI
             // btnMostrarProductos
             // 
             this.btnMostrarProductos.ActiveControl = null;
-            this.btnMostrarProductos.Location = new System.Drawing.Point(586, 109);
+            this.btnMostrarProductos.Location = new System.Drawing.Point(205, 54);
             this.btnMostrarProductos.Name = "btnMostrarProductos";
-            this.btnMostrarProductos.Size = new System.Drawing.Size(119, 66);
+            this.btnMostrarProductos.Size = new System.Drawing.Size(98, 35);
             this.btnMostrarProductos.TabIndex = 26;
             this.btnMostrarProductos.Text = "Buscar";
             this.btnMostrarProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,9 +239,9 @@ namespace CapaGUI
             // btnEliminarProducto
             // 
             this.btnEliminarProducto.ActiveControl = null;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(453, 109);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(35, 68);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(127, 66);
+            this.btnEliminarProducto.Size = new System.Drawing.Size(127, 40);
             this.btnEliminarProducto.TabIndex = 25;
             this.btnEliminarProducto.Text = "Eliminar";
             this.btnEliminarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,9 +251,9 @@ namespace CapaGUI
             // btnActualizarProducto
             // 
             this.btnActualizarProducto.ActiveControl = null;
-            this.btnActualizarProducto.Location = new System.Drawing.Point(586, 28);
+            this.btnActualizarProducto.Location = new System.Drawing.Point(168, 20);
             this.btnActualizarProducto.Name = "btnActualizarProducto";
-            this.btnActualizarProducto.Size = new System.Drawing.Size(119, 67);
+            this.btnActualizarProducto.Size = new System.Drawing.Size(119, 42);
             this.btnActualizarProducto.TabIndex = 24;
             this.btnActualizarProducto.Text = "Actualizar";
             this.btnActualizarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,9 +263,9 @@ namespace CapaGUI
             // btnIngresarProductos
             // 
             this.btnIngresarProductos.ActiveControl = null;
-            this.btnIngresarProductos.Location = new System.Drawing.Point(453, 28);
+            this.btnIngresarProductos.Location = new System.Drawing.Point(35, 20);
             this.btnIngresarProductos.Name = "btnIngresarProductos";
-            this.btnIngresarProductos.Size = new System.Drawing.Size(127, 66);
+            this.btnIngresarProductos.Size = new System.Drawing.Size(127, 39);
             this.btnIngresarProductos.TabIndex = 23;
             this.btnIngresarProductos.Text = "Ingresar";
             this.btnIngresarProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -281,7 +287,7 @@ namespace CapaGUI
             this.txtPorcentajeMerma.CustomButton.UseSelectable = true;
             this.txtPorcentajeMerma.CustomButton.Visible = false;
             this.txtPorcentajeMerma.Lines = new string[0];
-            this.txtPorcentajeMerma.Location = new System.Drawing.Point(140, 201);
+            this.txtPorcentajeMerma.Location = new System.Drawing.Point(139, 190);
             this.txtPorcentajeMerma.MaxLength = 32767;
             this.txtPorcentajeMerma.Name = "txtPorcentajeMerma";
             this.txtPorcentajeMerma.PasswordChar = '\0';
@@ -311,7 +317,7 @@ namespace CapaGUI
             this.txtNombreProductoProductos.CustomButton.UseSelectable = true;
             this.txtNombreProductoProductos.CustomButton.Visible = false;
             this.txtNombreProductoProductos.Lines = new string[0];
-            this.txtNombreProductoProductos.Location = new System.Drawing.Point(141, 99);
+            this.txtNombreProductoProductos.Location = new System.Drawing.Point(140, 88);
             this.txtNombreProductoProductos.MaxLength = 32767;
             this.txtNombreProductoProductos.Name = "txtNombreProductoProductos";
             this.txtNombreProductoProductos.PasswordChar = '\0';
@@ -326,30 +332,30 @@ namespace CapaGUI
             this.txtNombreProductoProductos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNombreProductoProductos.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // cbxCalidadProductos
+            // txtCalidadProductos
             // 
-            this.cbxCalidadProductos.FormattingEnabled = true;
-            this.cbxCalidadProductos.ItemHeight = 23;
-            this.cbxCalidadProductos.Location = new System.Drawing.Point(141, 160);
-            this.cbxCalidadProductos.Name = "cbxCalidadProductos";
-            this.cbxCalidadProductos.Size = new System.Drawing.Size(172, 29);
-            this.cbxCalidadProductos.TabIndex = 9;
-            this.cbxCalidadProductos.UseSelectable = true;
+            this.txtCalidadProductos.FormattingEnabled = true;
+            this.txtCalidadProductos.ItemHeight = 23;
+            this.txtCalidadProductos.Location = new System.Drawing.Point(140, 149);
+            this.txtCalidadProductos.Name = "txtCalidadProductos";
+            this.txtCalidadProductos.Size = new System.Drawing.Size(172, 29);
+            this.txtCalidadProductos.TabIndex = 9;
+            this.txtCalidadProductos.UseSelectable = true;
             // 
-            // cbxCategoriaProductos
+            // txtCategoriaProductos
             // 
-            this.cbxCategoriaProductos.FormattingEnabled = true;
-            this.cbxCategoriaProductos.ItemHeight = 23;
-            this.cbxCategoriaProductos.Location = new System.Drawing.Point(141, 61);
-            this.cbxCategoriaProductos.Name = "cbxCategoriaProductos";
-            this.cbxCategoriaProductos.Size = new System.Drawing.Size(172, 29);
-            this.cbxCategoriaProductos.TabIndex = 8;
-            this.cbxCategoriaProductos.UseSelectable = true;
+            this.txtCategoriaProductos.FormattingEnabled = true;
+            this.txtCategoriaProductos.ItemHeight = 23;
+            this.txtCategoriaProductos.Location = new System.Drawing.Point(140, 50);
+            this.txtCategoriaProductos.Name = "txtCategoriaProductos";
+            this.txtCategoriaProductos.Size = new System.Drawing.Size(172, 29);
+            this.txtCategoriaProductos.TabIndex = 8;
+            this.txtCategoriaProductos.UseSelectable = true;
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(14, 201);
+            this.metroLabel5.Location = new System.Drawing.Point(13, 190);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(120, 19);
             this.metroLabel5.TabIndex = 7;
@@ -358,7 +364,7 @@ namespace CapaGUI
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(15, 163);
+            this.metroLabel4.Location = new System.Drawing.Point(14, 152);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(73, 19);
             this.metroLabel4.TabIndex = 6;
@@ -367,7 +373,7 @@ namespace CapaGUI
             // lblIdCategoriaProducto
             // 
             this.lblIdCategoriaProducto.AutoSize = true;
-            this.lblIdCategoriaProducto.Location = new System.Drawing.Point(15, 68);
+            this.lblIdCategoriaProducto.Location = new System.Drawing.Point(14, 57);
             this.lblIdCategoriaProducto.Name = "lblIdCategoriaProducto";
             this.lblIdCategoriaProducto.Size = new System.Drawing.Size(86, 19);
             this.lblIdCategoriaProducto.TabIndex = 5;
@@ -376,7 +382,7 @@ namespace CapaGUI
             // lblNombreProducto
             // 
             this.lblNombreProducto.AutoSize = true;
-            this.lblNombreProducto.Location = new System.Drawing.Point(14, 100);
+            this.lblNombreProducto.Location = new System.Drawing.Point(13, 89);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new System.Drawing.Size(120, 19);
             this.lblNombreProducto.TabIndex = 4;
@@ -385,7 +391,7 @@ namespace CapaGUI
             // lblProductos
             // 
             this.lblProductos.AutoSize = true;
-            this.lblProductos.Location = new System.Drawing.Point(17, 36);
+            this.lblProductos.Location = new System.Drawing.Point(16, 25);
             this.lblProductos.Name = "lblProductos";
             this.lblProductos.Size = new System.Drawing.Size(87, 19);
             this.lblProductos.TabIndex = 3;
@@ -406,7 +412,7 @@ namespace CapaGUI
             this.txtIdProductoProductos.CustomButton.UseSelectable = true;
             this.txtIdProductoProductos.CustomButton.Visible = false;
             this.txtIdProductoProductos.Lines = new string[0];
-            this.txtIdProductoProductos.Location = new System.Drawing.Point(141, 32);
+            this.txtIdProductoProductos.Location = new System.Drawing.Point(140, 21);
             this.txtIdProductoProductos.MaxLength = 32767;
             this.txtIdProductoProductos.Name = "txtIdProductoProductos";
             this.txtIdProductoProductos.PasswordChar = '\0';
@@ -423,15 +429,9 @@ namespace CapaGUI
             // 
             // metroTabPage2
             // 
-            this.metroTabPage2.Controls.Add(this.btnSalirCrearCategoria);
-            this.metroTabPage2.Controls.Add(this.btnBuscarCrearCategoria);
-            this.metroTabPage2.Controls.Add(this.btnEliminarCrearCategoria);
-            this.metroTabPage2.Controls.Add(this.btnActualizarCrearAztualizar);
-            this.metroTabPage2.Controls.Add(this.btnIngresarCrearCategoria);
-            this.metroTabPage2.Controls.Add(this.txtCrearNombreCategoria);
-            this.metroTabPage2.Controls.Add(this.txtCrearCategoria);
-            this.metroTabPage2.Controls.Add(this.lblNombreCrearCategoria);
-            this.metroTabPage2.Controls.Add(this.lblIdCrearCategoria);
+            this.metroTabPage2.Controls.Add(this.metroPanel3);
+            this.metroTabPage2.Controls.Add(this.metroPanel2);
+            this.metroTabPage2.Controls.Add(this.metroPanel1);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 10;
@@ -447,9 +447,9 @@ namespace CapaGUI
             // btnSalirCrearCategoria
             // 
             this.btnSalirCrearCategoria.ActiveControl = null;
-            this.btnSalirCrearCategoria.Location = new System.Drawing.Point(447, 179);
+            this.btnSalirCrearCategoria.Location = new System.Drawing.Point(177, 68);
             this.btnSalirCrearCategoria.Name = "btnSalirCrearCategoria";
-            this.btnSalirCrearCategoria.Size = new System.Drawing.Size(252, 40);
+            this.btnSalirCrearCategoria.Size = new System.Drawing.Size(119, 40);
             this.btnSalirCrearCategoria.TabIndex = 32;
             this.btnSalirCrearCategoria.Text = "SALIR";
             this.btnSalirCrearCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -459,9 +459,9 @@ namespace CapaGUI
             // btnBuscarCrearCategoria
             // 
             this.btnBuscarCrearCategoria.ActiveControl = null;
-            this.btnBuscarCrearCategoria.Location = new System.Drawing.Point(580, 101);
+            this.btnBuscarCrearCategoria.Location = new System.Drawing.Point(208, 65);
             this.btnBuscarCrearCategoria.Name = "btnBuscarCrearCategoria";
-            this.btnBuscarCrearCategoria.Size = new System.Drawing.Size(119, 66);
+            this.btnBuscarCrearCategoria.Size = new System.Drawing.Size(119, 37);
             this.btnBuscarCrearCategoria.TabIndex = 31;
             this.btnBuscarCrearCategoria.Text = "Buscar";
             this.btnBuscarCrearCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -471,9 +471,9 @@ namespace CapaGUI
             // btnEliminarCrearCategoria
             // 
             this.btnEliminarCrearCategoria.ActiveControl = null;
-            this.btnEliminarCrearCategoria.Location = new System.Drawing.Point(447, 101);
+            this.btnEliminarCrearCategoria.Location = new System.Drawing.Point(44, 68);
             this.btnEliminarCrearCategoria.Name = "btnEliminarCrearCategoria";
-            this.btnEliminarCrearCategoria.Size = new System.Drawing.Size(127, 66);
+            this.btnEliminarCrearCategoria.Size = new System.Drawing.Size(127, 40);
             this.btnEliminarCrearCategoria.TabIndex = 30;
             this.btnEliminarCrearCategoria.Text = "Eliminar";
             this.btnEliminarCrearCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -483,9 +483,9 @@ namespace CapaGUI
             // btnActualizarCrearAztualizar
             // 
             this.btnActualizarCrearAztualizar.ActiveControl = null;
-            this.btnActualizarCrearAztualizar.Location = new System.Drawing.Point(580, 20);
+            this.btnActualizarCrearAztualizar.Location = new System.Drawing.Point(177, 16);
             this.btnActualizarCrearAztualizar.Name = "btnActualizarCrearAztualizar";
-            this.btnActualizarCrearAztualizar.Size = new System.Drawing.Size(119, 67);
+            this.btnActualizarCrearAztualizar.Size = new System.Drawing.Size(119, 46);
             this.btnActualizarCrearAztualizar.TabIndex = 29;
             this.btnActualizarCrearAztualizar.Text = "Actualizar";
             this.btnActualizarCrearAztualizar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -495,79 +495,79 @@ namespace CapaGUI
             // btnIngresarCrearCategoria
             // 
             this.btnIngresarCrearCategoria.ActiveControl = null;
-            this.btnIngresarCrearCategoria.Location = new System.Drawing.Point(447, 20);
+            this.btnIngresarCrearCategoria.Location = new System.Drawing.Point(44, 16);
             this.btnIngresarCrearCategoria.Name = "btnIngresarCrearCategoria";
-            this.btnIngresarCrearCategoria.Size = new System.Drawing.Size(127, 66);
+            this.btnIngresarCrearCategoria.Size = new System.Drawing.Size(127, 46);
             this.btnIngresarCrearCategoria.TabIndex = 28;
             this.btnIngresarCrearCategoria.Text = "Ingresar";
             this.btnIngresarCrearCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIngresarCrearCategoria.UseSelectable = true;
             this.btnIngresarCrearCategoria.Click += new System.EventHandler(this.btnIngresarCrearCategoria_Click);
             // 
-            // txtCrearNombreCategoria
+            // txtNombreCategoriaProductos
             // 
             // 
             // 
             // 
-            this.txtCrearNombreCategoria.CustomButton.Image = null;
-            this.txtCrearNombreCategoria.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txtCrearNombreCategoria.CustomButton.Name = "";
-            this.txtCrearNombreCategoria.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtCrearNombreCategoria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCrearNombreCategoria.CustomButton.TabIndex = 1;
-            this.txtCrearNombreCategoria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCrearNombreCategoria.CustomButton.UseSelectable = true;
-            this.txtCrearNombreCategoria.CustomButton.Visible = false;
-            this.txtCrearNombreCategoria.Lines = new string[0];
-            this.txtCrearNombreCategoria.Location = new System.Drawing.Point(162, 101);
-            this.txtCrearNombreCategoria.MaxLength = 32767;
-            this.txtCrearNombreCategoria.Name = "txtCrearNombreCategoria";
-            this.txtCrearNombreCategoria.PasswordChar = '\0';
-            this.txtCrearNombreCategoria.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCrearNombreCategoria.SelectedText = "";
-            this.txtCrearNombreCategoria.SelectionLength = 0;
-            this.txtCrearNombreCategoria.SelectionStart = 0;
-            this.txtCrearNombreCategoria.ShortcutsEnabled = true;
-            this.txtCrearNombreCategoria.Size = new System.Drawing.Size(195, 23);
-            this.txtCrearNombreCategoria.TabIndex = 9;
-            this.txtCrearNombreCategoria.UseSelectable = true;
-            this.txtCrearNombreCategoria.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCrearNombreCategoria.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNombreCategoriaProductos.CustomButton.Image = null;
+            this.txtNombreCategoriaProductos.CustomButton.Location = new System.Drawing.Point(173, 1);
+            this.txtNombreCategoriaProductos.CustomButton.Name = "";
+            this.txtNombreCategoriaProductos.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNombreCategoriaProductos.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNombreCategoriaProductos.CustomButton.TabIndex = 1;
+            this.txtNombreCategoriaProductos.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNombreCategoriaProductos.CustomButton.UseSelectable = true;
+            this.txtNombreCategoriaProductos.CustomButton.Visible = false;
+            this.txtNombreCategoriaProductos.Lines = new string[0];
+            this.txtNombreCategoriaProductos.Location = new System.Drawing.Point(164, 79);
+            this.txtNombreCategoriaProductos.MaxLength = 32767;
+            this.txtNombreCategoriaProductos.Name = "txtNombreCategoriaProductos";
+            this.txtNombreCategoriaProductos.PasswordChar = '\0';
+            this.txtNombreCategoriaProductos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNombreCategoriaProductos.SelectedText = "";
+            this.txtNombreCategoriaProductos.SelectionLength = 0;
+            this.txtNombreCategoriaProductos.SelectionStart = 0;
+            this.txtNombreCategoriaProductos.ShortcutsEnabled = true;
+            this.txtNombreCategoriaProductos.Size = new System.Drawing.Size(195, 23);
+            this.txtNombreCategoriaProductos.TabIndex = 9;
+            this.txtNombreCategoriaProductos.UseSelectable = true;
+            this.txtNombreCategoriaProductos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNombreCategoriaProductos.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // txtCrearCategoria
-            // 
-            // 
+            // txtIDCategoriaProductos
             // 
             // 
-            this.txtCrearCategoria.CustomButton.Image = null;
-            this.txtCrearCategoria.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txtCrearCategoria.CustomButton.Name = "";
-            this.txtCrearCategoria.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtCrearCategoria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCrearCategoria.CustomButton.TabIndex = 1;
-            this.txtCrearCategoria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCrearCategoria.CustomButton.UseSelectable = true;
-            this.txtCrearCategoria.CustomButton.Visible = false;
-            this.txtCrearCategoria.Lines = new string[0];
-            this.txtCrearCategoria.Location = new System.Drawing.Point(162, 57);
-            this.txtCrearCategoria.MaxLength = 32767;
-            this.txtCrearCategoria.Name = "txtCrearCategoria";
-            this.txtCrearCategoria.PasswordChar = '\0';
-            this.txtCrearCategoria.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCrearCategoria.SelectedText = "";
-            this.txtCrearCategoria.SelectionLength = 0;
-            this.txtCrearCategoria.SelectionStart = 0;
-            this.txtCrearCategoria.ShortcutsEnabled = true;
-            this.txtCrearCategoria.Size = new System.Drawing.Size(195, 23);
-            this.txtCrearCategoria.TabIndex = 8;
-            this.txtCrearCategoria.UseSelectable = true;
-            this.txtCrearCategoria.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCrearCategoria.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // 
+            this.txtIDCategoriaProductos.CustomButton.Image = null;
+            this.txtIDCategoriaProductos.CustomButton.Location = new System.Drawing.Point(173, 1);
+            this.txtIDCategoriaProductos.CustomButton.Name = "";
+            this.txtIDCategoriaProductos.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtIDCategoriaProductos.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtIDCategoriaProductos.CustomButton.TabIndex = 1;
+            this.txtIDCategoriaProductos.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtIDCategoriaProductos.CustomButton.UseSelectable = true;
+            this.txtIDCategoriaProductos.CustomButton.Visible = false;
+            this.txtIDCategoriaProductos.Lines = new string[0];
+            this.txtIDCategoriaProductos.Location = new System.Drawing.Point(164, 35);
+            this.txtIDCategoriaProductos.MaxLength = 32767;
+            this.txtIDCategoriaProductos.Name = "txtIDCategoriaProductos";
+            this.txtIDCategoriaProductos.PasswordChar = '\0';
+            this.txtIDCategoriaProductos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtIDCategoriaProductos.SelectedText = "";
+            this.txtIDCategoriaProductos.SelectionLength = 0;
+            this.txtIDCategoriaProductos.SelectionStart = 0;
+            this.txtIDCategoriaProductos.ShortcutsEnabled = true;
+            this.txtIDCategoriaProductos.Size = new System.Drawing.Size(195, 23);
+            this.txtIDCategoriaProductos.TabIndex = 8;
+            this.txtIDCategoriaProductos.UseSelectable = true;
+            this.txtIDCategoriaProductos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtIDCategoriaProductos.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblNombreCrearCategoria
             // 
             this.lblNombreCrearCategoria.AutoSize = true;
-            this.lblNombreCrearCategoria.Location = new System.Drawing.Point(13, 101);
+            this.lblNombreCrearCategoria.Location = new System.Drawing.Point(15, 79);
             this.lblNombreCrearCategoria.Name = "lblNombreCrearCategoria";
             this.lblNombreCrearCategoria.Size = new System.Drawing.Size(143, 19);
             this.lblNombreCrearCategoria.TabIndex = 7;
@@ -576,11 +576,249 @@ namespace CapaGUI
             // lblIdCrearCategoria
             // 
             this.lblIdCrearCategoria.AutoSize = true;
-            this.lblIdCrearCategoria.Location = new System.Drawing.Point(13, 57);
+            this.lblIdCrearCategoria.Location = new System.Drawing.Point(15, 35);
             this.lblIdCrearCategoria.Name = "lblIdCrearCategoria";
             this.lblIdCrearCategoria.Size = new System.Drawing.Size(86, 19);
             this.lblIdCrearCategoria.TabIndex = 6;
             this.lblIdCrearCategoria.Text = "ID Categoria:";
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.lblIdCrearCategoria);
+            this.metroPanel1.Controls.Add(this.lblNombreCrearCategoria);
+            this.metroPanel1.Controls.Add(this.txtIDCategoriaProductos);
+            this.metroPanel1.Controls.Add(this.txtNombreCategoriaProductos);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(3, 30);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(378, 137);
+            this.metroPanel1.TabIndex = 33;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel2.Controls.Add(this.btnIngresarCrearCategoria);
+            this.metroPanel2.Controls.Add(this.btnActualizarCrearAztualizar);
+            this.metroPanel2.Controls.Add(this.btnSalirCrearCategoria);
+            this.metroPanel2.Controls.Add(this.btnEliminarCrearCategoria);
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(387, 173);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(341, 129);
+            this.metroPanel2.TabIndex = 34;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel3
+            // 
+            this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel3.Controls.Add(this.RadioIngresarCategoria);
+            this.metroPanel3.Controls.Add(this.RadioBuscarCategoria);
+            this.metroPanel3.Controls.Add(this.txtBuscaridCategoria);
+            this.metroPanel3.Controls.Add(this.metroLabel2);
+            this.metroPanel3.Controls.Add(this.btnBuscarCrearCategoria);
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(387, 30);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(341, 137);
+            this.metroPanel3.TabIndex = 35;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(16, 75);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel2.TabIndex = 32;
+            this.metroLabel2.Text = "BUSCAR:";
+            // 
+            // txtBuscaridCategoria
+            // 
+            // 
+            // 
+            // 
+            this.txtBuscaridCategoria.CustomButton.Image = null;
+            this.txtBuscaridCategoria.CustomButton.Location = new System.Drawing.Point(96, 1);
+            this.txtBuscaridCategoria.CustomButton.Name = "";
+            this.txtBuscaridCategoria.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBuscaridCategoria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBuscaridCategoria.CustomButton.TabIndex = 1;
+            this.txtBuscaridCategoria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBuscaridCategoria.CustomButton.UseSelectable = true;
+            this.txtBuscaridCategoria.CustomButton.Visible = false;
+            this.txtBuscaridCategoria.Lines = new string[0];
+            this.txtBuscaridCategoria.Location = new System.Drawing.Point(84, 74);
+            this.txtBuscaridCategoria.MaxLength = 32767;
+            this.txtBuscaridCategoria.Name = "txtBuscaridCategoria";
+            this.txtBuscaridCategoria.PasswordChar = '\0';
+            this.txtBuscaridCategoria.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscaridCategoria.SelectedText = "";
+            this.txtBuscaridCategoria.SelectionLength = 0;
+            this.txtBuscaridCategoria.SelectionStart = 0;
+            this.txtBuscaridCategoria.ShortcutsEnabled = true;
+            this.txtBuscaridCategoria.Size = new System.Drawing.Size(118, 23);
+            this.txtBuscaridCategoria.TabIndex = 33;
+            this.txtBuscaridCategoria.UseSelectable = true;
+            this.txtBuscaridCategoria.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBuscaridCategoria.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // RadioBuscarCategoria
+            // 
+            this.RadioBuscarCategoria.AutoSize = true;
+            this.RadioBuscarCategoria.Location = new System.Drawing.Point(16, 19);
+            this.RadioBuscarCategoria.Name = "RadioBuscarCategoria";
+            this.RadioBuscarCategoria.Size = new System.Drawing.Size(112, 15);
+            this.RadioBuscarCategoria.TabIndex = 34;
+            this.RadioBuscarCategoria.Text = "Buscar Categoria";
+            this.RadioBuscarCategoria.UseSelectable = true;
+            this.RadioBuscarCategoria.CheckedChanged += new System.EventHandler(this.metroRadioButton1_CheckedChanged);
+            // 
+            // RadioIngresarCategoria
+            // 
+            this.RadioIngresarCategoria.AutoSize = true;
+            this.RadioIngresarCategoria.Location = new System.Drawing.Point(184, 19);
+            this.RadioIngresarCategoria.Name = "RadioIngresarCategoria";
+            this.RadioIngresarCategoria.Size = new System.Drawing.Size(119, 15);
+            this.RadioIngresarCategoria.TabIndex = 35;
+            this.RadioIngresarCategoria.Text = "Ingresar Categoria";
+            this.RadioIngresarCategoria.UseSelectable = true;
+            // 
+            // metroPanel4
+            // 
+            this.metroPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel4.Controls.Add(this.lblProductos);
+            this.metroPanel4.Controls.Add(this.txtIdProductoProductos);
+            this.metroPanel4.Controls.Add(this.lblNombreProducto);
+            this.metroPanel4.Controls.Add(this.metroLabel1);
+            this.metroPanel4.Controls.Add(this.lblIdCategoriaProducto);
+            this.metroPanel4.Controls.Add(this.txtPrecioProductos);
+            this.metroPanel4.Controls.Add(this.metroLabel4);
+            this.metroPanel4.Controls.Add(this.metroLabel5);
+            this.metroPanel4.Controls.Add(this.txtCategoriaProductos);
+            this.metroPanel4.Controls.Add(this.txtCalidadProductos);
+            this.metroPanel4.Controls.Add(this.txtNombreProductoProductos);
+            this.metroPanel4.Controls.Add(this.txtPorcentajeMerma);
+            this.metroPanel4.HorizontalScrollbarBarColor = true;
+            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.HorizontalScrollbarSize = 10;
+            this.metroPanel4.Location = new System.Drawing.Point(3, 14);
+            this.metroPanel4.Name = "metroPanel4";
+            this.metroPanel4.Size = new System.Drawing.Size(326, 233);
+            this.metroPanel4.TabIndex = 30;
+            this.metroPanel4.VerticalScrollbarBarColor = true;
+            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel5
+            // 
+            this.metroPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel5.Controls.Add(this.btnIngresarProductos);
+            this.metroPanel5.Controls.Add(this.btnActualizarProducto);
+            this.metroPanel5.Controls.Add(this.btnEliminarProducto);
+            this.metroPanel5.Controls.Add(this.btnSalirProductos);
+            this.metroPanel5.HorizontalScrollbarBarColor = true;
+            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.HorizontalScrollbarSize = 10;
+            this.metroPanel5.Location = new System.Drawing.Point(393, 121);
+            this.metroPanel5.Name = "metroPanel5";
+            this.metroPanel5.Size = new System.Drawing.Size(323, 126);
+            this.metroPanel5.TabIndex = 31;
+            this.metroPanel5.VerticalScrollbarBarColor = true;
+            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel6.Controls.Add(this.RadioIngresarProducto);
+            this.metroPanel6.Controls.Add(this.RadioBuscarProducto);
+            this.metroPanel6.Controls.Add(this.txtBuscarProductos);
+            this.metroPanel6.Controls.Add(this.metroLabel3);
+            this.metroPanel6.Controls.Add(this.btnMostrarProductos);
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            this.metroPanel6.Location = new System.Drawing.Point(393, 15);
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Size = new System.Drawing.Size(323, 100);
+            this.metroPanel6.TabIndex = 32;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(5, 63);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel3.TabIndex = 27;
+            this.metroLabel3.Text = "BUSCAR:";
+            // 
+            // txtBuscarProductos
+            // 
+            // 
+            // 
+            // 
+            this.txtBuscarProductos.CustomButton.Image = null;
+            this.txtBuscarProductos.CustomButton.Location = new System.Drawing.Point(98, 1);
+            this.txtBuscarProductos.CustomButton.Name = "";
+            this.txtBuscarProductos.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBuscarProductos.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBuscarProductos.CustomButton.TabIndex = 1;
+            this.txtBuscarProductos.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBuscarProductos.CustomButton.UseSelectable = true;
+            this.txtBuscarProductos.CustomButton.Visible = false;
+            this.txtBuscarProductos.Lines = new string[0];
+            this.txtBuscarProductos.Location = new System.Drawing.Point(79, 61);
+            this.txtBuscarProductos.MaxLength = 32767;
+            this.txtBuscarProductos.Name = "txtBuscarProductos";
+            this.txtBuscarProductos.PasswordChar = '\0';
+            this.txtBuscarProductos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscarProductos.SelectedText = "";
+            this.txtBuscarProductos.SelectionLength = 0;
+            this.txtBuscarProductos.SelectionStart = 0;
+            this.txtBuscarProductos.ShortcutsEnabled = true;
+            this.txtBuscarProductos.Size = new System.Drawing.Size(120, 23);
+            this.txtBuscarProductos.TabIndex = 28;
+            this.txtBuscarProductos.UseSelectable = true;
+            this.txtBuscarProductos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBuscarProductos.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // RadioBuscarProducto
+            // 
+            this.RadioBuscarProducto.AutoSize = true;
+            this.RadioBuscarProducto.Location = new System.Drawing.Point(16, 12);
+            this.RadioBuscarProducto.Name = "RadioBuscarProducto";
+            this.RadioBuscarProducto.Size = new System.Drawing.Size(110, 15);
+            this.RadioBuscarProducto.TabIndex = 29;
+            this.RadioBuscarProducto.Text = "Buscar Producto";
+            this.RadioBuscarProducto.UseSelectable = true;
+            this.RadioBuscarProducto.CheckedChanged += new System.EventHandler(this.RadioBuscarProducto_CheckedChanged);
+            // 
+            // RadioIngresarProducto
+            // 
+            this.RadioIngresarProducto.AutoSize = true;
+            this.RadioIngresarProducto.Location = new System.Drawing.Point(168, 12);
+            this.RadioIngresarProducto.Name = "RadioIngresarProducto";
+            this.RadioIngresarProducto.Size = new System.Drawing.Size(117, 15);
+            this.RadioIngresarProducto.TabIndex = 30;
+            this.RadioIngresarProducto.Text = "Ingresar Producto";
+            this.RadioIngresarProducto.UseSelectable = true;
             // 
             // VistaDistribuirProductos
             // 
@@ -595,10 +833,18 @@ namespace CapaGUI
             this.Load += new System.EventHandler(this.VistaDistribuirProductos_Load);
             this.Tab.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
-            this.metroTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
             this.metroTabPage2.ResumeLayout(false);
-            this.metroTabPage2.PerformLayout();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
+            this.metroPanel2.ResumeLayout(false);
+            this.metroPanel3.ResumeLayout(false);
+            this.metroPanel3.PerformLayout();
+            this.metroPanel4.ResumeLayout(false);
+            this.metroPanel4.PerformLayout();
+            this.metroPanel5.ResumeLayout(false);
+            this.metroPanel6.ResumeLayout(false);
+            this.metroPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -609,8 +855,8 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroTextBox txtPorcentajeMerma;
         private MetroFramework.Controls.MetroTextBox txtNombreProductoProductos;
-        private MetroFramework.Controls.MetroComboBox cbxCalidadProductos;
-        private MetroFramework.Controls.MetroComboBox cbxCategoriaProductos;
+        private MetroFramework.Controls.MetroComboBox txtCalidadProductos;
+        private MetroFramework.Controls.MetroComboBox txtCategoriaProductos;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel lblIdCategoriaProducto;
@@ -630,11 +876,25 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTile btnEliminarCrearCategoria;
         private MetroFramework.Controls.MetroTile btnActualizarCrearAztualizar;
         private MetroFramework.Controls.MetroTile btnIngresarCrearCategoria;
-        private MetroFramework.Controls.MetroTextBox txtCrearNombreCategoria;
-        private MetroFramework.Controls.MetroTextBox txtCrearCategoria;
+        private MetroFramework.Controls.MetroTextBox txtNombreCategoriaProductos;
+        private MetroFramework.Controls.MetroTextBox txtIDCategoriaProductos;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txtPrecioProductos;
         private MetroFramework.Controls.MetroTile btnListarProductosProductos;
         private MetroFramework.Controls.MetroGrid dgvListaProductos;
+        private MetroFramework.Controls.MetroPanel metroPanel6;
+        private MetroFramework.Controls.MetroRadioButton RadioIngresarProducto;
+        private MetroFramework.Controls.MetroRadioButton RadioBuscarProducto;
+        private MetroFramework.Controls.MetroTextBox txtBuscarProductos;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroPanel metroPanel5;
+        private MetroFramework.Controls.MetroPanel metroPanel4;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
+        private MetroFramework.Controls.MetroRadioButton RadioIngresarCategoria;
+        private MetroFramework.Controls.MetroRadioButton RadioBuscarCategoria;
+        private MetroFramework.Controls.MetroTextBox txtBuscaridCategoria;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }

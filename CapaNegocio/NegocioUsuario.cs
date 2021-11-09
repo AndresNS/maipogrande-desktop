@@ -138,8 +138,8 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                Usuario auxUsuario = new Usuario();
-                return auxUsuario;
+                //Usuario auxUsuario = new Usuario();
+                //return auxUsuario;
             }
 
             return usuario;
