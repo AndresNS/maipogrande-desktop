@@ -56,9 +56,9 @@ namespace CapaGUI
             {
                 deshabilitarCamposContrato();
                 limpiarContrato();
-                //this.btnEliminarContratos.Enabled = false;
+                this.btnEliminarContratos.Enabled = false;
                 this.btnIngresarContratos.Enabled = false;
-                //this.btnActualizarContratos.Enabled = false;
+                this.btnActualizarContratos.Enabled = false;
                 this.txtBuscarContrato.Text = String.Empty;
                 this.txtBuscarContrato.Enabled = true;
                 this.btnBuscarContratos.Enabled = true;
@@ -101,7 +101,10 @@ namespace CapaGUI
                 //this.txtidUsuarioEmpresa.Text = transporte.IdUsuario.ToString();
 
                MessageBox.Show("Contrato encontrado con exito");
-                habilitarCamposContrato();
+               habilitarCamposContrato();
+                this.txtBuscarContrato.Text = "";
+                this.btnActualizarContratos.Enabled = true;
+                this.btnEliminarContratos.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -172,6 +175,12 @@ namespace CapaGUI
             {
                 MessageBox.Show("ERROR AL INTENTAR ELIMINAR CONTRATO");
             }
+        }
+
+        private void RadioIngresarNuevoContrato_CheckedChanged(object sender, EventArgs e)
+        {
+            this.btnEliminarContratos.Enabled = false;
+            this.btnActualizarContratos.Enabled = false;
         }
     }
 }

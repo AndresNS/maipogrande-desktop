@@ -296,6 +296,7 @@ namespace CapaGUI
             this.RadioIngresarNuevoContrato.TabIndex = 40;
             this.RadioIngresarNuevoContrato.Text = "Ingresar Nuevo Contrato";
             this.RadioIngresarNuevoContrato.UseSelectable = true;
+            this.RadioIngresarNuevoContrato.CheckedChanged += new System.EventHandler(this.RadioIngresarNuevoContrato_CheckedChanged);
             // 
             // RadioBuscarContrato
             // 
