@@ -960,7 +960,7 @@ namespace CapaGUI
             this.txtFechaCreacionUsuario.Enabled = false;
             this.txtFechaCreacionUsuario.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtFechaCreacionUsuario.Location = new System.Drawing.Point(141, 127);
-            this.txtFechaCreacionUsuario.MinimumSize = new System.Drawing.Size(0, 29);
+            this.txtFechaCreacionUsuario.MinimumSize = new System.Drawing.Size(4, 29);
             this.txtFechaCreacionUsuario.Name = "txtFechaCreacionUsuario";
             this.txtFechaCreacionUsuario.Size = new System.Drawing.Size(201, 29);
             this.txtFechaCreacionUsuario.TabIndex = 9;
@@ -1495,6 +1495,7 @@ namespace CapaGUI
             this.RadioIngresarEmpresa.TabIndex = 40;
             this.RadioIngresarEmpresa.Text = "Ingresar Nueva Empresa";
             this.RadioIngresarEmpresa.UseSelectable = true;
+            this.RadioIngresarEmpresa.CheckedChanged += new System.EventHandler(this.RadioIngresarEmpresa_CheckedChanged);
             // 
             // RadioBuscarEmpresa
             // 
@@ -1610,6 +1611,7 @@ namespace CapaGUI
             this.btnSalirEmpresaTransaporte.Text = "SALIR";
             this.btnSalirEmpresaTransaporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSalirEmpresaTransaporte.UseSelectable = true;
+            this.btnSalirEmpresaTransaporte.Click += new System.EventHandler(this.btnSalirEmpresaTransaporte_Click);
             // 
             // btnEliminarEmpresaTransporte
             // 

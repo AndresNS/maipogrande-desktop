@@ -44,6 +44,13 @@ namespace CapaGUI
             this.btnActualizarCrearAztualizar.Enabled = false;
             ////////////////////////////////////////////////////////
             /////METODO LOAD BUTTON BUSCAR PRODUCTO
+            ///
+
+            ///////////////////////////LOAD DESABILITAR BTN PRODUCTO
+            this.btnEliminarProducto.Enabled = false;
+            this.btnActualizarProducto.Enabled = false;
+            this.btnIngresarProductos.Enabled = false;
+
         }//METODO LOAD
 
         private void limpiarProductos()
@@ -172,11 +179,15 @@ namespace CapaGUI
             {
                 NegocioCategoria negocioCategoria = new NegocioCategoria();
 
-                int idCategoria = Int32.Parse(this.txtIDCategoriaProductos.Text);
+                int idCategoria = Int32.Parse(this.txtBuscaridCategoria.Text);
                 Categoria categoria = negocioCategoria.buscarCategoria(idCategoria);
 
                 this.txtIDCategoriaProductos.Text = categoria.IdCategoria.ToString();
                 this.txtNombreCategoriaProductos.Text = categoria.NombreCategoria;
+
+                MessageBox.Show("Categoria Encontrada " );
+                this.txtBuscaridCategoria.Text = "";
+
             }
             catch (Exception ex)
             {
@@ -234,6 +245,8 @@ namespace CapaGUI
                 NegocioProducto negocioProducto = new NegocioProducto();
                 negocioProducto.IngresarProducto(producto);
                 MessageBox.Show("Producto creado");
+                this.btnActualizarProducto.Enabled = true;
+                this.btnEliminarProducto.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -270,7 +283,7 @@ namespace CapaGUI
             {
                 NegocioProducto negocioProducto = new NegocioProducto();
 
-                int idProducto = Int32.Parse(this.txtIdProductoProductos.Text);
+                int idProducto = Int32.Parse(this.txtBuscarProductos.Text); //cambio txt buscar productos
                 Producto producto = negocioProducto.buscarProducto(idProducto);
 
                 this.txtIdProductoProductos.Text = producto.IdProducto.ToString();
@@ -279,6 +292,10 @@ namespace CapaGUI
                 this.txtCategoriaProductos.SelectedValue = producto.IdCategoria;
                 this.txtCalidadProductos.SelectedValue = producto.IdCalidad;
                 this.txtPorcentajeMerma.Text = producto.PorcentajeMerma.ToString();
+
+
+                MessageBox.Show("Producto Encontrado ");
+                this.txtBuscarProductos.Text = "";
             }
             catch (Exception ex)
             {
