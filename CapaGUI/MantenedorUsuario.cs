@@ -22,7 +22,7 @@ namespace CapaGUI
         private void MantenedorUsuario_Load(object sender, EventArgs e) //LOAD MANTENEDOR 
         {
             //METODO LOAD CLIENTE
-            this.radiobtnBuscarClienteCliente.Checked = true;
+            //this.radiobtnBuscarClienteCliente.Checked = true;
             deshabilitarCamposCliente();
             this.btnEliminarCliente.Enabled = false;
             this.btnActualizarCliente.Enabled = false;
@@ -30,22 +30,22 @@ namespace CapaGUI
             //this.btnActualizarCliente.Enabled = false;
             ///////////////////////////////////////////
             //METODO LOAD USUARIO
-            this.RadioBuscarUsuario.Checked = true;
+            //this.RadioBuscarUsuario.Checked = true;
             deshabilitarCamposUsuario();
-            this.btnEliminarUsuario.Enabled = false;
-            this.btnIngresarUsuario.Enabled = false;
-            this.btnActualizarUsuario.Enabled = false;
+            //this.btnEliminarUsuario.Enabled = false;
+            //this.btnIngresarUsuario.Enabled = false;
+            //this.btnActualizarUsuario.Enabled = false;
             //////////////////////////////////////////////
             //METODO LOAD PRODUCTOR
-            this.RadioBuscarProductor.Checked = true;
+            //this.RadioBuscarProductor.Checked = true;
             deshabilitarCamposProductor();
-            this.btnEliminarProductor.Enabled = false;
+            //this.btnEliminarProductor.Enabled = false;
             //this.btnActualizarProductor.Enabled = false;
             //this.btnIngresarProductor.Enabled = false;
             //
             ///////////////////////////////////////////////
             //METODO LOAD DE EMPRESA
-            this.RadioBuscarEmpresa.Checked = true;
+            //this.RadioBuscarEmpresa.Checked = true;
             deshabilitarCamposEmpresa();
             this.btnEliminarEmpresaTransporte.Enabled = false;
            // this.btnIngresarEmpresaTransporte.Enabled = false;
@@ -170,7 +170,7 @@ namespace CapaGUI
             this.txtidUsuarioEmpresa.Enabled = true;
         }
 
-        private void radiobtnIngresarClienteCliente_CheckedChanged(object sender, EventArgs e) //RADIO INGRESAR CLIENTE
+        /*private void radiobtnIngresarClienteCliente_CheckedChanged(object sender, EventArgs e) //RADIO INGRESAR CLIENTE
         {
 
         }
@@ -284,11 +284,8 @@ namespace CapaGUI
 
             }
         }
+        */
 
-        private void metroTabPage2_Click(object sender, EventArgs e)
-        {
-
-        }//CREADO X ERROR
 
         private void btnSalirUsuario_Click(object sender, EventArgs e)//BTN SALIR USUARIO
         {
@@ -491,7 +488,7 @@ namespace CapaGUI
 
         }
 
-        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        /*private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
             try
             {
@@ -522,7 +519,7 @@ namespace CapaGUI
             }
 
         }//BUSCAR USUARIO
-
+        */
         //private void btnMostrarUsuariosUsuario_Click(object sender, EventArgs e)
         //{
         //    NegocioUsuario negocioUsuario = new NegocioUsuario();
@@ -730,16 +727,16 @@ namespace CapaGUI
 
         }//BTN ELIMINAR EMPRESA TRANSPORTE
 
-        private void RadioIngresarEmpresa_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSalirEmpresaTransaporte_Click(object sender, EventArgs e) //BTN SALIR DE EMPRESA
         {
             this.Close();
             this.Dispose();
         }
+
+
+
+
     }
 }
 
