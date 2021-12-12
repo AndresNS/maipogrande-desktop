@@ -78,12 +78,15 @@
     <Compile Include="NegocioCabeceraPostulacion.cs" />
     <Compile Include="NegocioCabeceraProcesoVenta.cs" />
     <Compile Include="NegocioCalidad.cs" />
+    <Compile Include="NegocioComuna.cs" />
     <Compile Include="NegocioContrato.cs" />
     <Compile Include="NegocioDetallePostulacion.cs" />
     <Compile Include="NegocioDetalleProcesoVenta.cs" />
     <Compile Include="NegocioDetalleSubastaTransporte.cs" />
     <Compile Include="NegocioEmpresaTransporte.cs" />
+    <Compile Include="NegocioEstadoCuenta.cs" />
     <Compile Include="NegocioEstadoVenta.cs" />
+    <Compile Include="NegocioPerfil.cs" />
     <Compile Include="NegocioProductor.cs" />
     <Compile Include="NegocioCategoria.cs" />
     <Compile Include="NegocioCliente.cs" />

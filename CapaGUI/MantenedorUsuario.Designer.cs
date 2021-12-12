@@ -40,6 +40,8 @@ namespace CapaGUI
             this.mcbEstadoUsuario = new MetroFramework.Controls.MetroComboBox();
             this.mcbPerfilUsuarioUsuario = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.txtIdUsuario = new MetroFramework.Controls.MetroTextBox();
             this.tabEmpresaTransporte = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
             this.btnIngresarEmpresaTransporte = new MetroFramework.Controls.MetroTile();
@@ -53,7 +55,7 @@ namespace CapaGUI
             this.txtidEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
             this.txtNombreEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
             this.txtidUsuarioEmpresa = new MetroFramework.Controls.MetroTextBox();
-            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.tabProductor = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
             this.btnIngresarProductor = new MetroFramework.Controls.MetroTile();
             this.btnSalirProductor = new MetroFramework.Controls.MetroTile();
@@ -76,7 +78,7 @@ namespace CapaGUI
             this.txtDireccionProductor = new MetroFramework.Controls.MetroTextBox();
             this.tabCliente = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
-            this.mcbTipoUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
+            this.mcbTipoCliente = new MetroFramework.Controls.MetroComboBox();
             this.mcbUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
             this.mcbComunaCliente = new MetroFramework.Controls.MetroComboBox();
             this.txtGiroCliente = new MetroFramework.Controls.MetroTextBox();
@@ -84,7 +86,7 @@ namespace CapaGUI
             this.txtRazonSocialCliente = new MetroFramework.Controls.MetroTextBox();
             this.txtDvCliente = new MetroFramework.Controls.MetroTextBox();
             this.txtRutCliente = new MetroFramework.Controls.MetroTextBox();
-            this.lblTipoUsuario = new MetroFramework.Controls.MetroLabel();
+            this.lblTipoCliente = new MetroFramework.Controls.MetroLabel();
             this.lblUsuario = new MetroFramework.Controls.MetroLabel();
             this.lblComuna = new MetroFramework.Controls.MetroLabel();
             this.lblGiro = new MetroFramework.Controls.MetroLabel();
@@ -97,43 +99,24 @@ namespace CapaGUI
             this.btnActualizarCliente = new MetroFramework.Controls.MetroTile();
             this.btnEliminarCliente = new MetroFramework.Controls.MetroTile();
             this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.txtBuscarClienteCliente = new MetroFramework.Controls.MetroTextBox();
-            this.txtBuscarUsuario = new MetroFramework.Controls.MetroLabel();
-            this.btnMostrarCliente = new MetroFramework.Controls.MetroTile();
             this.TAB = new MetroFramework.Controls.MetroTabControl();
-            this.tabControlBuscar = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanelBuscar = new MetroFramework.Controls.MetroPanel();
+            this.btnBuscarTodo = new MetroFramework.Controls.MetroTile();
+            this.txtBuscaUser = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.txtBuscarProductor = new MetroFramework.Controls.MetroTextBox();
-            this.btnBuscarProductor = new MetroFramework.Controls.MetroTile();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.metroPanel12 = new MetroFramework.Controls.MetroPanel();
-            this.txtBuscarEmpresa = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.btnBuscarEmpresaTransporte = new MetroFramework.Controls.MetroTile();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtIdUsuario = new MetroFramework.Controls.MetroTextBox();
+            this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel4.SuspendLayout();
             this.tabEmpresaTransporte.SuspendLayout();
             this.metroPanel11.SuspendLayout();
             this.metroPanel10.SuspendLayout();
-            this.metroTabPage3.SuspendLayout();
+            this.tabProductor.SuspendLayout();
             this.metroPanel8.SuspendLayout();
             this.metroPanel7.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.metroPanel2.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
             this.TAB.SuspendLayout();
-            this.tabControlBuscar.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.metroPanel9.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.metroPanel12.SuspendLayout();
+            this.metroPanelBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombreUsuario
@@ -268,14 +251,12 @@ namespace CapaGUI
             // 
             this.mcbPerfilUsuarioUsuario.FormattingEnabled = true;
             this.mcbPerfilUsuarioUsuario.ItemHeight = 23;
-            this.mcbPerfilUsuarioUsuario.Items.AddRange(new object[] {
-            "1",
-            "2"});
             this.mcbPerfilUsuarioUsuario.Location = new System.Drawing.Point(100, 162);
             this.mcbPerfilUsuarioUsuario.Name = "mcbPerfilUsuarioUsuario";
             this.mcbPerfilUsuarioUsuario.Size = new System.Drawing.Size(243, 29);
             this.mcbPerfilUsuarioUsuario.TabIndex = 13;
             this.mcbPerfilUsuarioUsuario.UseSelectable = true;
+            this.mcbPerfilUsuarioUsuario.SelectedIndexChanged += new System.EventHandler(this.mcbPerfilUsuarioUsuario_SelectedIndexChanged);
             // 
             // metroPanel4
             // 
@@ -302,6 +283,45 @@ namespace CapaGUI
             this.metroPanel4.VerticalScrollbarBarColor = true;
             this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(11, 25);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(72, 19);
+            this.metroLabel1.TabIndex = 4;
+            this.metroLabel1.Text = "ID Usuario:";
+            // 
+            // txtIdUsuario
+            // 
+            // 
+            // 
+            // 
+            this.txtIdUsuario.CustomButton.Image = null;
+            this.txtIdUsuario.CustomButton.Location = new System.Drawing.Point(221, 1);
+            this.txtIdUsuario.CustomButton.Name = "";
+            this.txtIdUsuario.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtIdUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtIdUsuario.CustomButton.TabIndex = 1;
+            this.txtIdUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtIdUsuario.CustomButton.UseSelectable = true;
+            this.txtIdUsuario.CustomButton.Visible = false;
+            this.txtIdUsuario.Lines = new string[0];
+            this.txtIdUsuario.Location = new System.Drawing.Point(100, 25);
+            this.txtIdUsuario.MaxLength = 32767;
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.PasswordChar = '\0';
+            this.txtIdUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtIdUsuario.SelectedText = "";
+            this.txtIdUsuario.SelectionLength = 0;
+            this.txtIdUsuario.SelectionStart = 0;
+            this.txtIdUsuario.ShortcutsEnabled = true;
+            this.txtIdUsuario.Size = new System.Drawing.Size(243, 23);
+            this.txtIdUsuario.TabIndex = 3;
+            this.txtIdUsuario.UseSelectable = true;
+            this.txtIdUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtIdUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // tabEmpresaTransporte
             // 
@@ -522,21 +542,21 @@ namespace CapaGUI
             this.txtidUsuarioEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtidUsuarioEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroTabPage3
+            // tabProductor
             // 
-            this.metroTabPage3.Controls.Add(this.metroPanel8);
-            this.metroTabPage3.Controls.Add(this.metroPanel7);
-            this.metroTabPage3.HorizontalScrollbarBarColor = true;
-            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 10;
-            this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(705, 302);
-            this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "Productor";
-            this.metroTabPage3.VerticalScrollbarBarColor = true;
-            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.tabProductor.Controls.Add(this.metroPanel8);
+            this.tabProductor.Controls.Add(this.metroPanel7);
+            this.tabProductor.HorizontalScrollbarBarColor = true;
+            this.tabProductor.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabProductor.HorizontalScrollbarSize = 10;
+            this.tabProductor.Location = new System.Drawing.Point(4, 38);
+            this.tabProductor.Name = "tabProductor";
+            this.tabProductor.Size = new System.Drawing.Size(705, 302);
+            this.tabProductor.TabIndex = 2;
+            this.tabProductor.Text = "Productor";
+            this.tabProductor.VerticalScrollbarBarColor = true;
+            this.tabProductor.VerticalScrollbarHighlightOnWheel = false;
+            this.tabProductor.VerticalScrollbarSize = 10;
             // 
             // metroPanel8
             // 
@@ -890,7 +910,7 @@ namespace CapaGUI
             // metroPanel3
             // 
             this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel3.Controls.Add(this.mcbTipoUsuarioCliente);
+            this.metroPanel3.Controls.Add(this.mcbTipoCliente);
             this.metroPanel3.Controls.Add(this.mcbUsuarioCliente);
             this.metroPanel3.Controls.Add(this.mcbComunaCliente);
             this.metroPanel3.Controls.Add(this.txtGiroCliente);
@@ -898,7 +918,7 @@ namespace CapaGUI
             this.metroPanel3.Controls.Add(this.txtRazonSocialCliente);
             this.metroPanel3.Controls.Add(this.txtDvCliente);
             this.metroPanel3.Controls.Add(this.txtRutCliente);
-            this.metroPanel3.Controls.Add(this.lblTipoUsuario);
+            this.metroPanel3.Controls.Add(this.lblTipoCliente);
             this.metroPanel3.Controls.Add(this.lblUsuario);
             this.metroPanel3.Controls.Add(this.lblComuna);
             this.metroPanel3.Controls.Add(this.lblGiro);
@@ -917,18 +937,18 @@ namespace CapaGUI
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
             // 
-            // mcbTipoUsuarioCliente
+            // mcbTipoCliente
             // 
-            this.mcbTipoUsuarioCliente.FormattingEnabled = true;
-            this.mcbTipoUsuarioCliente.ItemHeight = 23;
-            this.mcbTipoUsuarioCliente.Items.AddRange(new object[] {
+            this.mcbTipoCliente.FormattingEnabled = true;
+            this.mcbTipoCliente.ItemHeight = 23;
+            this.mcbTipoCliente.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.mcbTipoUsuarioCliente.Location = new System.Drawing.Point(128, 234);
-            this.mcbTipoUsuarioCliente.Name = "mcbTipoUsuarioCliente";
-            this.mcbTipoUsuarioCliente.Size = new System.Drawing.Size(168, 29);
-            this.mcbTipoUsuarioCliente.TabIndex = 33;
-            this.mcbTipoUsuarioCliente.UseSelectable = true;
+            this.mcbTipoCliente.Location = new System.Drawing.Point(128, 234);
+            this.mcbTipoCliente.Name = "mcbTipoCliente";
+            this.mcbTipoCliente.Size = new System.Drawing.Size(168, 29);
+            this.mcbTipoCliente.TabIndex = 33;
+            this.mcbTipoCliente.UseSelectable = true;
             // 
             // mcbUsuarioCliente
             // 
@@ -1106,14 +1126,14 @@ namespace CapaGUI
             this.txtRutCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtRutCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // lblTipoUsuario
+            // lblTipoCliente
             // 
-            this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(17, 239);
-            this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(105, 19);
-            this.lblTipoUsuario.TabIndex = 25;
-            this.lblTipoUsuario.Text = "Tipo de Usuario:";
+            this.lblTipoCliente.AutoSize = true;
+            this.lblTipoCliente.Location = new System.Drawing.Point(17, 239);
+            this.lblTipoCliente.Name = "lblTipoCliente";
+            this.lblTipoCliente.Size = new System.Drawing.Size(101, 19);
+            this.lblTipoCliente.TabIndex = 25;
+            this.lblTipoCliente.Text = "Tipo de Cliente:";
             // 
             // lblUsuario
             // 
@@ -1244,311 +1264,106 @@ namespace CapaGUI
             this.btnSalirCliente.UseSelectable = true;
             this.btnSalirCliente.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // metroPanel1
-            // 
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.Controls.Add(this.txtBuscarClienteCliente);
-            this.metroPanel1.Controls.Add(this.txtBuscarUsuario);
-            this.metroPanel1.Controls.Add(this.btnMostrarCliente);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(9, 31);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(305, 135);
-            this.metroPanel1.TabIndex = 23;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // txtBuscarClienteCliente
-            // 
-            // 
-            // 
-            // 
-            this.txtBuscarClienteCliente.CustomButton.Image = null;
-            this.txtBuscarClienteCliente.CustomButton.Location = new System.Drawing.Point(191, 1);
-            this.txtBuscarClienteCliente.CustomButton.Name = "";
-            this.txtBuscarClienteCliente.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBuscarClienteCliente.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBuscarClienteCliente.CustomButton.TabIndex = 1;
-            this.txtBuscarClienteCliente.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBuscarClienteCliente.CustomButton.UseSelectable = true;
-            this.txtBuscarClienteCliente.CustomButton.Visible = false;
-            this.txtBuscarClienteCliente.Lines = new string[0];
-            this.txtBuscarClienteCliente.Location = new System.Drawing.Point(67, 36);
-            this.txtBuscarClienteCliente.MaxLength = 32767;
-            this.txtBuscarClienteCliente.Name = "txtBuscarClienteCliente";
-            this.txtBuscarClienteCliente.PasswordChar = '\0';
-            this.txtBuscarClienteCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarClienteCliente.SelectedText = "";
-            this.txtBuscarClienteCliente.SelectionLength = 0;
-            this.txtBuscarClienteCliente.SelectionStart = 0;
-            this.txtBuscarClienteCliente.ShortcutsEnabled = true;
-            this.txtBuscarClienteCliente.Size = new System.Drawing.Size(213, 23);
-            this.txtBuscarClienteCliente.TabIndex = 26;
-            this.txtBuscarClienteCliente.UseSelectable = true;
-            this.txtBuscarClienteCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBuscarClienteCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtBuscarUsuario
-            // 
-            this.txtBuscarUsuario.AutoSize = true;
-            this.txtBuscarUsuario.Location = new System.Drawing.Point(3, 40);
-            this.txtBuscarUsuario.Name = "txtBuscarUsuario";
-            this.txtBuscarUsuario.Size = new System.Drawing.Size(62, 19);
-            this.txtBuscarUsuario.TabIndex = 25;
-            this.txtBuscarUsuario.Text = "BUSCAR:";
-            // 
-            // btnMostrarCliente
-            // 
-            this.btnMostrarCliente.ActiveControl = null;
-            this.btnMostrarCliente.Location = new System.Drawing.Point(195, 78);
-            this.btnMostrarCliente.Name = "btnMostrarCliente";
-            this.btnMostrarCliente.Size = new System.Drawing.Size(85, 39);
-            this.btnMostrarCliente.TabIndex = 24;
-            this.btnMostrarCliente.Text = "Buscar";
-            this.btnMostrarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnMostrarCliente.UseSelectable = true;
-            this.btnMostrarCliente.Click += new System.EventHandler(this.btnMostrarCliente_Click_1);
-            // 
             // TAB
             // 
+            this.TAB.Controls.Add(this.tabAdmin);
             this.TAB.Controls.Add(this.tabCliente);
-            this.TAB.Controls.Add(this.metroTabPage3);
             this.TAB.Controls.Add(this.tabEmpresaTransporte);
+            this.TAB.Controls.Add(this.tabProductor);
             this.TAB.Location = new System.Drawing.Point(23, 323);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 0;
+            this.TAB.SelectedIndex = 1;
             this.TAB.Size = new System.Drawing.Size(713, 344);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
             // 
-            // tabControlBuscar
+            // metroPanelBuscar
             // 
-            this.tabControlBuscar.Controls.Add(this.tabPage1);
-            this.tabControlBuscar.Controls.Add(this.tabPage2);
-            this.tabControlBuscar.Controls.Add(this.tabPage3);
-            this.tabControlBuscar.Location = new System.Drawing.Point(392, 76);
-            this.tabControlBuscar.Name = "tabControlBuscar";
-            this.tabControlBuscar.SelectedIndex = 0;
-            this.tabControlBuscar.Size = new System.Drawing.Size(340, 241);
-            this.tabControlBuscar.TabIndex = 33;
+            this.metroPanelBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanelBuscar.Controls.Add(this.metroLabel10);
+            this.metroPanelBuscar.Controls.Add(this.txtBuscaUser);
+            this.metroPanelBuscar.Controls.Add(this.btnBuscarTodo);
+            this.metroPanelBuscar.HorizontalScrollbarBarColor = true;
+            this.metroPanelBuscar.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanelBuscar.HorizontalScrollbarSize = 10;
+            this.metroPanelBuscar.Location = new System.Drawing.Point(388, 76);
+            this.metroPanelBuscar.Name = "metroPanelBuscar";
+            this.metroPanelBuscar.Size = new System.Drawing.Size(348, 241);
+            this.metroPanelBuscar.TabIndex = 33;
+            this.metroPanelBuscar.VerticalScrollbarBarColor = true;
+            this.metroPanelBuscar.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanelBuscar.VerticalScrollbarSize = 10;
             // 
-            // tabPage1
+            // btnBuscarTodo
             // 
-            this.tabPage1.Controls.Add(this.metroPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(332, 215);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Buscar Cliente";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.btnBuscarTodo.ActiveControl = null;
+            this.btnBuscarTodo.Location = new System.Drawing.Point(116, 148);
+            this.btnBuscarTodo.Name = "btnBuscarTodo";
+            this.btnBuscarTodo.Size = new System.Drawing.Size(187, 39);
+            this.btnBuscarTodo.TabIndex = 11;
+            this.btnBuscarTodo.Text = "Buscar";
+            this.btnBuscarTodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBuscarTodo.UseSelectable = true;
             // 
-            // tabPage2
+            // txtBuscaUser
             // 
-            this.tabPage2.Controls.Add(this.metroPanel9);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(332, 215);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Buscar Productor";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // metroPanel9
             // 
-            this.metroPanel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel9.Controls.Add(this.metroLabel10);
-            this.metroPanel9.Controls.Add(this.txtBuscarProductor);
-            this.metroPanel9.Controls.Add(this.btnBuscarProductor);
-            this.metroPanel9.HorizontalScrollbarBarColor = true;
-            this.metroPanel9.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel9.HorizontalScrollbarSize = 10;
-            this.metroPanel9.Location = new System.Drawing.Point(6, 36);
-            this.metroPanel9.Name = "metroPanel9";
-            this.metroPanel9.Size = new System.Drawing.Size(320, 130);
-            this.metroPanel9.TabIndex = 35;
-            this.metroPanel9.VerticalScrollbarBarColor = true;
-            this.metroPanel9.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel9.VerticalScrollbarSize = 10;
+            // 
+            this.txtBuscaUser.CustomButton.Image = null;
+            this.txtBuscaUser.CustomButton.Location = new System.Drawing.Point(248, 1);
+            this.txtBuscaUser.CustomButton.Name = "";
+            this.txtBuscaUser.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBuscaUser.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBuscaUser.CustomButton.TabIndex = 1;
+            this.txtBuscaUser.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBuscaUser.CustomButton.UseSelectable = true;
+            this.txtBuscaUser.CustomButton.Visible = false;
+            this.txtBuscaUser.Lines = new string[0];
+            this.txtBuscaUser.Location = new System.Drawing.Point(33, 88);
+            this.txtBuscaUser.MaxLength = 32767;
+            this.txtBuscaUser.Name = "txtBuscaUser";
+            this.txtBuscaUser.PasswordChar = '\0';
+            this.txtBuscaUser.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBuscaUser.SelectedText = "";
+            this.txtBuscaUser.SelectionLength = 0;
+            this.txtBuscaUser.SelectionStart = 0;
+            this.txtBuscaUser.ShortcutsEnabled = true;
+            this.txtBuscaUser.Size = new System.Drawing.Size(270, 23);
+            this.txtBuscaUser.TabIndex = 12;
+            this.txtBuscaUser.UseSelectable = true;
+            this.txtBuscaUser.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBuscaUser.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel10
             // 
             this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(15, 78);
+            this.metroLabel10.Location = new System.Drawing.Point(22, 56);
             this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(62, 19);
-            this.metroLabel10.TabIndex = 33;
-            this.metroLabel10.Text = "BUSCAR:";
+            this.metroLabel10.Size = new System.Drawing.Size(142, 19);
+            this.metroLabel10.TabIndex = 13;
+            this.metroLabel10.Text = "Búsqueda por Usuario:";
             // 
-            // txtBuscarProductor
+            // tabAdmin
             // 
-            // 
-            // 
-            // 
-            this.txtBuscarProductor.CustomButton.Image = null;
-            this.txtBuscarProductor.CustomButton.Location = new System.Drawing.Point(91, 1);
-            this.txtBuscarProductor.CustomButton.Name = "";
-            this.txtBuscarProductor.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBuscarProductor.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBuscarProductor.CustomButton.TabIndex = 1;
-            this.txtBuscarProductor.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBuscarProductor.CustomButton.UseSelectable = true;
-            this.txtBuscarProductor.CustomButton.Visible = false;
-            this.txtBuscarProductor.Lines = new string[0];
-            this.txtBuscarProductor.Location = new System.Drawing.Point(83, 77);
-            this.txtBuscarProductor.MaxLength = 32767;
-            this.txtBuscarProductor.Name = "txtBuscarProductor";
-            this.txtBuscarProductor.PasswordChar = '\0';
-            this.txtBuscarProductor.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarProductor.SelectedText = "";
-            this.txtBuscarProductor.SelectionLength = 0;
-            this.txtBuscarProductor.SelectionStart = 0;
-            this.txtBuscarProductor.ShortcutsEnabled = true;
-            this.txtBuscarProductor.Size = new System.Drawing.Size(113, 23);
-            this.txtBuscarProductor.TabIndex = 32;
-            this.txtBuscarProductor.UseSelectable = true;
-            this.txtBuscarProductor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBuscarProductor.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // btnBuscarProductor
-            // 
-            this.btnBuscarProductor.ActiveControl = null;
-            this.btnBuscarProductor.Location = new System.Drawing.Point(202, 68);
-            this.btnBuscarProductor.Name = "btnBuscarProductor";
-            this.btnBuscarProductor.Size = new System.Drawing.Size(98, 40);
-            this.btnBuscarProductor.TabIndex = 31;
-            this.btnBuscarProductor.Text = "Buscar";
-            this.btnBuscarProductor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBuscarProductor.UseSelectable = true;
-            this.btnBuscarProductor.Click += new System.EventHandler(this.btnBuscarProductor_Click);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.metroPanel12);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(332, 215);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Buscar Transportes";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // metroPanel12
-            // 
-            this.metroPanel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel12.Controls.Add(this.txtBuscarEmpresa);
-            this.metroPanel12.Controls.Add(this.metroLabel11);
-            this.metroPanel12.Controls.Add(this.btnBuscarEmpresaTransporte);
-            this.metroPanel12.HorizontalScrollbarBarColor = true;
-            this.metroPanel12.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel12.HorizontalScrollbarSize = 10;
-            this.metroPanel12.Location = new System.Drawing.Point(3, 39);
-            this.metroPanel12.Name = "metroPanel12";
-            this.metroPanel12.Size = new System.Drawing.Size(323, 140);
-            this.metroPanel12.TabIndex = 40;
-            this.metroPanel12.VerticalScrollbarBarColor = true;
-            this.metroPanel12.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel12.VerticalScrollbarSize = 10;
-            // 
-            // txtBuscarEmpresa
-            // 
-            // 
-            // 
-            // 
-            this.txtBuscarEmpresa.CustomButton.Image = null;
-            this.txtBuscarEmpresa.CustomButton.Location = new System.Drawing.Point(115, 1);
-            this.txtBuscarEmpresa.CustomButton.Name = "";
-            this.txtBuscarEmpresa.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBuscarEmpresa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBuscarEmpresa.CustomButton.TabIndex = 1;
-            this.txtBuscarEmpresa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBuscarEmpresa.CustomButton.UseSelectable = true;
-            this.txtBuscarEmpresa.CustomButton.Visible = false;
-            this.txtBuscarEmpresa.Lines = new string[0];
-            this.txtBuscarEmpresa.Location = new System.Drawing.Point(72, 83);
-            this.txtBuscarEmpresa.MaxLength = 32767;
-            this.txtBuscarEmpresa.Name = "txtBuscarEmpresa";
-            this.txtBuscarEmpresa.PasswordChar = '\0';
-            this.txtBuscarEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscarEmpresa.SelectedText = "";
-            this.txtBuscarEmpresa.SelectionLength = 0;
-            this.txtBuscarEmpresa.SelectionStart = 0;
-            this.txtBuscarEmpresa.ShortcutsEnabled = true;
-            this.txtBuscarEmpresa.Size = new System.Drawing.Size(137, 23);
-            this.txtBuscarEmpresa.TabIndex = 38;
-            this.txtBuscarEmpresa.UseSelectable = true;
-            this.txtBuscarEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBuscarEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(3, 85);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(62, 19);
-            this.metroLabel11.TabIndex = 37;
-            this.metroLabel11.Text = "BUSCAR:";
-            // 
-            // btnBuscarEmpresaTransporte
-            // 
-            this.btnBuscarEmpresaTransporte.ActiveControl = null;
-            this.btnBuscarEmpresaTransporte.Location = new System.Drawing.Point(215, 75);
-            this.btnBuscarEmpresaTransporte.Name = "btnBuscarEmpresaTransporte";
-            this.btnBuscarEmpresaTransporte.Size = new System.Drawing.Size(90, 36);
-            this.btnBuscarEmpresaTransporte.TabIndex = 36;
-            this.btnBuscarEmpresaTransporte.Text = "Buscar";
-            this.btnBuscarEmpresaTransporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBuscarEmpresaTransporte.UseSelectable = true;
-            this.btnBuscarEmpresaTransporte.Click += new System.EventHandler(this.btnBuscarEmpresaTransporte_Click);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(11, 25);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(72, 19);
-            this.metroLabel1.TabIndex = 4;
-            this.metroLabel1.Text = "ID Usuario:";
-            // 
-            // txtIdUsuario
-            // 
-            // 
-            // 
-            // 
-            this.txtIdUsuario.CustomButton.Image = null;
-            this.txtIdUsuario.CustomButton.Location = new System.Drawing.Point(221, 1);
-            this.txtIdUsuario.CustomButton.Name = "";
-            this.txtIdUsuario.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtIdUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtIdUsuario.CustomButton.TabIndex = 1;
-            this.txtIdUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtIdUsuario.CustomButton.UseSelectable = true;
-            this.txtIdUsuario.CustomButton.Visible = false;
-            this.txtIdUsuario.Lines = new string[0];
-            this.txtIdUsuario.Location = new System.Drawing.Point(100, 25);
-            this.txtIdUsuario.MaxLength = 32767;
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.PasswordChar = '\0';
-            this.txtIdUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtIdUsuario.SelectedText = "";
-            this.txtIdUsuario.SelectionLength = 0;
-            this.txtIdUsuario.SelectionStart = 0;
-            this.txtIdUsuario.ShortcutsEnabled = true;
-            this.txtIdUsuario.Size = new System.Drawing.Size(243, 23);
-            this.txtIdUsuario.TabIndex = 3;
-            this.txtIdUsuario.UseSelectable = true;
-            this.txtIdUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtIdUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.tabAdmin.HorizontalScrollbarBarColor = true;
+            this.tabAdmin.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabAdmin.HorizontalScrollbarSize = 10;
+            this.tabAdmin.Location = new System.Drawing.Point(4, 38);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.Size = new System.Drawing.Size(705, 302);
+            this.tabAdmin.TabIndex = 4;
+            this.tabAdmin.Text = "Administrador";
+            this.tabAdmin.VerticalScrollbarBarColor = true;
+            this.tabAdmin.VerticalScrollbarHighlightOnWheel = false;
+            this.tabAdmin.VerticalScrollbarSize = 10;
             // 
             // MantenedorUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 670);
-            this.Controls.Add(this.tabControlBuscar);
+            this.Controls.Add(this.metroPanelBuscar);
             this.Controls.Add(this.metroPanel4);
             this.Controls.Add(this.TAB);
             this.MaximizeBox = false;
@@ -1562,7 +1377,7 @@ namespace CapaGUI
             this.metroPanel11.ResumeLayout(false);
             this.metroPanel10.ResumeLayout(false);
             this.metroPanel10.PerformLayout();
-            this.metroTabPage3.ResumeLayout(false);
+            this.tabProductor.ResumeLayout(false);
             this.metroPanel8.ResumeLayout(false);
             this.metroPanel7.ResumeLayout(false);
             this.metroPanel7.PerformLayout();
@@ -1570,17 +1385,9 @@ namespace CapaGUI
             this.metroPanel3.ResumeLayout(false);
             this.metroPanel3.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
             this.TAB.ResumeLayout(false);
-            this.tabControlBuscar.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.metroPanel9.ResumeLayout(false);
-            this.metroPanel9.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.metroPanel12.ResumeLayout(false);
-            this.metroPanel12.PerformLayout();
+            this.metroPanelBuscar.ResumeLayout(false);
+            this.metroPanelBuscar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1610,7 +1417,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTextBox txtidEmpresaTransporte;
         private MetroFramework.Controls.MetroTextBox txtNombreEmpresaTransporte;
         private MetroFramework.Controls.MetroTextBox txtidUsuarioEmpresa;
-        private MetroFramework.Controls.MetroTabPage metroTabPage3;
+        private MetroFramework.Controls.MetroTabPage tabProductor;
         private MetroFramework.Controls.MetroPanel metroPanel8;
         private MetroFramework.Controls.MetroTile btnIngresarProductor;
         private MetroFramework.Controls.MetroTile btnSalirProductor;
@@ -1633,7 +1440,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTextBox txtDireccionProductor;
         private MetroFramework.Controls.MetroTabPage tabCliente;
         private MetroFramework.Controls.MetroPanel metroPanel3;
-        private MetroFramework.Controls.MetroComboBox mcbTipoUsuarioCliente;
+        private MetroFramework.Controls.MetroComboBox mcbTipoCliente;
         private MetroFramework.Controls.MetroComboBox mcbUsuarioCliente;
         private MetroFramework.Controls.MetroComboBox mcbComunaCliente;
         private MetroFramework.Controls.MetroTextBox txtGiroCliente;
@@ -1641,7 +1448,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTextBox txtRazonSocialCliente;
         private MetroFramework.Controls.MetroTextBox txtDvCliente;
         private MetroFramework.Controls.MetroTextBox txtRutCliente;
-        private MetroFramework.Controls.MetroLabel lblTipoUsuario;
+        private MetroFramework.Controls.MetroLabel lblTipoCliente;
         private MetroFramework.Controls.MetroLabel lblUsuario;
         private MetroFramework.Controls.MetroLabel lblComuna;
         private MetroFramework.Controls.MetroLabel lblGiro;
@@ -1654,24 +1461,13 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTile btnActualizarCliente;
         private MetroFramework.Controls.MetroTile btnEliminarCliente;
         private MetroFramework.Controls.MetroTile btnSalirCliente;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroTextBox txtBuscarClienteCliente;
-        private MetroFramework.Controls.MetroLabel txtBuscarUsuario;
-        private MetroFramework.Controls.MetroTile btnMostrarCliente;
         private MetroFramework.Controls.MetroTabControl TAB;
-        private System.Windows.Forms.TabControl tabControlBuscar;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private MetroFramework.Controls.MetroPanel metroPanel9;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
-        private MetroFramework.Controls.MetroTextBox txtBuscarProductor;
-        private MetroFramework.Controls.MetroTile btnBuscarProductor;
-        private System.Windows.Forms.TabPage tabPage3;
-        private MetroFramework.Controls.MetroPanel metroPanel12;
-        private MetroFramework.Controls.MetroTextBox txtBuscarEmpresa;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroTile btnBuscarEmpresaTransporte;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txtIdUsuario;
+        private MetroFramework.Controls.MetroPanel metroPanelBuscar;
+        private MetroFramework.Controls.MetroTile btnBuscarTodo;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroTextBox txtBuscaUser;
+        private MetroFramework.Controls.MetroTabPage tabAdmin;
     }
 }

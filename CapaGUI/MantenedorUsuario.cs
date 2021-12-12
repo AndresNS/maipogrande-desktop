@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 using CapaDTO;
+using Oracle.ManagedDataAccess.Client;
 
 namespace CapaGUI
 {
@@ -21,24 +22,73 @@ namespace CapaGUI
 
         private void MantenedorUsuario_Load(object sender, EventArgs e) //LOAD MANTENEDOR 
         {
+            this.txtIdUsuario.Enabled = false;
+
+            //Load Perfil Usuario
+
+            NegocioPerfil negocioPerfil = new NegocioPerfil();
+            DataSet perfiles = negocioPerfil.retornarPerfiles();
+
+            this.mcbPerfilUsuarioUsuario.DataSource = perfiles.Tables["PERFIL"];
+            this.mcbPerfilUsuarioUsuario.ValueMember = "ID_PERFIL";
+            this.mcbPerfilUsuarioUsuario.DisplayMember = "DESC_PERFIL";
+
+            //Load Estado Cuenta
+
+            NegocioEstadoCuenta negocioEstadoCuenta = new NegocioEstadoCuenta();
+            DataSet estados = negocioEstadoCuenta.retornarEstadoCuenta();
+
+            this.mcbEstadoUsuario.DataSource = estados.Tables["ESTD_CTA"];
+            this.mcbEstadoUsuario.ValueMember = "ID_ESTD_CTA";
+            this.mcbEstadoUsuario.DisplayMember = "NOMBRE_ESTD_CTA";
+
+            //Load Comuna 
+
+            NegocioComuna negocioComuna = new NegocioComuna();
+            DataSet comunas = negocioComuna.retornarComunas();
+
+            //Load Comuna Cliente
+
+            this.mcbComunaCliente.DataSource = comunas.Tables["COMUNA"];
+            this.mcbComunaCliente.ValueMember = "ID";
+            this.mcbComunaCliente.DisplayMember = "NOMBRE_COMUNA";
+
+
+            //Load Comuna Productor
+
+
+            this.mcbComunaProductor.DataSource = comunas.Tables["COMUNA"];
+            this.mcbComunaProductor.ValueMember = "ID";
+            this.mcbComunaProductor.DisplayMember = "NOMBRE_COMUNA";
+
+            //Load Tipo Cliente
+
+            NegocioTipoCliente negocioTipoCliente = new NegocioTipoCliente();
+            DataSet tiposCliente = negocioTipoCliente.retornarTipos();
+
+            this.mcbTipoCliente.DataSource = tiposCliente.Tables["TIPO_CLIENTE"];
+            this.mcbTipoCliente.ValueMember = "ID_TIPO";
+            this.mcbTipoCliente.DisplayMember = "DESC_TIPO";
+
+
             //METODO LOAD CLIENTE
             //this.radiobtnBuscarClienteCliente.Checked = true;
-            deshabilitarCamposCliente();
-            this.btnEliminarCliente.Enabled = false;
-            this.btnActualizarCliente.Enabled = false;
+            //deshabilitarCamposCliente();
+            //this.btnEliminarCliente.Enabled = false;
+            //this.btnActualizarCliente.Enabled = false;
             //this.btnIngresarCliente.Enabled = false;
             //this.btnActualizarCliente.Enabled = false;
             ///////////////////////////////////////////
             //METODO LOAD USUARIO
             //this.RadioBuscarUsuario.Checked = true;
-            deshabilitarCamposUsuario();
+            //deshabilitarCamposUsuario();
             //this.btnEliminarUsuario.Enabled = false;
             //this.btnIngresarUsuario.Enabled = false;
             //this.btnActualizarUsuario.Enabled = false;
             //////////////////////////////////////////////
             //METODO LOAD PRODUCTOR
             //this.RadioBuscarProductor.Checked = true;
-            deshabilitarCamposProductor();
+            //deshabilitarCamposProductor();
             //this.btnEliminarProductor.Enabled = false;
             //this.btnActualizarProductor.Enabled = false;
             //this.btnIngresarProductor.Enabled = false;
@@ -46,9 +96,9 @@ namespace CapaGUI
             ///////////////////////////////////////////////
             //METODO LOAD DE EMPRESA
             //this.RadioBuscarEmpresa.Checked = true;
-            deshabilitarCamposEmpresa();
-            this.btnEliminarEmpresaTransporte.Enabled = false;
-           // this.btnIngresarEmpresaTransporte.Enabled = false;
+            //deshabilitarCamposEmpresa();
+            //this.btnEliminarEmpresaTransporte.Enabled = false;
+            // this.btnIngresarEmpresaTransporte.Enabled = false;
             //this.btnActualizarEmpresaTransporte.Enabled = false;
 
         }
@@ -66,7 +116,7 @@ namespace CapaGUI
             this.txtDireccionCliente.Text = String.Empty;
             this.txtGiroCliente.Text = String.Empty;
             this.mcbComunaCliente.Text = "";
-            this.mcbTipoUsuarioCliente.Text = "";
+            this.mcbTipoCliente.Text = "";
             this.mcbUsuarioCliente.Text = "";
         }
         private void limpiarCamposUsuario() //METODO LIMPIAR CAMPOS USUARIO
@@ -105,7 +155,7 @@ namespace CapaGUI
             this.txtDireccionCliente.Enabled = false;
             this.txtGiroCliente.Enabled = false;
             this.mcbComunaCliente.Enabled = false;
-            this.mcbTipoUsuarioCliente.Enabled = false;
+            this.mcbTipoCliente.Enabled = false;
             this.mcbUsuarioCliente.Enabled = false;
         }
         private void deshabilitarCamposUsuario() //DESACTIVAR TEXTOS DE USUARIO
@@ -141,7 +191,7 @@ namespace CapaGUI
             this.txtDireccionCliente.Enabled = true;
             this.txtGiroCliente.Enabled = true;
             this.mcbComunaCliente.Enabled = true;
-            this.mcbTipoUsuarioCliente.Enabled = true;
+            this.mcbTipoCliente.Enabled = true;
             this.mcbUsuarioCliente.Enabled = true;
         }
         private void habilitarCamposUsuario() //ACTIVAR TEXTOS DE USUARIOS
@@ -339,7 +389,7 @@ namespace CapaGUI
                 nuevoCliente.Direccion = this.txtDireccionCliente.Text;
                 nuevoCliente.Giro = this.txtGiroCliente.Text;
                 nuevoCliente.IdComuna = Int32.Parse(this.mcbComunaCliente.Text);
-                nuevoCliente.IdTipo = Int32.Parse(this.mcbTipoUsuarioCliente.Text);
+                nuevoCliente.IdTipo = Int32.Parse(this.mcbTipoCliente.Text);
                 nuevoCliente.IdUsuario = Int32.Parse(this.mcbUsuarioCliente.Text);
 
                 NegocioCliente negocioCliente = new NegocioCliente();
@@ -349,7 +399,7 @@ namespace CapaGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al crear cliente");
+                MessageBox.Show("Error al crear cliente "+ex);
             }
           
 
@@ -366,7 +416,7 @@ namespace CapaGUI
                 actualizarCliente.Direccion = this.txtDireccionCliente.Text;
                 actualizarCliente.Giro = this.txtGiroCliente.Text;
                 actualizarCliente.IdComuna = Int32.Parse(this.mcbComunaCliente.Text);
-                actualizarCliente.IdTipo = Int32.Parse(this.mcbTipoUsuarioCliente.Text);
+                actualizarCliente.IdTipo = Int32.Parse(this.mcbTipoCliente.Text);
                 actualizarCliente.IdUsuario = Int32.Parse(this.mcbUsuarioCliente.Text);
 
                 NegocioCliente negocioCliente = new NegocioCliente();
@@ -397,35 +447,6 @@ namespace CapaGUI
         //}
         private void btnMostrarCliente_Click_1(object sender, EventArgs e) // BTN BUSCAR CLIENTE
         {
-            try
-            {
-                NegocioCliente negocioCliente = new NegocioCliente();
-                int rutCliente = Int32.Parse(this.txtBuscarClienteCliente.Text);
-                Cliente cliente = negocioCliente.buscarCliente(rutCliente);
-
-                this.txtDvCliente.Text = cliente.DvRut;
-                this.txtRazonSocialCliente.Text = cliente.RazonSocial;
-                this.txtDireccionCliente.Text = cliente.Direccion;
-                this.txtGiroCliente.Text = cliente.Giro;
-                this.mcbComunaCliente.Text = cliente.IdComuna.ToString();
-                this.mcbTipoUsuarioCliente.Text = cliente.IdTipo.ToString();
-                this.mcbUsuarioCliente.Text = cliente.IdUsuario.ToString();
-
-                MessageBox.Show("Cliente Encontrado con Exito");
-                habilitarCamposCliente(); //NUEVO
-                this.btnActualizarCliente.Enabled = true; //NUEVO
-                this.btnEliminarCliente.Enabled = true;//NUEVO
-                this.txtRutCliente.Text = (txtBuscarClienteCliente.Text); // NUEVO 
-                this.txtBuscarClienteCliente.Text = ""; ///NUEVOOOOOO
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show ("ERROR AL BUSCAR CLIENTE");
-                limpiarCamposCliente();// NUEVO
-                btnEliminarCliente.Enabled = false; //nuevo
-                btnActualizarCliente.Enabled = false; //NUEVO
-
-            }
 
         }//MOSTRAR CLIENTE
         private void btnEliminarCliente_Click(object sender, EventArgs e)
@@ -441,7 +462,7 @@ namespace CapaGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR AL INTENTAR ELIMINAR CLIENTE");
+                MessageBox.Show("ERROR AL INTENTAR ELIMINAR CLIENTE "+ex);
             }
 
         }//ELIMINAR CLIENTE
@@ -483,7 +504,7 @@ namespace CapaGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR AL INTENTAR ACTUALIZAR USUARIO");
+                MessageBox.Show("ERROR AL INTENTAR ACTUALIZAR USUARIO "+ex);
             }
 
         }
@@ -570,50 +591,11 @@ namespace CapaGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR AL ACTUALIZAR PRODUCTOR");
+                MessageBox.Show("ERROR AL ACTUALIZAR PRODUCTOR "+ex);
             }
 
          
         }//ACTUALIZAR PRODUCTOR
-
-        private void btnBuscarProductor_Click(object sender, EventArgs e) // BTN BUSCAR PRODUCTOR
-        {
-            try
-            {
- 
-                NegocioProductor negocioProductor = new NegocioProductor();
-
-                int rutProductor = Int32.Parse(this.txtRutProductor.Text);
-
-                Productor productor = negocioProductor.buscarProductor(rutProductor);
-
-                this.txtDvProductor.Text = productor.DigitoVerificador;
-                this.txtRazonSocialProductor.Text = productor.RazonSocial;
-                this.txtDireccionProductor.Text = productor.Direccion;
-                this.txtGiroProductor.Text = productor.Giro;
-
-                //this.mcbComunaProductor.Text = productor.IdComuna.ToString();
-                //this.mcbIdUsuarioProductor.Text = productor.IdUsuario.ToString();
-                MessageBox.Show("Productor encontrado con exito");
-                this.btnActualizarProductor.Enabled = true; //nuevo
-                this.btnEliminarProductor.Enabled = true; // neuvo
-                this.txtRutProductor.Text = (txtBuscarProductor.Text); // nuevo
-                this.txtBuscarProductor.Text = ""; //nuevo
-               
-           
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR AL ENCONTRAR PRODUCTOR");
-                limpiarCamposProductor(); //nuevo
-                btnActualizarProductor.Enabled = false; //nuevo
-                btnEliminarProductor.Enabled = false; //nuevo
-                
-                
-            }
-
-
-        }//BUSCAR PRODUCTOR
 
         private void btnEliminarProductor_Click(object sender, EventArgs e) //BTN ELIMINAR PRODUCTOR
         {
@@ -651,37 +633,10 @@ namespace CapaGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR AL INTENTAR INGRESAR EMPRESA DE TRANSPORTE");
+                MessageBox.Show("ERROR AL INTENTAR INGRESAR EMPRESA DE TRANSPORTE " +ex);
             }
 
         }//BTN INGRESAR EMPRESA TRANSPORTE
-
-        private void btnBuscarEmpresaTransporte_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                NegocioEmpresaTransporte negocioTransporte = new NegocioEmpresaTransporte();//llamos al negocio
-
-                int idEmpresa = Int32.Parse(this.txtBuscarEmpresa.Text); //señalo el texto del parametro de busqueda
-                EmpresaTransporte transporte = negocioTransporte.buscarEmpresaTransporte(idEmpresa); //ejecuto el procedimiento
-
-                this.txtNombreEmpresaTransporte.Text = transporte.NombreEmpresa;
-                this.txtidUsuarioEmpresa.Text = transporte.IdUsuario.ToString();
-
-                MessageBox.Show("Transporte encontrado con exito");
-                this.btnActualizarEmpresaTransporte.Enabled = true; // nuevo
-                this.btnEliminarEmpresaTransporte.Enabled = true; //nuevo
-                this.txtidEmpresaTransporte.Text = (txtBuscarEmpresa.Text);
-                this.txtBuscarEmpresa.Text = "";
-                habilitarCamposEmpresa();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR AL INTENTAR BUSCAR TRANSPORTE");
-            }
-
-        }//BTN BUSCAR EMPRESA TRANSPORTE
 
         private void btnActualizarEmpresaTransporte_Click(object sender, EventArgs e)
         {
@@ -734,9 +689,40 @@ namespace CapaGUI
             this.Dispose();
         }
 
+        private void metroLabel9_Click(object sender, EventArgs e)
+        {
 
+        }//error, bug si se elimina.
 
+        private void mcbPerfilUsuarioUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+            this.TAB.SelectedIndex = this.mcbPerfilUsuarioUsuario.SelectedIndex;
+
+            switch (this.mcbPerfilUsuarioUsuario.SelectedIndex) { 
+                case 0: //admin
+                    deshabilitarCamposCliente();
+                    deshabilitarCamposEmpresa();
+                    deshabilitarCamposProductor();
+                    break;
+                case 1: //cliente
+                    habilitarCamposCliente();
+                    deshabilitarCamposProductor();
+                    deshabilitarCamposEmpresa();
+                    break;
+                case 2: //empresa transportes
+                    deshabilitarCamposCliente();
+                    deshabilitarCamposProductor();
+                    habilitarCamposEmpresa();
+                    break;
+                case 3: //productor
+                    deshabilitarCamposCliente();
+                    habilitarCamposProductor();
+                    deshabilitarCamposEmpresa();
+                    break;
+
+            }
+        }
     }
 }
 

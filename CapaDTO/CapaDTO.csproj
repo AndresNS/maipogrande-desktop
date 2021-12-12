@@ -48,6 +48,7 @@
     <Compile Include="CabeceraSubastaTransporte.cs" />
     <Compile Include="EstadoVenta.cs" />
     <Compile Include="CabeceraPostulacion.cs" />
+    <Compile Include="Perfil.cs" />
     <Compile Include="Sesion.cs" />
     <Compile Include="Comuna.cs" />
     <Compile Include="Contrato.cs" />
