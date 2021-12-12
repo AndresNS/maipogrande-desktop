@@ -43,9 +43,5 @@ namespace CapaGUI
             vistaDetallePostulacionProductor.ShowDialog();
         }
 
-        private void btnSeleccionarTransporte_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

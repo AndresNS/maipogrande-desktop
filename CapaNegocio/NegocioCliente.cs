@@ -133,7 +133,7 @@ namespace CapaNegocio
                 cliente.IdComuna = (short)dt.Rows[0]["ID_COMUNA"];
                 cliente.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
                 cliente.IdTipo = (short)dt.Rows[0]["ID_TIPO"];
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR ID:006CLI NAME:NEGOCIO CLIENTE " + ex);
