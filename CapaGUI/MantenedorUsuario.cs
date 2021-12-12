@@ -583,10 +583,10 @@ namespace CapaGUI
         {
             try
             {
- 
+
                 NegocioProductor negocioProductor = new NegocioProductor();
 
-                int rutProductor = Int32.Parse(this.txtRutProductor.Text);
+                int rutProductor = Int32.Parse(this.txtBuscarProductor.Text);
 
                 Productor productor = negocioProductor.buscarProductor(rutProductor);
 
@@ -594,9 +594,10 @@ namespace CapaGUI
                 this.txtRazonSocialProductor.Text = productor.RazonSocial;
                 this.txtDireccionProductor.Text = productor.Direccion;
                 this.txtGiroProductor.Text = productor.Giro;
+                
+                this.mcbComunaProductor.Text = productor.IdComuna.ToString();
+                this.mcbIdUsuarioProductor.Text = productor.IdUsuario.ToString();
 
-                //this.mcbComunaProductor.Text = productor.IdComuna.ToString();
-                //this.mcbIdUsuarioProductor.Text = productor.IdUsuario.ToString();
                 MessageBox.Show("Productor encontrado con exito");
                 this.btnActualizarProductor.Enabled = true; //nuevo
                 this.btnEliminarProductor.Enabled = true; // neuvo
@@ -627,7 +628,12 @@ namespace CapaGUI
                 int rutProductor = Int32.Parse(this.txtRutProductor.Text);
 
                 negocioProductor.eliminarProductor(rutProductor);
-                MessageBox.Show("Usuario eliminado");
+                MessageBox.Show("Productor eliminado");
+                limpiarCamposProductor();
+                deshabilitarCamposProductor();
+                this.btnActualizarProductor.Enabled = false;
+                this.btnEliminarProductor.Enabled = false;
+
             }
             catch (Exception ex)
             {
@@ -720,7 +726,7 @@ namespace CapaGUI
                 negocioTransporte.eliminarEmpresaTransporte(idEmpresa);
 
                 MessageBox.Show("Empresa de Transporte Eliminada ");
-                limpiarCamposEmpresa();
+                limpiarCamposProductor();
             }
             catch (Exception ex)
             {
@@ -739,6 +745,11 @@ namespace CapaGUI
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void txtBuscarProductor_Click(object sender, EventArgs e) //CREADO X ERROR
+        {
+
         }
     }
 }

@@ -37,16 +37,7 @@ namespace CapaGUI
             this.dgvListaSubastasTransporte.DataSource = listaSubastasTransporte.Tables["DETALLE_SUBASTA"];
         }
 
-        private void btnVerDetalles_Click(object sender, EventArgs e)
-        {
-            // Ver detalles de subasta de transporte seleccionado
-            int indiceFila = this.dgvListaSubastasTransporte.SelectedCells[0].RowIndex;
-            DataGridViewRow filaSeleccionada = this.dgvListaSubastasTransporte.Rows[indiceFila];
 
-            VistaDetalleSubastaTransporte vistaDetalleSubastaTransporte = new VistaDetalleSubastaTransporte(int.Parse(filaSeleccionada.Cells["ID_CABECERA_SUBASTA"].Value.ToString()));
-
-            vistaDetalleSubastaTransporte.ShowDialog();
-        }
 
         private void btnSeleccionarTransporte_Click(object sender, EventArgs e)
         {

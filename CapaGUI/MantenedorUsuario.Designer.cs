@@ -157,7 +157,7 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.tabEmpresaTransporte);
             this.TAB.Location = new System.Drawing.Point(23, 87);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 3;
+            this.TAB.SelectedIndex = 2;
             this.TAB.Size = new System.Drawing.Size(713, 507);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
@@ -1104,6 +1104,7 @@ namespace CapaGUI
             this.txtBuscarProductor.UseSelectable = true;
             this.txtBuscarProductor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBuscarProductor.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBuscarProductor.Click += new System.EventHandler(this.txtBuscarProductor_Click);
             // 
             // btnBuscarProductor
             // 
