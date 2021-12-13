@@ -24,6 +24,8 @@ namespace CapaGUI
         {
             this.txtIdUsuario.Enabled = false;
 
+
+
             //Load Perfil Usuario
 
             NegocioPerfil negocioPerfil = new NegocioPerfil();
@@ -758,6 +760,102 @@ namespace CapaGUI
                     break;
 
             }
+        }
+
+        private void btnBuscarTodo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+
+                String nombreUsuario = this.txtBuscaUser.Text;
+                Usuario user = negocioUsuario.buscarPorNombre(nombreUsuario);
+
+                this.txtIdUsuario.Text = user.IdUsuario.ToString();
+                this.txtNombreUsuario.Text = user.NombreUsuario;
+                this.txtContraseñaUsuario.Text = user.Password;
+                this.txtFechaCreacionUsuario.Value = user.FechaCreacion;
+                this.mcbPerfilUsuarioUsuario.SelectedIndex = (user.IdPerfil)-1;
+                this.mcbEstadoUsuario.SelectedIndex = (user.IdEstadoCuenta)-1;
+                
+
+                switch ((user.IdPerfil)-1)
+                {
+                    case 0: //admin
+                        break;
+                    case 1: //cliente
+
+                        NegocioCliente negocioCliente = new NegocioCliente();
+                        Cliente cliente = negocioCliente.buscarPorIdUsr(user.IdUsuario);
+
+                        this.txtRutCliente.Text = cliente.Rut.ToString();
+                        this.txtDvCliente.Text = cliente.DvRut;
+                        this.txtRazonSocialCliente.Text = cliente.RazonSocial;
+                        this.txtDireccionCliente.Text = cliente.Direccion;
+                        this.txtGiroCliente.Text = cliente.Giro;
+                        this.mcbComunaCliente.SelectedIndex = (cliente.IdComuna)-1;
+                        this.mcbTipoCliente.SelectedIndex = (cliente.IdTipo);
+
+
+                        break;
+                    case 2: //empresa transportes
+
+                        NegocioEmpresaTransporte negocioEmpresaTransporte = new NegocioEmpresaTransporte();
+                        EmpresaTransporte empresaTransporte = negocioEmpresaTransporte.buscarPorIdUsr(user.IdUsuario);
+
+                        this.txtidEmpresaTransporte.Text = empresaTransporte.IdEmpresa.ToString();
+                        this.txtNombreEmpresaTransporte.Text = empresaTransporte.NombreEmpresa;
+
+                        this.txtidEmpresaTransporte.Enabled = false;
+                        this.txtidUsuarioEmpresa.Enabled = false;
+
+                        break;
+                    case 3: //productor
+
+                        NegocioProductor negocioProductor = new NegocioProductor();
+                        Productor productor = negocioProductor.buscarPorIdUsr(user.IdUsuario);
+
+
+                        this.txtRutProductor.Text = productor.Rut.ToString();
+                        this.txtDvProductor.Text = productor.DigitoVerificador;
+                        this.txtRazonSocialProductor.Text = productor.RazonSocial;
+                        this.txtDireccionProductor.Text = productor.Direccion;
+                        this.txtGiroProductor.Text = productor.Giro;
+                        this.mcbComunaProductor.SelectedIndex = (productor.IdComuna) - 1;
+                        this.mcbIdUsuarioProductor.Enabled = false;
+
+                        break;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL BUSCAR USUARIO" +ex);
+                limpiarCamposUsuario(); //NUEVO
+
+            }
+        }
+
+        private void btnAgregarUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            IngresarUsuario();
+        }
+
+        private void btnActualizarUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            ActualizarUsuario();
+        }
+
+        private void btnEliminarUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            EliminarUsuario();
+        }
+
+        private void btnSalirUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }
