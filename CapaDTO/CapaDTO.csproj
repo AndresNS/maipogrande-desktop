@@ -51,6 +51,7 @@
     <Compile Include="EstadoPostulacion.cs" />
     <Compile Include="EstadoVenta.cs" />
     <Compile Include="CabeceraPostulacion.cs" />
+    <Compile Include="CabeceraOrdenCompra.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Sesion.cs" />
     <Compile Include="Comuna.cs" />

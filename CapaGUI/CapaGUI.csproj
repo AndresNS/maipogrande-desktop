@@ -142,6 +142,12 @@
     <Compile Include="VistaListadoProcesosVenta.Designer.cs">
       <DependentUpon>VistaListadoProcesosVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaListadoVentasInternas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaListadoVentasInternas.Designer.cs">
+      <DependentUpon>VistaListadoVentasInternas.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaPagos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VistaListadoProcesosVenta.resx">
       <DependentUpon>VistaListadoProcesosVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaListadoVentasInternas.resx">
+      <DependentUpon>VistaListadoVentasInternas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaPagos.resx">
       <DependentUpon>VistaPagos.cs</DependentUpon>

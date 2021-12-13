@@ -101,7 +101,6 @@ namespace CapaGUI
                     {
                         int diferencia = unidadesCubiertas + unidPostuladas - unidadesTotales;
 
-                        int idCabeceraSobrante = 0;
                         // Agregar diferencia a sobrantes
                         if (cabeceraSobrante.IdCabeceraProcesoVenta == -1)
                         {
@@ -109,17 +108,17 @@ namespace CapaGUI
                             cabeceraSobrante.IdCabeceraProcesoVenta = postulacion.IdCabeceraProcesoVenta;
                             negocioCabeceraSobrante.ingresarCabeceraSobrante(cabeceraSobrante);
 
-                            idCabeceraSobrante = negocioCabeceraSobrante.buscarUltimaInsercion().IdCabeceraSobrante;
+                            cabeceraSobrante.IdCabeceraSobrante = negocioCabeceraSobrante.buscarUltimaInsercion().IdCabeceraSobrante;
                         }
                         else
                         {
                             NegocioCabeceraSobrante negocioCabeceraSobrante = new NegocioCabeceraSobrante();
-                            cabeceraSobrante = negocioCabeceraSobrante.buscarCabeceraSobrante(idCabeceraSobrante);
+                            cabeceraSobrante = negocioCabeceraSobrante.buscarCabeceraSobrante(cabeceraSobrante.IdCabeceraSobrante);
                         }
 
                         NegocioDetalleSobrante negocioDetalleSobrante = new NegocioDetalleSobrante();
                         DetalleSobrante detalleSobrante = new DetalleSobrante();
-                        detalleSobrante.IdCabeceraSobrante = idCabeceraSobrante;
+                        detalleSobrante.IdCabeceraSobrante = cabeceraSobrante.IdCabeceraSobrante;
                         detalleSobrante.IdProducto = (short)detalleProcesoVenta["ID_PRODUCTO"];
                         detalleSobrante.Cantidad = diferencia;
 

@@ -53,5 +53,11 @@ namespace CapaGUI
             VistaPagos vistaPagos = new VistaPagos();
             vistaPagos.ShowDialog();
         }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            VistaListadoVentasInternas vistaPagos = new VistaListadoVentasInternas();
+            vistaPagos.ShowDialog();
+        }
     }
 }
