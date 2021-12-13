@@ -79,12 +79,7 @@ namespace CapaGUI
             //this.btnIngresarCliente.Enabled = false;
             //this.btnActualizarCliente.Enabled = false;
             ///////////////////////////////////////////
-            //METODO LOAD USUARIO
-            //this.RadioBuscarUsuario.Checked = true;
-            //deshabilitarCamposUsuario();
-            //this.btnEliminarUsuario.Enabled = false;
-            //this.btnIngresarUsuario.Enabled = false;
-            //this.btnActualizarUsuario.Enabled = false;
+
             //////////////////////////////////////////////
             //METODO LOAD PRODUCTOR
             //this.RadioBuscarProductor.Checked = true;
@@ -117,7 +112,7 @@ namespace CapaGUI
             this.txtGiroCliente.Text = String.Empty;
             this.mcbComunaCliente.Text = "";
             this.mcbTipoCliente.Text = "";
-            this.mcbUsuarioCliente.Text = "";
+
         }
         private void limpiarCamposUsuario() //METODO LIMPIAR CAMPOS USUARIO
         {
@@ -156,17 +151,11 @@ namespace CapaGUI
             this.txtGiroCliente.Enabled = false;
             this.mcbComunaCliente.Enabled = false;
             this.mcbTipoCliente.Enabled = false;
-            this.mcbUsuarioCliente.Enabled = false;
+            this.btnEliminarCliente.Enabled = false;
+            this.btnActualizarCliente.Enabled = false;
+            this.btnIngresarCliente.Enabled = false;
         }
-        private void deshabilitarCamposUsuario() //DESACTIVAR TEXTOS DE USUARIO
-        {
-            this.txtIdUsuario.Enabled = false;
-            this.txtNombreUsuario.Enabled = false;
-            this.txtContraseñaUsuario.Enabled = false;
-            this.txtFechaCreacionUsuario.Enabled = false;
-            this.mcbPerfilUsuarioUsuario.Enabled = false;
-            this.mcbEstadoUsuario.Enabled = false;
-        }
+
         private void deshabilitarCamposProductor() //DESACTIVAR TEXTOS DE PRODUCTOR
         {
             this.txtRutProductor.Enabled = false;
@@ -176,12 +165,18 @@ namespace CapaGUI
             this.txtGiroProductor.Enabled = false;
             this.mcbComunaProductor.Enabled = false;
             this.mcbIdUsuarioProductor.Enabled = false;
+            this.btnEliminarProductor.Enabled = false;
+            this.btnActualizarProductor.Enabled = false;
+            this.btnIngresarProductor.Enabled = false;
         }
         private void deshabilitarCamposEmpresa() // DESACTIVAR TEXTOS DE EMPRESA
         {
             this.txtidEmpresaTransporte.Enabled = false;
             this.txtNombreEmpresaTransporte.Enabled = false;
             this.txtidUsuarioEmpresa.Enabled = false;
+            this.btnEliminarEmpresaTransporte.Enabled = false;
+            this.btnIngresarEmpresaTransporte.Enabled = false;
+            this.btnActualizarEmpresaTransporte.Enabled = false;
         }
         private void habilitarCamposCliente() //ACTIVAR TEXTOS DE CLIENTE
         {
@@ -192,7 +187,10 @@ namespace CapaGUI
             this.txtGiroCliente.Enabled = true;
             this.mcbComunaCliente.Enabled = true;
             this.mcbTipoCliente.Enabled = true;
-            this.mcbUsuarioCliente.Enabled = true;
+
+            this.btnEliminarCliente.Enabled = true;
+            this.btnActualizarCliente.Enabled = true;
+            this.btnIngresarCliente.Enabled = true;
         }
         private void habilitarCamposUsuario() //ACTIVAR TEXTOS DE USUARIOS
         {
@@ -212,13 +210,128 @@ namespace CapaGUI
             this.txtGiroProductor.Enabled = true;
             this.mcbComunaProductor.Enabled = true;
             this.mcbIdUsuarioProductor.Enabled = true;
+            this.btnEliminarProductor.Enabled = true;
+            this.btnActualizarProductor.Enabled = true;
+            this.btnIngresarProductor.Enabled = true;
+
         }
         private void habilitarCamposEmpresa() //ACTIVAR TEXTOS DE EMPRESA
         {
             this.txtidEmpresaTransporte.Enabled = true;
             this.txtNombreEmpresaTransporte.Enabled = true;
             this.txtidUsuarioEmpresa.Enabled = true;
+            this.btnEliminarEmpresaTransporte.Enabled = true;
+            this.btnIngresarEmpresaTransporte.Enabled = true;
+            this.btnActualizarEmpresaTransporte.Enabled = true;
         }
+
+
+        private void IngresarUsuario() //INGRESAR USUARIO
+        {
+            try
+            {
+                Usuario nuevoUsuario = new Usuario();
+                nuevoUsuario.NombreUsuario = this.txtNombreUsuario.Text;
+                nuevoUsuario.Password = this.txtContraseñaUsuario.Text;
+                nuevoUsuario.IdPerfil = Int32.Parse(mcbPerfilUsuarioUsuario.SelectedValue.ToString());
+                nuevoUsuario.IdEstadoCuenta = Int32.Parse(mcbEstadoUsuario.SelectedValue.ToString());
+
+
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+                negocioUsuario.IngresarUsuario(nuevoUsuario);
+                MessageBox.Show("Usuario Agregado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL INTENTAR INGRESAR USUARIO" + ex);
+            }
+
+        }//BTN INGRESAR USUARIO
+        private void ActualizarUsuario() //ACTUALIZAR USUARIO
+        {
+            try
+            {
+                Usuario nuevoUsuario = new Usuario();
+                nuevoUsuario.IdUsuario = Int32.Parse(this.txtIdUsuario.Text);
+                nuevoUsuario.NombreUsuario = this.txtNombreUsuario.Text;
+                nuevoUsuario.Password = this.txtContraseñaUsuario.Text;
+                nuevoUsuario.FechaCreacion = DateTime.Parse(this.txtFechaCreacionUsuario.Text);
+                nuevoUsuario.IdPerfil = Int32.Parse(this.mcbPerfilUsuarioUsuario.Text); // Perfil cliente
+                nuevoUsuario.IdEstadoCuenta = Int32.Parse(this.mcbEstadoUsuario.Text); // cuenta activa
+
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+                negocioUsuario.actualizarUsuario(nuevoUsuario);
+                MessageBox.Show("Usuario Actualizado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL INTENTAR ACTUALIZAR USUARIO " + ex);
+            }
+
+        }
+        private void EliminarUsuario() //ELIMINAR USUARIO
+        {
+            try
+            {
+                int idUsuario = Int32.Parse(this.txtIdUsuario.Text);
+
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+                negocioUsuario.eliminarUsuario(idUsuario);
+                MessageBox.Show("Usuario eliminado");
+                limpiarCamposUsuario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL ELIMINAR USUARIO" + ex);
+            }
+
+        }//ELIMINAR USUARIO
+        /*private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+
+                int idUsuario = Int32.Parse(this.txtBuscarIDUsuario.Text);
+                Usuario user = negocioUsuario.buscarUsuario(idUsuario);
+
+                this.txtNombreUsuario.Text = user.NombreUsuario;
+                this.txtContraseñaUsuario.Text = user.Password;
+                this.txtFechaCreacionUsuario.Text = user.FechaCreacion.ToString();
+                this.mcbPerfilUsuarioUsuario.Text = user.IdPerfil.ToString();
+                this.mcbEstadoUsuario.Text = user.IdEstadoCuenta.ToString();
+                MessageBox.Show("Usuario Encontrado");
+                habilitarCamposUsuario(); // NUEVO
+                this.btnActualizarUsuario.Enabled = true; // NUEVO
+                this.btnEliminarUsuario.Enabled = true; //NUEVO
+                this.txtIdUsuario.Text = (txtBuscarIDUsuario.Text); //NUEVO
+                this.txtBuscarIDUsuario.Text = ""; //NUEVO
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL BUSCAR USUARIO");
+                limpiarCamposUsuario(); //NUEVO
+                btnActualizarUsuario.Enabled = false;// nuevo
+                btnEliminarUsuario.Enabled = false; //nuevo
+            }
+
+        }//BUSCAR USUARIO
+        */
+        //private void btnMostrarUsuariosUsuario_Click(object sender, EventArgs e)
+        //{
+        //    NegocioUsuario negocioUsuario = new NegocioUsuario();
+
+        //    DataSet listaUsuarios = negocioUsuario.retornarUsuarios();
+
+        //    this.dgvListaUsuarios.AutoGenerateColumns = true;
+        //    this.dgvListaUsuarios.DataSource = listaUsuarios.Tables["USUARIO"];
+
+        //} //MOSTRAR USUARIO
+
+
+
+
 
         /*private void radiobtnIngresarClienteCliente_CheckedChanged(object sender, EventArgs e) //RADIO INGRESAR CLIENTE
         {
@@ -349,48 +462,35 @@ namespace CapaGUI
             this.Dispose();
         } //BTN SALIR PRODUCTOR
 
-        private void btnIngresarProductor_Click(object sender, EventArgs e)//BTN INGRESAR PRODUCTOR
-        {
-            try
-            {
-                Productor nuevoProductor = new Productor();
-                nuevoProductor.Rut = Int32.Parse(this.txtRutProductor.Text);
-                nuevoProductor.DigitoVerificador = this.txtDvProductor.Text;
-                nuevoProductor.RazonSocial = this.txtRazonSocialProductor.Text;
-                nuevoProductor.Direccion = this.txtDireccionProductor.Text;
-                nuevoProductor.Giro = this.txtGiroProductor.Text;
-                nuevoProductor.IdComuna = Int32.Parse(this.mcbComunaProductor.Text);
-                nuevoProductor.IdUsuario = Int32.Parse(this.mcbIdUsuarioProductor.Text);
 
-                NegocioProductor negocioProductor = new NegocioProductor();
-                negocioProductor.IngresarProductor(nuevoProductor);
-                MessageBox.Show("Cliente Creado con exito");
-
-
-            }
-            catch (Exception exingresodatosproductor)
-            {
-                MessageBox.Show("Error al ingresar nuevo Productor:" +exingresodatosproductor);
-            }
-           
-
-        }
 
        
 
         private void btnIngresarCliente_Click(object sender, EventArgs e) //BTN INGRESAR CLIENTE
         {
+            IngresarUsuario();
+
+
             try
             {
+                
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+                DataSet ultimoId = negocioUsuario.RetornarId();
+
+                //int idUsr = (int)ultimoId.Tables["USUARIO"].Rows[0][0];
+                //int idUsr = Convert.ToInt32(ultimoId.Tables[0].ToString());
+                int idUsr = Int32.Parse(ultimoId.Tables["USUARIO"].Rows[0][0].ToString());
+                //System.Diagnostics.Debug.WriteLine(idUsr);
+
                 Cliente nuevoCliente = new Cliente();
                 nuevoCliente.Rut = Int32.Parse(this.txtRutCliente.Text);
                 nuevoCliente.DvRut = this.txtDvCliente.Text;
                 nuevoCliente.RazonSocial = this.txtRazonSocialCliente.Text;
                 nuevoCliente.Direccion = this.txtDireccionCliente.Text;
                 nuevoCliente.Giro = this.txtGiroCliente.Text;
-                nuevoCliente.IdComuna = Int32.Parse(this.mcbComunaCliente.Text);
-                nuevoCliente.IdTipo = Int32.Parse(this.mcbTipoCliente.Text);
-                nuevoCliente.IdUsuario = Int32.Parse(this.mcbUsuarioCliente.Text);
+                nuevoCliente.IdComuna = Int32.Parse(mcbComunaCliente.SelectedValue.ToString());
+                nuevoCliente.IdTipo = Int32.Parse(mcbTipoCliente.SelectedValue.ToString());
+                nuevoCliente.IdUsuario = idUsr;
 
                 NegocioCliente negocioCliente = new NegocioCliente();
                 negocioCliente.IngresarCliente(nuevoCliente);
@@ -407,6 +507,7 @@ namespace CapaGUI
         }
         private void btnActualizarCliente_Click(object sender, EventArgs e)//BTN ACTUALIZAR CLIENTE
         {
+            ActualizarUsuario();
             try
             {
                 Cliente actualizarCliente = new Cliente();
@@ -417,7 +518,7 @@ namespace CapaGUI
                 actualizarCliente.Giro = this.txtGiroCliente.Text;
                 actualizarCliente.IdComuna = Int32.Parse(this.mcbComunaCliente.Text);
                 actualizarCliente.IdTipo = Int32.Parse(this.mcbTipoCliente.Text);
-                actualizarCliente.IdUsuario = Int32.Parse(this.mcbUsuarioCliente.Text);
+                //actualizarCliente.IdUsuario = Int32.Parse(this.mcbUsuarioCliente.Text);
 
                 NegocioCliente negocioCliente = new NegocioCliente();
                 negocioCliente.actualizarCliente(actualizarCliente);
@@ -451,6 +552,7 @@ namespace CapaGUI
         }//MOSTRAR CLIENTE
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
+            EliminarUsuario();
             try
             {
                 int rutCliente = Int32.Parse(this.txtRutCliente.Text);
@@ -466,112 +568,37 @@ namespace CapaGUI
             }
 
         }//ELIMINAR CLIENTE
-        private void btnIngresarUsuario_Click(object sender, EventArgs e) //INGRESAR USUARIO
+
+        private void btnIngresarProductor_Click(object sender, EventArgs e)//BTN INGRESAR PRODUCTOR
         {
+            IngresarUsuario();
             try
             {
-                Usuario nuevoUsuario = new Usuario();
-                nuevoUsuario.NombreUsuario = this.txtNombreUsuario.Text;
-                nuevoUsuario.Password = this.txtContraseñaUsuario.Text;
-                nuevoUsuario.IdPerfil = Int32.Parse(this.mcbPerfilUsuarioUsuario.Text);
-                nuevoUsuario.IdEstadoCuenta = Int32.Parse(this.mcbEstadoUsuario.Text);
+                Productor nuevoProductor = new Productor();
+                nuevoProductor.Rut = Int32.Parse(this.txtRutProductor.Text);
+                nuevoProductor.DigitoVerificador = this.txtDvProductor.Text;
+                nuevoProductor.RazonSocial = this.txtRazonSocialProductor.Text;
+                nuevoProductor.Direccion = this.txtDireccionProductor.Text;
+                nuevoProductor.Giro = this.txtGiroProductor.Text;
+                nuevoProductor.IdComuna = Int32.Parse(this.mcbComunaProductor.Text);
+                nuevoProductor.IdUsuario = Int32.Parse(this.mcbIdUsuarioProductor.Text);
 
-                NegocioUsuario negocioUsuario = new NegocioUsuario();
-                negocioUsuario.IngresarUsuario(nuevoUsuario);
-                MessageBox.Show("Usuario Agregado");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR AL INTENTAR INGRESAR USUARIO" +ex);
-            }                
+                NegocioProductor negocioProductor = new NegocioProductor();
+                negocioProductor.IngresarProductor(nuevoProductor);
+                MessageBox.Show("Cliente Creado con exito");
 
-        }//BTN INGRESAR USUARIO
-        private void btnActualizarUsuario_Click(object sender, EventArgs e) //ACTUALIZAR USUARIO
-        {
-            try
-            {
-                Usuario nuevoUsuario = new Usuario();
-                nuevoUsuario.IdUsuario = Int32.Parse(this.txtIdUsuario.Text);
-                nuevoUsuario.NombreUsuario = this.txtNombreUsuario.Text;
-                nuevoUsuario.Password = this.txtContraseñaUsuario.Text;
-                nuevoUsuario.FechaCreacion = DateTime.Parse(this.txtFechaCreacionUsuario.Text);
-                nuevoUsuario.IdPerfil = Int32.Parse(this.mcbPerfilUsuarioUsuario.Text); // Perfil cliente
-                nuevoUsuario.IdEstadoCuenta = Int32.Parse(this.mcbEstadoUsuario.Text); // cuenta activa
 
-                NegocioUsuario negocioUsuario = new NegocioUsuario();
-                negocioUsuario.actualizarUsuario(nuevoUsuario);
-                MessageBox.Show("Usuario Actualizado");
             }
-            catch (Exception ex)
+            catch (Exception exingresodatosproductor)
             {
-                MessageBox.Show("ERROR AL INTENTAR ACTUALIZAR USUARIO "+ex);
+                MessageBox.Show("Error al ingresar nuevo Productor:" + exingresodatosproductor);
             }
+
 
         }
-
-        /*private void btnBuscarUsuario_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                NegocioUsuario negocioUsuario = new NegocioUsuario();
-
-                int idUsuario = Int32.Parse(this.txtBuscarIDUsuario.Text);
-                Usuario user = negocioUsuario.buscarUsuario(idUsuario);
-
-                this.txtNombreUsuario.Text = user.NombreUsuario;
-                this.txtContraseñaUsuario.Text = user.Password;
-                this.txtFechaCreacionUsuario.Text = user.FechaCreacion.ToString();
-                this.mcbPerfilUsuarioUsuario.Text = user.IdPerfil.ToString();
-                this.mcbEstadoUsuario.Text = user.IdEstadoCuenta.ToString();
-                MessageBox.Show("Usuario Encontrado");
-                habilitarCamposUsuario(); // NUEVO
-                this.btnActualizarUsuario.Enabled = true; // NUEVO
-                this.btnEliminarUsuario.Enabled = true; //NUEVO
-                this.txtIdUsuario.Text = (txtBuscarIDUsuario.Text); //NUEVO
-                this.txtBuscarIDUsuario.Text = ""; //NUEVO
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR AL BUSCAR USUARIO");
-                limpiarCamposUsuario(); //NUEVO
-                btnActualizarUsuario.Enabled = false;// nuevo
-                btnEliminarUsuario.Enabled = false; //nuevo
-            }
-
-        }//BUSCAR USUARIO
-        */
-        //private void btnMostrarUsuariosUsuario_Click(object sender, EventArgs e)
-        //{
-        //    NegocioUsuario negocioUsuario = new NegocioUsuario();
-
-        //    DataSet listaUsuarios = negocioUsuario.retornarUsuarios();
-
-        //    this.dgvListaUsuarios.AutoGenerateColumns = true;
-        //    this.dgvListaUsuarios.DataSource = listaUsuarios.Tables["USUARIO"];
-
-        //} //MOSTRAR USUARIO
-
-        private void btnEliminarUsuario_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int idUsuario = Int32.Parse(this.txtIdUsuario.Text);
-
-                NegocioUsuario negocioUsuario = new NegocioUsuario();
-                negocioUsuario.eliminarUsuario(idUsuario);
-                MessageBox.Show("Usuario eliminado");
-                limpiarCamposUsuario();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR AL ELIMINAR USUARIO" +ex);
-            }
-
-        }//ELIMINAR USUARIO
-
         private void btnActualizarProductor_Click(object sender, EventArgs e)
         {
+            ActualizarUsuario();
             try
             {
                 Productor actualizarProductor = new Productor();
@@ -599,6 +626,7 @@ namespace CapaGUI
 
         private void btnEliminarProductor_Click(object sender, EventArgs e) //BTN ELIMINAR PRODUCTOR
         {
+            EliminarUsuario();
             try
             {
                 NegocioProductor negocioProductor = new NegocioProductor();
@@ -619,6 +647,7 @@ namespace CapaGUI
 
         private void btnIngresarEmpresaTransporte_Click(object sender, EventArgs e)
         {
+            IngresarUsuario();
             try
             {
                 EmpresaTransporte nuevoTransaporte = new EmpresaTransporte();
@@ -640,6 +669,7 @@ namespace CapaGUI
 
         private void btnActualizarEmpresaTransporte_Click(object sender, EventArgs e)
         {
+            ActualizarUsuario();
             try
             {
                 EmpresaTransporte actualizarEmpresaTransporte = new EmpresaTransporte();
@@ -664,6 +694,7 @@ namespace CapaGUI
 
         private void btnEliminarEmpresaTransporte_Click(object sender, EventArgs e)
         {
+            EliminarUsuario();
             try
             {
                 int idEmpresa = Int32.Parse(this.txtidEmpresaTransporte.Text);
@@ -692,7 +723,7 @@ namespace CapaGUI
         private void metroLabel9_Click(object sender, EventArgs e)
         {
 
-        }//error, bug si se elimina.
+        }//error
 
         private void mcbPerfilUsuarioUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {

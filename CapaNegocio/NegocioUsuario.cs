@@ -145,5 +145,23 @@ namespace CapaNegocio
             return usuario;
 
         }
+
+        public DataSet RetornarId()
+        {
+            try
+            {
+                this.configurarConexion();
+                this.con.CadenaSQL = "SELECT * FROM USUARIO WHERE ID_USUARIO = (SELECT MAX(ID_USUARIO) FROM USUARIO)";
+                this.con.EsSelect = true;
+                this.con.conectar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR ID:002USU NAME:NEGOCIO USUARIO  " + ex);
+            }
+
+            return this.con.DbDataSet;
+        }
     }
 }

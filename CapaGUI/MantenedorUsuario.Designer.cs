@@ -79,7 +79,6 @@ namespace CapaGUI
             this.tabCliente = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.mcbTipoCliente = new MetroFramework.Controls.MetroComboBox();
-            this.mcbUsuarioCliente = new MetroFramework.Controls.MetroComboBox();
             this.mcbComunaCliente = new MetroFramework.Controls.MetroComboBox();
             this.txtGiroCliente = new MetroFramework.Controls.MetroTextBox();
             this.txtDireccionCliente = new MetroFramework.Controls.MetroTextBox();
@@ -87,7 +86,6 @@ namespace CapaGUI
             this.txtDvCliente = new MetroFramework.Controls.MetroTextBox();
             this.txtRutCliente = new MetroFramework.Controls.MetroTextBox();
             this.lblTipoCliente = new MetroFramework.Controls.MetroLabel();
-            this.lblUsuario = new MetroFramework.Controls.MetroLabel();
             this.lblComuna = new MetroFramework.Controls.MetroLabel();
             this.lblGiro = new MetroFramework.Controls.MetroLabel();
             this.lbldireccion = new MetroFramework.Controls.MetroLabel();
@@ -100,11 +98,11 @@ namespace CapaGUI
             this.btnEliminarCliente = new MetroFramework.Controls.MetroTile();
             this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
             this.TAB = new MetroFramework.Controls.MetroTabControl();
-            this.metroPanelBuscar = new MetroFramework.Controls.MetroPanel();
-            this.btnBuscarTodo = new MetroFramework.Controls.MetroTile();
-            this.txtBuscaUser = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
+            this.metroPanelBuscar = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.txtBuscaUser = new MetroFramework.Controls.MetroTextBox();
+            this.btnBuscarTodo = new MetroFramework.Controls.MetroTile();
             this.metroPanel4.SuspendLayout();
             this.tabEmpresaTransporte.SuspendLayout();
             this.metroPanel11.SuspendLayout();
@@ -716,7 +714,7 @@ namespace CapaGUI
             this.txtDvProductor.CustomButton.Visible = false;
             this.txtDvProductor.Lines = new string[0];
             this.txtDvProductor.Location = new System.Drawing.Point(248, 21);
-            this.txtDvProductor.MaxLength = 32767;
+            this.txtDvProductor.MaxLength = 1;
             this.txtDvProductor.Name = "txtDvProductor";
             this.txtDvProductor.PasswordChar = '\0';
             this.txtDvProductor.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -911,7 +909,6 @@ namespace CapaGUI
             // 
             this.metroPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.metroPanel3.Controls.Add(this.mcbTipoCliente);
-            this.metroPanel3.Controls.Add(this.mcbUsuarioCliente);
             this.metroPanel3.Controls.Add(this.mcbComunaCliente);
             this.metroPanel3.Controls.Add(this.txtGiroCliente);
             this.metroPanel3.Controls.Add(this.txtDireccionCliente);
@@ -919,7 +916,6 @@ namespace CapaGUI
             this.metroPanel3.Controls.Add(this.txtDvCliente);
             this.metroPanel3.Controls.Add(this.txtRutCliente);
             this.metroPanel3.Controls.Add(this.lblTipoCliente);
-            this.metroPanel3.Controls.Add(this.lblUsuario);
             this.metroPanel3.Controls.Add(this.lblComuna);
             this.metroPanel3.Controls.Add(this.lblGiro);
             this.metroPanel3.Controls.Add(this.lbldireccion);
@@ -949,19 +945,6 @@ namespace CapaGUI
             this.mcbTipoCliente.Size = new System.Drawing.Size(168, 29);
             this.mcbTipoCliente.TabIndex = 33;
             this.mcbTipoCliente.UseSelectable = true;
-            // 
-            // mcbUsuarioCliente
-            // 
-            this.mcbUsuarioCliente.FormattingEnabled = true;
-            this.mcbUsuarioCliente.ItemHeight = 23;
-            this.mcbUsuarioCliente.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.mcbUsuarioCliente.Location = new System.Drawing.Point(89, 199);
-            this.mcbUsuarioCliente.Name = "mcbUsuarioCliente";
-            this.mcbUsuarioCliente.Size = new System.Drawing.Size(207, 29);
-            this.mcbUsuarioCliente.TabIndex = 32;
-            this.mcbUsuarioCliente.UseSelectable = true;
             // 
             // mcbComunaCliente
             // 
@@ -1082,7 +1065,7 @@ namespace CapaGUI
             this.txtDvCliente.CustomButton.Visible = false;
             this.txtDvCliente.Lines = new string[0];
             this.txtDvCliente.Location = new System.Drawing.Point(259, 8);
-            this.txtDvCliente.MaxLength = 32767;
+            this.txtDvCliente.MaxLength = 1;
             this.txtDvCliente.Name = "txtDvCliente";
             this.txtDvCliente.PasswordChar = '\0';
             this.txtDvCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1134,15 +1117,6 @@ namespace CapaGUI
             this.lblTipoCliente.Size = new System.Drawing.Size(101, 19);
             this.lblTipoCliente.TabIndex = 25;
             this.lblTipoCliente.Text = "Tipo de Cliente:";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(17, 202);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(56, 19);
-            this.lblUsuario.TabIndex = 24;
-            this.lblUsuario.Text = "Usuario:";
             // 
             // lblComuna
             // 
@@ -1272,10 +1246,24 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.tabProductor);
             this.TAB.Location = new System.Drawing.Point(23, 323);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 1;
+            this.TAB.SelectedIndex = 3;
             this.TAB.Size = new System.Drawing.Size(713, 344);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
+            // 
+            // tabAdmin
+            // 
+            this.tabAdmin.HorizontalScrollbarBarColor = true;
+            this.tabAdmin.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabAdmin.HorizontalScrollbarSize = 10;
+            this.tabAdmin.Location = new System.Drawing.Point(4, 38);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.Size = new System.Drawing.Size(705, 302);
+            this.tabAdmin.TabIndex = 4;
+            this.tabAdmin.Text = "Administrador";
+            this.tabAdmin.VerticalScrollbarBarColor = true;
+            this.tabAdmin.VerticalScrollbarHighlightOnWheel = false;
+            this.tabAdmin.VerticalScrollbarSize = 10;
             // 
             // metroPanelBuscar
             // 
@@ -1286,24 +1274,22 @@ namespace CapaGUI
             this.metroPanelBuscar.HorizontalScrollbarBarColor = true;
             this.metroPanelBuscar.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanelBuscar.HorizontalScrollbarSize = 10;
-            this.metroPanelBuscar.Location = new System.Drawing.Point(388, 76);
+            this.metroPanelBuscar.Location = new System.Drawing.Point(393, 76);
             this.metroPanelBuscar.Name = "metroPanelBuscar";
-            this.metroPanelBuscar.Size = new System.Drawing.Size(348, 241);
+            this.metroPanelBuscar.Size = new System.Drawing.Size(348, 113);
             this.metroPanelBuscar.TabIndex = 33;
             this.metroPanelBuscar.VerticalScrollbarBarColor = true;
             this.metroPanelBuscar.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanelBuscar.VerticalScrollbarSize = 10;
             // 
-            // btnBuscarTodo
+            // metroLabel10
             // 
-            this.btnBuscarTodo.ActiveControl = null;
-            this.btnBuscarTodo.Location = new System.Drawing.Point(116, 148);
-            this.btnBuscarTodo.Name = "btnBuscarTodo";
-            this.btnBuscarTodo.Size = new System.Drawing.Size(187, 39);
-            this.btnBuscarTodo.TabIndex = 11;
-            this.btnBuscarTodo.Text = "Buscar";
-            this.btnBuscarTodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBuscarTodo.UseSelectable = true;
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(22, 9);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(142, 19);
+            this.metroLabel10.TabIndex = 13;
+            this.metroLabel10.Text = "Búsqueda por Usuario:";
             // 
             // txtBuscaUser
             // 
@@ -1320,7 +1306,7 @@ namespace CapaGUI
             this.txtBuscaUser.CustomButton.UseSelectable = true;
             this.txtBuscaUser.CustomButton.Visible = false;
             this.txtBuscaUser.Lines = new string[0];
-            this.txtBuscaUser.Location = new System.Drawing.Point(33, 88);
+            this.txtBuscaUser.Location = new System.Drawing.Point(22, 31);
             this.txtBuscaUser.MaxLength = 32767;
             this.txtBuscaUser.Name = "txtBuscaUser";
             this.txtBuscaUser.PasswordChar = '\0';
@@ -1335,28 +1321,16 @@ namespace CapaGUI
             this.txtBuscaUser.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBuscaUser.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel10
+            // btnBuscarTodo
             // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(22, 56);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(142, 19);
-            this.metroLabel10.TabIndex = 13;
-            this.metroLabel10.Text = "Búsqueda por Usuario:";
-            // 
-            // tabAdmin
-            // 
-            this.tabAdmin.HorizontalScrollbarBarColor = true;
-            this.tabAdmin.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabAdmin.HorizontalScrollbarSize = 10;
-            this.tabAdmin.Location = new System.Drawing.Point(4, 38);
-            this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Size = new System.Drawing.Size(705, 302);
-            this.tabAdmin.TabIndex = 4;
-            this.tabAdmin.Text = "Administrador";
-            this.tabAdmin.VerticalScrollbarBarColor = true;
-            this.tabAdmin.VerticalScrollbarHighlightOnWheel = false;
-            this.tabAdmin.VerticalScrollbarSize = 10;
+            this.btnBuscarTodo.ActiveControl = null;
+            this.btnBuscarTodo.Location = new System.Drawing.Point(105, 60);
+            this.btnBuscarTodo.Name = "btnBuscarTodo";
+            this.btnBuscarTodo.Size = new System.Drawing.Size(187, 39);
+            this.btnBuscarTodo.TabIndex = 11;
+            this.btnBuscarTodo.Text = "Buscar";
+            this.btnBuscarTodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBuscarTodo.UseSelectable = true;
             // 
             // MantenedorUsuario
             // 
@@ -1441,7 +1415,6 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTabPage tabCliente;
         private MetroFramework.Controls.MetroPanel metroPanel3;
         private MetroFramework.Controls.MetroComboBox mcbTipoCliente;
-        private MetroFramework.Controls.MetroComboBox mcbUsuarioCliente;
         private MetroFramework.Controls.MetroComboBox mcbComunaCliente;
         private MetroFramework.Controls.MetroTextBox txtGiroCliente;
         private MetroFramework.Controls.MetroTextBox txtDireccionCliente;
@@ -1449,7 +1422,6 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTextBox txtDvCliente;
         private MetroFramework.Controls.MetroTextBox txtRutCliente;
         private MetroFramework.Controls.MetroLabel lblTipoCliente;
-        private MetroFramework.Controls.MetroLabel lblUsuario;
         private MetroFramework.Controls.MetroLabel lblComuna;
         private MetroFramework.Controls.MetroLabel lblGiro;
         private MetroFramework.Controls.MetroLabel lbldireccion;
