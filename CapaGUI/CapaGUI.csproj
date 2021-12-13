@@ -130,12 +130,6 @@
     <Compile Include="VistaControldeContratos.Designer.cs">
       <DependentUpon>VistaControldeContratos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaDetalleSubastaTransporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaDetalleSubastaTransporte.Designer.cs">
-      <DependentUpon>VistaDetalleSubastaTransporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="VistaDistribuirProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,9 +193,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VistaDetalleProcesoVenta.resx">
       <DependentUpon>VistaDetalleProcesoVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaDetalleSubastaTransporte.resx">
-      <DependentUpon>VistaDetalleSubastaTransporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaDistribuirProductos.resx">
       <DependentUpon>VistaDistribuirProductos.cs</DependentUpon>

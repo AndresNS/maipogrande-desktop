@@ -129,13 +129,13 @@ namespace CapaNegocio
                 productor.RazonSocial = (String)dt.Rows[0]["RAZON_SOCIAL"];
                 productor.Direccion = (String)dt.Rows[0]["DIRECCION"];
                 productor.Giro = (String)dt.Rows[0]["GIRO"];
-                productor.IdComuna = (short)dt.Rows[0]["ID_COMUNA"];
-                productor.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
+                productor.IdComuna = (short)dt.Rows[0]["ID_COMUNA"]; //esya en short lo cambio a int
+                productor.IdUsuario = (short)dt.Rows[0]["ID_USUARIO"];
             }
             catch (Exception ex)
             {
-                Productor auxProductor = new Productor();
-                return auxProductor;
+                //Productor auxProductor = new Productor();
+                //return auxProductor;
             }
 
             return productor;

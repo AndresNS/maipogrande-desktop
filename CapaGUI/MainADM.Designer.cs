@@ -59,9 +59,9 @@ namespace CapaGUI
             // btnControlContratos
             // 
             this.btnControlContratos.ActiveControl = null;
-            this.btnControlContratos.Location = new System.Drawing.Point(12, 16);
+            this.btnControlContratos.Location = new System.Drawing.Point(12, 28);
             this.btnControlContratos.Name = "btnControlContratos";
-            this.btnControlContratos.Size = new System.Drawing.Size(189, 87);
+            this.btnControlContratos.Size = new System.Drawing.Size(189, 62);
             this.btnControlContratos.TabIndex = 2;
             this.btnControlContratos.Text = "Control de Contratos";
             this.btnControlContratos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,9 +71,9 @@ namespace CapaGUI
             // btnProductos
             // 
             this.btnProductos.ActiveControl = null;
-            this.btnProductos.Location = new System.Drawing.Point(222, 16);
+            this.btnProductos.Location = new System.Drawing.Point(222, 28);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(195, 87);
+            this.btnProductos.Size = new System.Drawing.Size(195, 62);
             this.btnProductos.TabIndex = 4;
             this.btnProductos.Text = "Distribuir Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,9 +118,9 @@ namespace CapaGUI
             // btnMantenedores
             // 
             this.btnMantenedores.ActiveControl = null;
-            this.btnMantenedores.Location = new System.Drawing.Point(65, 115);
+            this.btnMantenedores.Location = new System.Drawing.Point(65, 120);
             this.btnMantenedores.Name = "btnMantenedores";
-            this.btnMantenedores.Size = new System.Drawing.Size(305, 68);
+            this.btnMantenedores.Size = new System.Drawing.Size(305, 63);
             this.btnMantenedores.TabIndex = 0;
             this.btnMantenedores.Text = "Mantenedores";
             this.btnMantenedores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

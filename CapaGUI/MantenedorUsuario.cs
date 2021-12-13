@@ -634,7 +634,12 @@ namespace CapaGUI
                 int rutProductor = Int32.Parse(this.txtRutProductor.Text);
 
                 negocioProductor.eliminarProductor(rutProductor);
-                MessageBox.Show("Usuario eliminado");
+                MessageBox.Show("Productor eliminado");
+                limpiarCamposProductor();
+                deshabilitarCamposProductor();
+                this.btnActualizarProductor.Enabled = false;
+                this.btnEliminarProductor.Enabled = false;
+
             }
             catch (Exception ex)
             {
@@ -703,7 +708,7 @@ namespace CapaGUI
                 negocioTransporte.eliminarEmpresaTransporte(idEmpresa);
 
                 MessageBox.Show("Empresa de Transporte Eliminada ");
-                limpiarCamposEmpresa();
+                limpiarCamposProductor();
             }
             catch (Exception ex)
             {
