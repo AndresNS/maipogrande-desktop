@@ -90,6 +90,7 @@ namespace CapaGUI
             this.btnRecepcionPagos.Text = "Recepcion de Pagos";
             this.btnRecepcionPagos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRecepcionPagos.UseSelectable = true;
+            this.btnRecepcionPagos.Click += new System.EventHandler(this.btnRecepcionPagos_Click);
             // 
             // btnPublicarVentaInterna
             // 
