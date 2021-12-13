@@ -34,6 +34,40 @@ namespace CapaNegocio
             }
             
         }
+
+        public Cliente buscarPorIdUsr(int idUsr)
+        {
+            Cliente cliente = new Cliente();
+            this.configurarConexion();
+            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
+                                   + "WHERE ID_USUARIO = " + idUsr;
+            this.con.EsSelect = true;
+            this.con.conectar();
+
+
+            DataTable dt = new DataTable();
+            dt = this.con.DbDataSet.Tables[this.con.NombreTabla];
+
+            try
+            {
+                cliente.Rut = (int)dt.Rows[0]["RUT"];
+                cliente.DvRut = (String)dt.Rows[0]["DV_RUT"];
+                cliente.RazonSocial = (String)dt.Rows[0]["RAZON_SOCIAL"];
+                cliente.Direccion = (String)dt.Rows[0]["DIRECCION"];
+                cliente.Giro = (String)dt.Rows[0]["GIRO"];
+                cliente.IdComuna = (short)dt.Rows[0]["ID_COMUNA"];
+                cliente.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
+                cliente.IdTipo = (short)dt.Rows[0]["ID_PERFIL"];
+            }
+            catch (Exception ex)
+            {
+                //Usuario auxUsuario = new Usuario();
+                //return auxUsuario;
+            }
+
+            return cliente;
+        }
+
         public DataSet retornarClientes()
         {
             try

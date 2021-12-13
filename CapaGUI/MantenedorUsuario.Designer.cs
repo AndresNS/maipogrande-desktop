@@ -51,10 +51,8 @@ namespace CapaGUI
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.lblidEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
             this.lblNombreEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
-            this.lblUsuarioEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
             this.txtidEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
             this.txtNombreEmpresaTransporte = new MetroFramework.Controls.MetroTextBox();
-            this.txtidUsuarioEmpresa = new MetroFramework.Controls.MetroTextBox();
             this.tabProductor = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
             this.btnIngresarProductor = new MetroFramework.Controls.MetroTile();
@@ -99,15 +97,17 @@ namespace CapaGUI
             this.btnSalirCliente = new MetroFramework.Controls.MetroTile();
             this.TAB = new MetroFramework.Controls.MetroTabControl();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnSalirUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.btnActualizarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.btnEliminarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.btnAgregarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
             this.metroPanelBuscar = new MetroFramework.Controls.MetroPanel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.txtBuscaUser = new MetroFramework.Controls.MetroTextBox();
             this.btnBuscarTodo = new MetroFramework.Controls.MetroTile();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.btnAgregarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
-            this.btnEliminarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
-            this.btnActualizarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
-            this.btnSalirUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.lblUsuarioEmpresaTransporte = new MetroFramework.Controls.MetroLabel();
+            this.txtidUsuarioEmpresa = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel4.SuspendLayout();
             this.tabEmpresaTransporte.SuspendLayout();
             this.metroPanel11.SuspendLayout();
@@ -120,8 +120,8 @@ namespace CapaGUI
             this.metroPanel2.SuspendLayout();
             this.TAB.SuspendLayout();
             this.tabAdmin.SuspendLayout();
-            this.metroPanelBuscar.SuspendLayout();
             this.metroPanel1.SuspendLayout();
+            this.metroPanelBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombreUsuario
@@ -448,15 +448,6 @@ namespace CapaGUI
             this.lblNombreEmpresaTransporte.TabIndex = 3;
             this.lblNombreEmpresaTransporte.Text = "Nombre Empresa:";
             // 
-            // lblUsuarioEmpresaTransporte
-            // 
-            this.lblUsuarioEmpresaTransporte.AutoSize = true;
-            this.lblUsuarioEmpresaTransporte.Location = new System.Drawing.Point(19, 102);
-            this.lblUsuarioEmpresaTransporte.Name = "lblUsuarioEmpresaTransporte";
-            this.lblUsuarioEmpresaTransporte.Size = new System.Drawing.Size(72, 19);
-            this.lblUsuarioEmpresaTransporte.TabIndex = 4;
-            this.lblUsuarioEmpresaTransporte.Text = "ID Usuario:";
-            // 
             // txtidEmpresaTransporte
             // 
             // 
@@ -516,36 +507,6 @@ namespace CapaGUI
             this.txtNombreEmpresaTransporte.UseSelectable = true;
             this.txtNombreEmpresaTransporte.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNombreEmpresaTransporte.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtidUsuarioEmpresa
-            // 
-            // 
-            // 
-            // 
-            this.txtidUsuarioEmpresa.CustomButton.Image = null;
-            this.txtidUsuarioEmpresa.CustomButton.Location = new System.Drawing.Point(135, 1);
-            this.txtidUsuarioEmpresa.CustomButton.Name = "";
-            this.txtidUsuarioEmpresa.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtidUsuarioEmpresa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtidUsuarioEmpresa.CustomButton.TabIndex = 1;
-            this.txtidUsuarioEmpresa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtidUsuarioEmpresa.CustomButton.UseSelectable = true;
-            this.txtidUsuarioEmpresa.CustomButton.Visible = false;
-            this.txtidUsuarioEmpresa.Lines = new string[0];
-            this.txtidUsuarioEmpresa.Location = new System.Drawing.Point(142, 102);
-            this.txtidUsuarioEmpresa.MaxLength = 32767;
-            this.txtidUsuarioEmpresa.Name = "txtidUsuarioEmpresa";
-            this.txtidUsuarioEmpresa.PasswordChar = '\0';
-            this.txtidUsuarioEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtidUsuarioEmpresa.SelectedText = "";
-            this.txtidUsuarioEmpresa.SelectionLength = 0;
-            this.txtidUsuarioEmpresa.SelectionStart = 0;
-            this.txtidUsuarioEmpresa.ShortcutsEnabled = true;
-            this.txtidUsuarioEmpresa.Size = new System.Drawing.Size(157, 23);
-            this.txtidUsuarioEmpresa.TabIndex = 7;
-            this.txtidUsuarioEmpresa.UseSelectable = true;
-            this.txtidUsuarioEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtidUsuarioEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // tabProductor
             // 
@@ -1253,7 +1214,7 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.tabProductor);
             this.TAB.Location = new System.Drawing.Point(23, 323);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 0;
+            this.TAB.SelectedIndex = 2;
             this.TAB.Size = new System.Drawing.Size(713, 344);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
@@ -1272,6 +1233,72 @@ namespace CapaGUI
             this.tabAdmin.VerticalScrollbarBarColor = true;
             this.tabAdmin.VerticalScrollbarHighlightOnWheel = false;
             this.tabAdmin.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.btnSalirUsuarioAdmin);
+            this.metroPanel1.Controls.Add(this.btnActualizarUsuarioAdmin);
+            this.metroPanel1.Controls.Add(this.btnEliminarUsuarioAdmin);
+            this.metroPanel1.Controls.Add(this.btnAgregarUsuarioAdmin);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(366, 85);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(324, 121);
+            this.metroPanel1.TabIndex = 2;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnSalirUsuarioAdmin
+            // 
+            this.btnSalirUsuarioAdmin.ActiveControl = null;
+            this.btnSalirUsuarioAdmin.Location = new System.Drawing.Point(182, 73);
+            this.btnSalirUsuarioAdmin.Name = "btnSalirUsuarioAdmin";
+            this.btnSalirUsuarioAdmin.Size = new System.Drawing.Size(119, 43);
+            this.btnSalirUsuarioAdmin.TabIndex = 5;
+            this.btnSalirUsuarioAdmin.Text = "Salir";
+            this.btnSalirUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSalirUsuarioAdmin.UseSelectable = true;
+            this.btnSalirUsuarioAdmin.Click += new System.EventHandler(this.btnSalirUsuarioAdmin_Click);
+            // 
+            // btnActualizarUsuarioAdmin
+            // 
+            this.btnActualizarUsuarioAdmin.ActiveControl = null;
+            this.btnActualizarUsuarioAdmin.Location = new System.Drawing.Point(182, 6);
+            this.btnActualizarUsuarioAdmin.Name = "btnActualizarUsuarioAdmin";
+            this.btnActualizarUsuarioAdmin.Size = new System.Drawing.Size(119, 45);
+            this.btnActualizarUsuarioAdmin.TabIndex = 4;
+            this.btnActualizarUsuarioAdmin.Text = "Actualizar";
+            this.btnActualizarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnActualizarUsuarioAdmin.UseSelectable = true;
+            this.btnActualizarUsuarioAdmin.Click += new System.EventHandler(this.btnActualizarUsuarioAdmin_Click);
+            // 
+            // btnEliminarUsuarioAdmin
+            // 
+            this.btnEliminarUsuarioAdmin.ActiveControl = null;
+            this.btnEliminarUsuarioAdmin.Location = new System.Drawing.Point(22, 73);
+            this.btnEliminarUsuarioAdmin.Name = "btnEliminarUsuarioAdmin";
+            this.btnEliminarUsuarioAdmin.Size = new System.Drawing.Size(120, 43);
+            this.btnEliminarUsuarioAdmin.TabIndex = 3;
+            this.btnEliminarUsuarioAdmin.Text = "ELIMINAR";
+            this.btnEliminarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEliminarUsuarioAdmin.UseSelectable = true;
+            this.btnEliminarUsuarioAdmin.Click += new System.EventHandler(this.btnEliminarUsuarioAdmin_Click);
+            // 
+            // btnAgregarUsuarioAdmin
+            // 
+            this.btnAgregarUsuarioAdmin.ActiveControl = null;
+            this.btnAgregarUsuarioAdmin.Location = new System.Drawing.Point(22, 6);
+            this.btnAgregarUsuarioAdmin.Name = "btnAgregarUsuarioAdmin";
+            this.btnAgregarUsuarioAdmin.Size = new System.Drawing.Size(120, 45);
+            this.btnAgregarUsuarioAdmin.TabIndex = 2;
+            this.btnAgregarUsuarioAdmin.Text = "Agregar";
+            this.btnAgregarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAgregarUsuarioAdmin.UseSelectable = true;
+            this.btnAgregarUsuarioAdmin.Click += new System.EventHandler(this.btnAgregarUsuarioAdmin_Click);
             // 
             // metroPanelBuscar
             // 
@@ -1341,71 +1368,44 @@ namespace CapaGUI
             this.btnBuscarTodo.UseSelectable = true;
             this.btnBuscarTodo.Click += new System.EventHandler(this.btnBuscarTodo_Click);
             // 
-            // metroPanel1
+            // lblUsuarioEmpresaTransporte
             // 
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.Controls.Add(this.btnSalirUsuarioAdmin);
-            this.metroPanel1.Controls.Add(this.btnActualizarUsuarioAdmin);
-            this.metroPanel1.Controls.Add(this.btnEliminarUsuarioAdmin);
-            this.metroPanel1.Controls.Add(this.btnAgregarUsuarioAdmin);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(366, 85);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(324, 121);
-            this.metroPanel1.TabIndex = 2;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.lblUsuarioEmpresaTransporte.AutoSize = true;
+            this.lblUsuarioEmpresaTransporte.Location = new System.Drawing.Point(19, 102);
+            this.lblUsuarioEmpresaTransporte.Name = "lblUsuarioEmpresaTransporte";
+            this.lblUsuarioEmpresaTransporte.Size = new System.Drawing.Size(72, 19);
+            this.lblUsuarioEmpresaTransporte.TabIndex = 4;
+            this.lblUsuarioEmpresaTransporte.Text = "ID Usuario:";
             // 
-            // btnAgregarUsuarioAdmin
+            // txtidUsuarioEmpresa
             // 
-            this.btnAgregarUsuarioAdmin.ActiveControl = null;
-            this.btnAgregarUsuarioAdmin.Location = new System.Drawing.Point(22, 6);
-            this.btnAgregarUsuarioAdmin.Name = "btnAgregarUsuarioAdmin";
-            this.btnAgregarUsuarioAdmin.Size = new System.Drawing.Size(120, 45);
-            this.btnAgregarUsuarioAdmin.TabIndex = 2;
-            this.btnAgregarUsuarioAdmin.Text = "Agregar";
-            this.btnAgregarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAgregarUsuarioAdmin.UseSelectable = true;
-            this.btnAgregarUsuarioAdmin.Click += new System.EventHandler(this.btnAgregarUsuarioAdmin_Click);
             // 
-            // btnEliminarUsuarioAdmin
             // 
-            this.btnEliminarUsuarioAdmin.ActiveControl = null;
-            this.btnEliminarUsuarioAdmin.Location = new System.Drawing.Point(22, 73);
-            this.btnEliminarUsuarioAdmin.Name = "btnEliminarUsuarioAdmin";
-            this.btnEliminarUsuarioAdmin.Size = new System.Drawing.Size(120, 43);
-            this.btnEliminarUsuarioAdmin.TabIndex = 3;
-            this.btnEliminarUsuarioAdmin.Text = "ELIMINAR";
-            this.btnEliminarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnEliminarUsuarioAdmin.UseSelectable = true;
-            this.btnEliminarUsuarioAdmin.Click += new System.EventHandler(this.btnEliminarUsuarioAdmin_Click);
             // 
-            // btnActualizarUsuarioAdmin
-            // 
-            this.btnActualizarUsuarioAdmin.ActiveControl = null;
-            this.btnActualizarUsuarioAdmin.Location = new System.Drawing.Point(182, 6);
-            this.btnActualizarUsuarioAdmin.Name = "btnActualizarUsuarioAdmin";
-            this.btnActualizarUsuarioAdmin.Size = new System.Drawing.Size(119, 45);
-            this.btnActualizarUsuarioAdmin.TabIndex = 4;
-            this.btnActualizarUsuarioAdmin.Text = "Actualizar";
-            this.btnActualizarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnActualizarUsuarioAdmin.UseSelectable = true;
-            this.btnActualizarUsuarioAdmin.Click += new System.EventHandler(this.btnActualizarUsuarioAdmin_Click);
-            // 
-            // btnSalirUsuarioAdmin
-            // 
-            this.btnSalirUsuarioAdmin.ActiveControl = null;
-            this.btnSalirUsuarioAdmin.Location = new System.Drawing.Point(182, 73);
-            this.btnSalirUsuarioAdmin.Name = "btnSalirUsuarioAdmin";
-            this.btnSalirUsuarioAdmin.Size = new System.Drawing.Size(119, 43);
-            this.btnSalirUsuarioAdmin.TabIndex = 5;
-            this.btnSalirUsuarioAdmin.Text = "Salir";
-            this.btnSalirUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSalirUsuarioAdmin.UseSelectable = true;
-            this.btnSalirUsuarioAdmin.Click += new System.EventHandler(this.btnSalirUsuarioAdmin_Click);
+            this.txtidUsuarioEmpresa.CustomButton.Image = null;
+            this.txtidUsuarioEmpresa.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.txtidUsuarioEmpresa.CustomButton.Name = "";
+            this.txtidUsuarioEmpresa.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtidUsuarioEmpresa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtidUsuarioEmpresa.CustomButton.TabIndex = 1;
+            this.txtidUsuarioEmpresa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtidUsuarioEmpresa.CustomButton.UseSelectable = true;
+            this.txtidUsuarioEmpresa.CustomButton.Visible = false;
+            this.txtidUsuarioEmpresa.Lines = new string[0];
+            this.txtidUsuarioEmpresa.Location = new System.Drawing.Point(142, 102);
+            this.txtidUsuarioEmpresa.MaxLength = 32767;
+            this.txtidUsuarioEmpresa.Name = "txtidUsuarioEmpresa";
+            this.txtidUsuarioEmpresa.PasswordChar = '\0';
+            this.txtidUsuarioEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtidUsuarioEmpresa.SelectedText = "";
+            this.txtidUsuarioEmpresa.SelectionLength = 0;
+            this.txtidUsuarioEmpresa.SelectionStart = 0;
+            this.txtidUsuarioEmpresa.ShortcutsEnabled = true;
+            this.txtidUsuarioEmpresa.Size = new System.Drawing.Size(157, 23);
+            this.txtidUsuarioEmpresa.TabIndex = 7;
+            this.txtidUsuarioEmpresa.UseSelectable = true;
+            this.txtidUsuarioEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtidUsuarioEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // MantenedorUsuario
             // 
@@ -1436,9 +1436,9 @@ namespace CapaGUI
             this.metroPanel2.ResumeLayout(false);
             this.TAB.ResumeLayout(false);
             this.tabAdmin.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
             this.metroPanelBuscar.ResumeLayout(false);
             this.metroPanelBuscar.PerformLayout();
-            this.metroPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1464,10 +1464,8 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroPanel metroPanel10;
         private MetroFramework.Controls.MetroLabel lblidEmpresaTransporte;
         private MetroFramework.Controls.MetroLabel lblNombreEmpresaTransporte;
-        private MetroFramework.Controls.MetroLabel lblUsuarioEmpresaTransporte;
         private MetroFramework.Controls.MetroTextBox txtidEmpresaTransporte;
         private MetroFramework.Controls.MetroTextBox txtNombreEmpresaTransporte;
-        private MetroFramework.Controls.MetroTextBox txtidUsuarioEmpresa;
         private MetroFramework.Controls.MetroTabPage tabProductor;
         private MetroFramework.Controls.MetroPanel metroPanel8;
         private MetroFramework.Controls.MetroTile btnIngresarProductor;
@@ -1523,5 +1521,7 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTile btnActualizarUsuarioAdmin;
         private MetroFramework.Controls.MetroTile btnEliminarUsuarioAdmin;
         private MetroFramework.Controls.MetroTile btnAgregarUsuarioAdmin;
+        private MetroFramework.Controls.MetroLabel lblUsuarioEmpresaTransporte;
+        private MetroFramework.Controls.MetroTextBox txtidUsuarioEmpresa;
     }
 }

@@ -118,7 +118,7 @@ namespace CapaNegocio
             Usuario usuario = new Usuario();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
-                                   + "WHERE NOMBRE_USUARIO = " + nombreUsuario;
+                                   + "WHERE NOMBRE_USUARIO = '" + nombreUsuario +"'";
             this.con.EsSelect = true;
             this.con.conectar();
 

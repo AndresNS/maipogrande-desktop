@@ -51,6 +51,39 @@ namespace CapaNegocio
             return this.con.DbDataSet;
         }
 
+        public Productor buscarPorIdUsr(int idUsr)
+        {
+            Productor productor = new Productor();
+            this.configurarConexion();
+            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
+                                   + "WHERE ID_USUARIO = " + idUsr;
+            this.con.EsSelect = true;
+            this.con.conectar();
+
+
+            DataTable dt = new DataTable();
+            dt = this.con.DbDataSet.Tables[this.con.NombreTabla];
+
+            try
+            {
+                productor.Rut = (int)dt.Rows[0]["RUT"];
+                productor.DigitoVerificador = (String)dt.Rows[0]["DV_RUT"];
+                productor.RazonSocial = (String)dt.Rows[0]["RAZON_SOCIAL"];
+                productor.Direccion = (String)dt.Rows[0]["DIRECCION"];
+                productor.Giro = (String)dt.Rows[0]["GIRO"];
+                productor.IdComuna = (short)dt.Rows[0]["ID_COMUNA"];
+                productor.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
+            }
+            catch (Exception ex)
+            {
+                //Usuario auxUsuario = new Usuario();
+                //return auxUsuario;
+            }
+
+            return productor;
+        }
+
+
         public void IngresarProductor(Productor productor)
         {
             try

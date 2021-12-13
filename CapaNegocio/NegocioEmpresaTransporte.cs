@@ -51,7 +51,34 @@ namespace CapaNegocio
             }
             return this.con.DbDataSet;
         }
+         public EmpresaTransporte buscarPorIdUsr(int idUsr)
+        {
+            EmpresaTransporte empresaTransporte = new EmpresaTransporte();
+            this.configurarConexion();
+            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
+                                   + "WHERE ID_USUARIO = " + idUsr;
+            this.con.EsSelect = true;
+            this.con.conectar();
 
+
+            DataTable dt = new DataTable();
+            dt = this.con.DbDataSet.Tables[this.con.NombreTabla];
+
+            try
+            {
+                empresaTransporte.IdEmpresa = (int)dt.Rows[0]["ID_EMPRESA"];
+                empresaTransporte.NombreEmpresa = (String)dt.Rows[0]["NOMBRE_EMPRESA"];
+                empresaTransporte.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
+
+            }
+            catch (Exception ex)
+            {
+                //Usuario auxUsuario = new Usuario();
+                //return auxUsuario;
+            }
+
+            return empresaTransporte;
+        }
         public void IngresarEmpresaTransporte(EmpresaTransporte empTransporte)
         {
             try
