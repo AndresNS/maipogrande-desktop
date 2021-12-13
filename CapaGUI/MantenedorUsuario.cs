@@ -759,6 +759,53 @@ namespace CapaGUI
 
             }
         }
+
+        private void btnBuscarTodo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NegocioUsuario negocioUsuario = new NegocioUsuario();
+
+                String nombreUsuario = this.txtBuscaUser.Text;
+                Usuario user = negocioUsuario.buscarPorNombre(nombreUsuario);
+
+                this.txtNombreUsuario.Text = user.NombreUsuario;
+                this.txtContraseñaUsuario.Text = user.Password;
+                this.txtFechaCreacionUsuario.Text = user.FechaCreacion.ToString();
+                this.mcbPerfilUsuarioUsuario.Text = user.IdPerfil.ToString();
+                this.mcbEstadoUsuario.Text = user.IdEstadoCuenta.ToString();
+                MessageBox.Show("Usuario Encontrado");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL BUSCAR USUARIO" +ex);
+                limpiarCamposUsuario(); //NUEVO
+
+            }
+        }
+
+        private void btnAgregarUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            IngresarUsuario();
+        }
+
+        private void btnActualizarUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            ActualizarUsuario();
+        }
+
+        private void btnEliminarUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            EliminarUsuario();
+        }
+
+        private void btnSalirUsuarioAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
     }
 }
 

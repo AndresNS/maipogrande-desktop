@@ -113,7 +113,36 @@ namespace CapaNegocio
             }
         }
 
+        public Usuario buscarPorNombre(String nombreUsuario)
+        {
+            Usuario usuario = new Usuario();
+            this.configurarConexion();
+            this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
+                                   + "WHERE NOMBRE_USUARIO = " + nombreUsuario;
+            this.con.EsSelect = true;
+            this.con.conectar();
 
+
+            DataTable dt = new DataTable();
+            dt = this.con.DbDataSet.Tables[this.con.NombreTabla];
+
+            try
+            {
+                usuario.IdUsuario = (int)dt.Rows[0]["ID_USUARIO"];
+                usuario.NombreUsuario = (String)dt.Rows[0]["NOMBRE_USUARIO"];
+                usuario.Password = (String)dt.Rows[0]["PASSWORD"];
+                usuario.FechaCreacion = (DateTime)dt.Rows[0]["FECHA_CREACION"];
+                usuario.IdPerfil = (short)dt.Rows[0]["ID_PERFIL"];
+                usuario.IdEstadoCuenta = (short)dt.Rows[0]["ID_ESTD_CTA"];
+            }
+            catch (Exception ex)
+            {
+                //Usuario auxUsuario = new Usuario();
+                //return auxUsuario;
+            }
+
+            return usuario;
+        }
         public Usuario buscarUsuario(int idUsuario)
         {
             Usuario usuario = new Usuario();

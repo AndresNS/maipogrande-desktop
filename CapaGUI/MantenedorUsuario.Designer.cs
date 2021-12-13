@@ -103,6 +103,11 @@ namespace CapaGUI
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.txtBuscaUser = new MetroFramework.Controls.MetroTextBox();
             this.btnBuscarTodo = new MetroFramework.Controls.MetroTile();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnAgregarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.btnEliminarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.btnActualizarUsuarioAdmin = new MetroFramework.Controls.MetroTile();
+            this.btnSalirUsuarioAdmin = new MetroFramework.Controls.MetroTile();
             this.metroPanel4.SuspendLayout();
             this.tabEmpresaTransporte.SuspendLayout();
             this.metroPanel11.SuspendLayout();
@@ -114,7 +119,9 @@ namespace CapaGUI
             this.metroPanel3.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.TAB.SuspendLayout();
+            this.tabAdmin.SuspendLayout();
             this.metroPanelBuscar.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombreUsuario
@@ -1246,13 +1253,14 @@ namespace CapaGUI
             this.TAB.Controls.Add(this.tabProductor);
             this.TAB.Location = new System.Drawing.Point(23, 323);
             this.TAB.Name = "TAB";
-            this.TAB.SelectedIndex = 3;
+            this.TAB.SelectedIndex = 0;
             this.TAB.Size = new System.Drawing.Size(713, 344);
             this.TAB.TabIndex = 0;
             this.TAB.UseSelectable = true;
             // 
             // tabAdmin
             // 
+            this.tabAdmin.Controls.Add(this.metroPanel1);
             this.tabAdmin.HorizontalScrollbarBarColor = true;
             this.tabAdmin.HorizontalScrollbarHighlightOnWheel = false;
             this.tabAdmin.HorizontalScrollbarSize = 10;
@@ -1331,6 +1339,73 @@ namespace CapaGUI
             this.btnBuscarTodo.Text = "Buscar";
             this.btnBuscarTodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBuscarTodo.UseSelectable = true;
+            this.btnBuscarTodo.Click += new System.EventHandler(this.btnBuscarTodo_Click);
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.btnSalirUsuarioAdmin);
+            this.metroPanel1.Controls.Add(this.btnActualizarUsuarioAdmin);
+            this.metroPanel1.Controls.Add(this.btnEliminarUsuarioAdmin);
+            this.metroPanel1.Controls.Add(this.btnAgregarUsuarioAdmin);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(366, 85);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(324, 121);
+            this.metroPanel1.TabIndex = 2;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnAgregarUsuarioAdmin
+            // 
+            this.btnAgregarUsuarioAdmin.ActiveControl = null;
+            this.btnAgregarUsuarioAdmin.Location = new System.Drawing.Point(22, 6);
+            this.btnAgregarUsuarioAdmin.Name = "btnAgregarUsuarioAdmin";
+            this.btnAgregarUsuarioAdmin.Size = new System.Drawing.Size(120, 45);
+            this.btnAgregarUsuarioAdmin.TabIndex = 2;
+            this.btnAgregarUsuarioAdmin.Text = "Agregar";
+            this.btnAgregarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAgregarUsuarioAdmin.UseSelectable = true;
+            this.btnAgregarUsuarioAdmin.Click += new System.EventHandler(this.btnAgregarUsuarioAdmin_Click);
+            // 
+            // btnEliminarUsuarioAdmin
+            // 
+            this.btnEliminarUsuarioAdmin.ActiveControl = null;
+            this.btnEliminarUsuarioAdmin.Location = new System.Drawing.Point(22, 73);
+            this.btnEliminarUsuarioAdmin.Name = "btnEliminarUsuarioAdmin";
+            this.btnEliminarUsuarioAdmin.Size = new System.Drawing.Size(120, 43);
+            this.btnEliminarUsuarioAdmin.TabIndex = 3;
+            this.btnEliminarUsuarioAdmin.Text = "ELIMINAR";
+            this.btnEliminarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEliminarUsuarioAdmin.UseSelectable = true;
+            this.btnEliminarUsuarioAdmin.Click += new System.EventHandler(this.btnEliminarUsuarioAdmin_Click);
+            // 
+            // btnActualizarUsuarioAdmin
+            // 
+            this.btnActualizarUsuarioAdmin.ActiveControl = null;
+            this.btnActualizarUsuarioAdmin.Location = new System.Drawing.Point(182, 6);
+            this.btnActualizarUsuarioAdmin.Name = "btnActualizarUsuarioAdmin";
+            this.btnActualizarUsuarioAdmin.Size = new System.Drawing.Size(119, 45);
+            this.btnActualizarUsuarioAdmin.TabIndex = 4;
+            this.btnActualizarUsuarioAdmin.Text = "Actualizar";
+            this.btnActualizarUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnActualizarUsuarioAdmin.UseSelectable = true;
+            this.btnActualizarUsuarioAdmin.Click += new System.EventHandler(this.btnActualizarUsuarioAdmin_Click);
+            // 
+            // btnSalirUsuarioAdmin
+            // 
+            this.btnSalirUsuarioAdmin.ActiveControl = null;
+            this.btnSalirUsuarioAdmin.Location = new System.Drawing.Point(182, 73);
+            this.btnSalirUsuarioAdmin.Name = "btnSalirUsuarioAdmin";
+            this.btnSalirUsuarioAdmin.Size = new System.Drawing.Size(119, 43);
+            this.btnSalirUsuarioAdmin.TabIndex = 5;
+            this.btnSalirUsuarioAdmin.Text = "Salir";
+            this.btnSalirUsuarioAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSalirUsuarioAdmin.UseSelectable = true;
+            this.btnSalirUsuarioAdmin.Click += new System.EventHandler(this.btnSalirUsuarioAdmin_Click);
             // 
             // MantenedorUsuario
             // 
@@ -1360,8 +1435,10 @@ namespace CapaGUI
             this.metroPanel3.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
             this.TAB.ResumeLayout(false);
+            this.tabAdmin.ResumeLayout(false);
             this.metroPanelBuscar.ResumeLayout(false);
             this.metroPanelBuscar.PerformLayout();
+            this.metroPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1441,5 +1518,10 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroTextBox txtBuscaUser;
         private MetroFramework.Controls.MetroTabPage tabAdmin;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroTile btnSalirUsuarioAdmin;
+        private MetroFramework.Controls.MetroTile btnActualizarUsuarioAdmin;
+        private MetroFramework.Controls.MetroTile btnEliminarUsuarioAdmin;
+        private MetroFramework.Controls.MetroTile btnAgregarUsuarioAdmin;
     }
 }
