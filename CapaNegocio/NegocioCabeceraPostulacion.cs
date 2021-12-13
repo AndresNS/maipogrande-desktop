@@ -69,6 +69,7 @@ namespace CapaNegocio
                 cabeceraPostulacion.FechaEmision = (DateTime)dt.Rows[0]["FECHA_EMISION"];
                 cabeceraPostulacion.RutProductor = (int)dt.Rows[0]["RUT_PRODUCTOR"];
                 cabeceraPostulacion.IdCabeceraProcesoVenta = (int)dt.Rows[0]["CABECERA_PV"];
+                cabeceraPostulacion.IdEstadoPostulacion = (short)dt.Rows[0]["ID_ESTADO_POSTULACION"];
             }
             catch (Exception ex)
             {
@@ -77,6 +78,16 @@ namespace CapaNegocio
             }
 
             return cabeceraPostulacion;
+        }
+
+        public void actualizarEstadoPostulacion(int idCabeceraPostulacion, int idEstadoPostulacion)
+        {
+            this.configurarConexion();
+            this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla +
+                                 " SET ID_ESTADO_POSTULACION = " + idEstadoPostulacion +
+                                 " WHERE ID_CABECERA_POSTULACION = " + idCabeceraPostulacion;
+            this.con.EsSelect = false;
+            this.con.conectar();
         }
     }
 }

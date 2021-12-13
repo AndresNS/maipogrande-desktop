@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CabeceraProcesoVenta.cs" />
+    <Compile Include="CabeceraSobrante.cs" />
     <Compile Include="DetallePostulacion.cs" />
+    <Compile Include="DetalleSobrante.cs" />
     <Compile Include="DetalleSubastaTransporte.cs" />
     <Compile Include="DetalleProcesoVenta.cs" />
     <Compile Include="CabeceraSubastaTransporte.cs" />
+    <Compile Include="EstadoPostulacion.cs" />
     <Compile Include="EstadoVenta.cs" />
     <Compile Include="CabeceraPostulacion.cs" />
     <Compile Include="Perfil.cs" />
