@@ -33,7 +33,6 @@ namespace CapaGUI
             this.btnControlContratos = new MetroFramework.Controls.MetroTile();
             this.btnProductos = new MetroFramework.Controls.MetroTile();
             this.btnRecepcionPagos = new MetroFramework.Controls.MetroTile();
-            this.btnPublicarVentaInterna = new MetroFramework.Controls.MetroTile();
             this.btnGenerarReportes = new MetroFramework.Controls.MetroTile();
             this.btnMantenedores = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
@@ -83,7 +82,7 @@ namespace CapaGUI
             // btnRecepcionPagos
             // 
             this.btnRecepcionPagos.ActiveControl = null;
-            this.btnRecepcionPagos.Location = new System.Drawing.Point(12, 120);
+            this.btnRecepcionPagos.Location = new System.Drawing.Point(205, 28);
             this.btnRecepcionPagos.Name = "btnRecepcionPagos";
             this.btnRecepcionPagos.Size = new System.Drawing.Size(184, 63);
             this.btnRecepcionPagos.TabIndex = 5;
@@ -92,23 +91,12 @@ namespace CapaGUI
             this.btnRecepcionPagos.UseSelectable = true;
             this.btnRecepcionPagos.Click += new System.EventHandler(this.btnRecepcionPagos_Click);
             // 
-            // btnPublicarVentaInterna
-            // 
-            this.btnPublicarVentaInterna.ActiveControl = null;
-            this.btnPublicarVentaInterna.Location = new System.Drawing.Point(214, 28);
-            this.btnPublicarVentaInterna.Name = "btnPublicarVentaInterna";
-            this.btnPublicarVentaInterna.Size = new System.Drawing.Size(175, 62);
-            this.btnPublicarVentaInterna.TabIndex = 6;
-            this.btnPublicarVentaInterna.Text = "Publicar Venta Interna \r\n";
-            this.btnPublicarVentaInterna.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPublicarVentaInterna.UseSelectable = true;
-            // 
             // btnGenerarReportes
             // 
             this.btnGenerarReportes.ActiveControl = null;
-            this.btnGenerarReportes.Location = new System.Drawing.Point(214, 120);
+            this.btnGenerarReportes.Location = new System.Drawing.Point(76, 120);
             this.btnGenerarReportes.Name = "btnGenerarReportes";
-            this.btnGenerarReportes.Size = new System.Drawing.Size(175, 63);
+            this.btnGenerarReportes.Size = new System.Drawing.Size(275, 63);
             this.btnGenerarReportes.TabIndex = 7;
             this.btnGenerarReportes.Text = "Generar Reportes\r\n";
             this.btnGenerarReportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -158,7 +146,6 @@ namespace CapaGUI
             this.metroPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.metroPanel2.Controls.Add(this.btnIngresarVenta);
             this.metroPanel2.Controls.Add(this.btnGenerarReportes);
-            this.metroPanel2.Controls.Add(this.btnPublicarVentaInterna);
             this.metroPanel2.Controls.Add(this.btnRecepcionPagos);
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
@@ -205,7 +192,6 @@ namespace CapaGUI
         private MetroFramework.Controls.MetroTile btnControlContratos;
         private MetroFramework.Controls.MetroTile btnProductos;
         private MetroFramework.Controls.MetroTile btnRecepcionPagos;
-        private MetroFramework.Controls.MetroTile btnPublicarVentaInterna;
         private MetroFramework.Controls.MetroTile btnGenerarReportes;
         private MetroFramework.Controls.MetroTile btnMantenedores;
         private MetroFramework.Controls.MetroPanel metroPanel1;
