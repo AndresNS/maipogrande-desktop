@@ -47,5 +47,11 @@ namespace CapaGUI
             VistaReportes ven = new VistaReportes();
             ven.ShowDialog();
         }
+
+        private void btnRecepcionPagos_Click(object sender, EventArgs e)
+        {
+            VistaPagos vistaPagos = new VistaPagos();
+            vistaPagos.ShowDialog();
+        }
     }
 }

@@ -90,5 +90,15 @@ namespace CapaNegocio
             this.con.conectar();
         }
 
+        public void actualizarEstadoProcesoVenta(int idCabeceraProcesoVenta, int idEstado)
+        {
+            this.configurarConexion();
+            this.con.CadenaSQL = "UPDATE " + this.con.NombreTabla +
+                                 " SET ESTADO_PV = " + idEstado +
+                                 " WHERE ID_CABECERA_PV = " + idCabeceraProcesoVenta;
+            this.con.EsSelect = false;
+            this.con.conectar();
+        }
+
     }
 }
