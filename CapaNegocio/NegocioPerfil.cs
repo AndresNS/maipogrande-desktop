@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CapaDTO;
 using CapaConexion;
-using System.Windows.Forms;
+using CapaDTO;
 using System.Data;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
-    public class NegocioTipoCliente
+    public class NegocioPerfil
     {
         private Conexion con;
 
@@ -22,7 +22,7 @@ namespace CapaNegocio
             {
                 this.con = new Conexion();
                 this.con.NombreBaseDeDatos = "maipo_grande";
-                this.con.NombreTabla = "TIPO_CLIENTE";
+                this.con.NombreTabla = "PERFIL";
                 this.con.CadenaConexion = "Data Source=localhost:1521/xe;User Id=maipogrande;Password=123;";
             }
 
@@ -33,7 +33,8 @@ namespace CapaNegocio
                 MessageBox.Show("ERROR ID:001CON NAME:NEGOCIO TIPO CLIENTE" + ex);
             }
         }
-        public DataSet retornarTipos()
+
+        public DataSet retornarPerfiles()
         {
             try
             {
@@ -44,17 +45,18 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR ID:002CAT NAME:NEGOCIO TIPO CLIENTE " + ex);
+                MessageBox.Show("ERROR ID:002CAT NAME:NEGOCIO PERFIL" + ex);
             }
 
             return this.con.DbDataSet;
         }
-        public TipoCliente buscarTipoCliente(int idTipoCliente)
+
+        public Perfil buscarPerfil(int idPerfil)
         {
-            TipoCliente tipoCliente= new TipoCliente();
+            Perfil perfil = new Perfil();
             this.configurarConexion();
             this.con.CadenaSQL = "SELECT * FROM " + this.con.NombreTabla + " "
-                                   + "WHERE ID_TIPO = " + idTipoCliente;
+                                   + "WHERE ID_PERFIL= " + idPerfil;
             this.con.EsSelect = true;
             this.con.conectar();
 
@@ -63,17 +65,16 @@ namespace CapaNegocio
 
             try
             {
-                tipoCliente.IdTipoCliente= (short)dt.Rows[0]["ID_TIPO"];
-                tipoCliente.DescTipoCliente = (String)dt.Rows[0]["DESC_TIPO"];
+                perfil.IdPerfil= (short)dt.Rows[0]["ID_PERFIL"];
+                perfil.DescPerfil= (String)dt.Rows[0]["DESC_PERFIL"];
             }
             catch (Exception ex)
             {
                 // CORREGIR MENSAJE DE ERROR
-                MessageBox.Show("ERROR ID:006CON NAME:NEGOCIO TIPO CLIENTE " + ex);
+                MessageBox.Show("ERROR ID:006CON NAME:NEGOCIO PERFIL " + ex);
             }
 
-            return tipoCliente;
+            return perfil;
         }
     }
 }
-
